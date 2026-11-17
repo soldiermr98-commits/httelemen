@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" dir="rtl" lang="fa"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>آژانس مهندسی و طراحی وب حامی | Hami Web Agency</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Vazirmatn:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with CDN Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#cad3ff",
+            "secondary": "#a5e7ff",
+            "inverse-on-surface": "#2b303f",
+            "on-primary": "#002682",
+            "outline": "#8e90a0",
+            "secondary-fixed-dim": "#47d6ff",
+            "surface-container-lowest": "#090e1c",
+            "surface-bright": "#343948",
+            "on-primary-fixed": "#001551",
+            "on-background": "#dee2f6",
+            "tertiary": "#7bd0ff",
+            "surface-container-highest": "#303444",
+            "primary-container": "#1d4ed8",
+            "on-tertiary-fixed-variant": "#004c69",
+            "surface-container-high": "#252a39",
+            "on-secondary-container": "#00566a",
+            "error": "#ffb4ab",
+            "surface-tint": "#b7c4ff",
+            "secondary-container": "#00d2ff",
+            "surface-container-low": "#161b2a",
+            "inverse-primary": "#2151da",
+            "on-tertiary-fixed": "#001e2c",
+            "surface": "#0e1321",
+            "error-container": "#93000a",
+            "surface-variant": "#303444",
+            "secondary-fixed": "#b6ebff",
+            "on-surface": "#dee2f6",
+            "on-tertiary": "#00354a",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#dce1ff",
+            "tertiary-container": "#006387",
+            "background": "#0e1321",
+            "surface-container": "#1a1f2e",
+            "on-secondary-fixed-variant": "#004e60",
+            "primary-fixed-dim": "#b7c4ff",
+            "on-error": "#690005",
+            "tertiary-fixed": "#c4e7ff",
+            "on-surface-variant": "#c4c5d7",
+            "inverse-surface": "#dee2f6",
+            "outline-variant": "#434655",
+            "on-tertiary-container": "#a3dcff",
+            "surface-dim": "#0e1321",
+            "primary": "#b7c4ff",
+            "on-primary-fixed-variant": "#0039b5",
+            "on-secondary": "#003543",
+            "on-secondary-fixed": "#001f28",
+            "tertiary-fixed-dim": "#7bd0ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.75rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "2rem",
+            "space-xs": "0.375rem",
+            "margin-mobile": "1.25rem",
+            "gutter": "1.5rem",
+            "margin": "3rem",
+            "space-md": "1.25rem",
+            "space-xl": "3.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["JetBrains Mono", "Vazirmatn", "monospace"],
+            "display-mobile": ["Vazirmatn", "Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Vazirmatn", "Plus Jakarta Sans", "sans-serif"],
+            "headline-xl-mobile": ["Vazirmatn", "Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Vazirmatn", "Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Vazirmatn", "Plus Jakarta Sans", "sans-serif"],
+            "headline-xl": ["Vazirmatn", "Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Vazirmatn", "Plus Jakarta Sans", "sans-serif"],
+            "display": ["Vazirmatn", "Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["JetBrains Mono", "Vazirmatn", "monospace"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "500" }],
+            "display-mobile": ["36px", { "lineHeight": "46px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg": ["30px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "30px", "fontWeight": "400" }],
+            "display": ["56px", { "lineHeight": "68px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-panel-elevated {
+      background: rgba(30, 41, 59, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 24px -4px rgba(0, 210, 255, 0.15);
+    }
+    .glow-cyan-hover:hover {
+      box-shadow: 0 0 25px rgba(0, 210, 255, 0.35);
+      border-color: rgba(0, 210, 255, 0.4);
+    }
+    .ambient-glow-blue {
+      background: radial-gradient(circle at 50% 50%, rgba(29, 78, 216, 0.2) 0%, rgba(14, 19, 33, 0) 70%);
+    }
+    .radial-top-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.15) 0%, rgba(14, 19, 33, 0) 65%);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden selection:bg-secondary selection:text-surface">
+<!-- Atmospheric Glow Overlays -->
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] ambient-glow-blue pointer-events-none -z-10"></div>
+<div class="fixed top-1/3 -right-40 w-[600px] h-[600px] bg-secondary-container/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<div class="fixed bottom-10 -left-40 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+<!-- SHARED COMPONENT: TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-lg shadow-surface-container-lowest/50">
+<div class="w-full px-6 lg:px-12 py-4 flex items-center justify-between max-w-7xl mx-auto">
+<!-- Brand Logo / Product Name -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary-container to-secondary-container flex items-center justify-center p-0.5 shadow-lg shadow-primary-container/40 group-hover:scale-105 transition-transform duration-200">
+<div class="w-full h-full bg-surface-container-lowest rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="deployed_code" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface tracking-tight">حامی Hami</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary dark:text-secondary font-semibold border-b-2 border-secondary pb-1 hover:text-secondary dark:hover:text-secondary hover:border-secondary transition-all duration-200" href="#services">خدمات</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium transition-colors hover:text-secondary dark:hover:text-secondary hover:border-secondary duration-200" href="#portfolio">نمونه‌کارها</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium transition-colors hover:text-secondary dark:hover:text-secondary hover:border-secondary duration-200" href="#process">مراحل همکاری</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium transition-colors hover:text-secondary dark:hover:text-secondary hover:border-secondary duration-200" href="#pricing">تعرفه‌ها</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium transition-colors hover:text-secondary dark:hover:text-secondary hover:border-secondary duration-200" href="#testimonials">نظرات مشتریان</a>
+</nav>
+<!-- Trailing Action Buttons -->
+<div class="flex items-center gap-3">
+<a class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-label-md font-label-md text-secondary border border-secondary/30 bg-surface-container-low hover:bg-secondary/10 transition-colors active:scale-95 duration-150" href="#calculator">
+<span class="material-symbols-outlined text-sm" data-icon="phone_in_talk">phone_in_talk</span>
+<span>تماس سریع</span>
+</a>
+<a class="px-5 py-2.5 rounded-full text-label-md font-label-md font-bold text-on-primary bg-gradient-to-l from-primary-container to-secondary-container hover:shadow-lg hover:shadow-secondary-container/30 active:scale-95 transition-all duration-150 flex items-center gap-2" href="#calculator">
+<span>مشاوره رایگان / شروع پروژه</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_left_alt">arrow_left_alt</span>
+</a>
+</div>
+</div>
+</header>
+<!-- HERO SECTION -->
+<section class="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden radial-top-glow">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Text & CTA Column (7 cols) -->
+<div class="lg:col-span-7 flex flex-col items-start text-right">
+<!-- Status Chip Badge -->
+<div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-secondary-container/10 border border-secondary-container/30 text-secondary mb-6 backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
+<span class="w-2 h-2 -mr-3.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-sm text-label-sm font-medium tracking-wide">نسل نوین پلتفرم‌های تحت وب سازمانی و فروشگاهی</span>
+</div>
+<h1 class="font-display text-display font-extrabold text-on-surface leading-tight tracking-tight mb-6">
+          خلق وب‌سایت‌های اختصاصی،
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-secondary-fixed to-primary-fixed">سریع و پول‌ساز</span>
+          برای رهبران بازار
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10 leading-relaxed">
+          ما در آژانس حامی با تلفیق هنر طراحی اختصاصی UI/UX، کدنویسی با معماری مقیاس‌پذیر و استانداردهای پیشرفته سئو، کسب‌وکار آنلاین شما را به یک ماشین تبدیل کاربر به مشتری پایدار بدل می‌سازیم.
+        </p>
+<!-- CTA Buttons -->
+<div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-12">
+<a class="w-full sm:w-auto px-8 py-4 rounded-full font-headline-md text-headline-md font-bold text-on-primary bg-gradient-to-l from-primary-container via-blue-600 to-secondary-container shadow-lg shadow-primary-container/40 hover:shadow-cyan-400/30 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-3" href="#calculator">
+<span>ثبت سفارش و مشاوره رایگان</span>
+<span class="material-symbols-outlined" data-icon="spark">spark</span>
+</a>
+<a class="w-full sm:w-auto px-7 py-4 rounded-full font-headline-md text-headline-md font-semibold text-on-surface glass-panel hover:border-secondary hover:text-secondary transition-all duration-200 flex items-center justify-center gap-2.5" href="#portfolio">
+<span class="material-symbols-outlined text-secondary" data-icon="play_circle">play_circle</span>
+<span>مشاهده نمونه‌کارهای برتر</span>
+</a>
+</div>
+<!-- Trust Badges & Indicators -->
+<div class="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-outline-variant/30 w-full max-w-xl">
+<div class="flex flex-col">
+<span class="font-headline-xl text-headline-xl font-extrabold text-secondary font-label-md">۱۵۰+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">پروژه موفق ملی و بین‌المللی</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-xl text-headline-xl font-extrabold text-secondary font-label-md">۹۹.۴٪</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">رضایت و وفاداری کارفرمایان</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-xl text-headline-xl font-extrabold text-secondary font-label-md">۱۲ ماه</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">گارانتی و پشتیبانی فنی بی‌قید</span>
+</div>
+</div>
+</div>
+<!-- Hero Visual (5 cols) - Glassmorphic Tech Dashboard Mockup -->
+<div class="lg:col-span-5 relative">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary-container to-secondary-container rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
+<div class="relative glass-panel-elevated rounded-2xl p-4 sm:p-5 overflow-hidden">
+<!-- Mockup Window Bar -->
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error/80"></span>
+<span class="w-3 h-3 rounded-full bg-yellow-400/80"></span>
+<span class="w-3 h-3 rounded-full bg-emerald-400/80"></span>
+</div>
+<div class="px-4 py-1 rounded-full bg-surface-container text-xs font-label-sm text-secondary/80 flex items-center gap-2">
+<span class="material-symbols-outlined text-xs" data-icon="lock">lock</span>
+<span>https://client-portal.hami.tech</span>
+</div>
+<div class="w-4"></div>
+</div>
+<!-- Mockup Screen Preview -->
+<div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-surface-container-lowest">
+<img class="w-full h-full object-cover rounded-xl opacity-90 hover:scale-105 transition-transform duration-700" data-alt="Futuristic cyber tech web design dashboard preview mockup on an ultra-modern laptop monitor, exhibiting deep royal obsidian dark interface panels, neon electric cyan analytics charts, high fidelity glassmorphism floating widgets, and pristine Persian typography with blue laser backlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWkz_6-QfJipcxk9iAk0j-4InVECGe-ftUQ4GG1y_JHQ6lEZTRBgnsd8N5pUe4r-b3axDVFawlmHlA96fHW01Hi2UPeAJwQr67Bvp_FK8dnhBAamTcUkzxnsmy2PB5NZ7wTGLtDvVoOUwkXqRv0MjCzi4-YyTqb5G87VcDO8rPbgjYV6RhFW6LWEbLmB-EZI0nnN1qojgV4sIT7Sgvmx2bAcN9vs6THkt1CPxu5b2_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<!-- Floating Mini Card 1 -->
+<div class="absolute bottom-4 right-4 glass-panel p-3.5 rounded-xl flex items-center gap-3 border border-secondary/30 shadow-2xl">
+<div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface font-bold">امتیاز لود گوگل: ۱۰۰٪</p>
+<p class="text-xs text-secondary-fixed-dim">سرعت پاسخ‌دهی ۰.۷ ثانیه</p>
+</div>
+</div>
+<!-- Floating Mini Card 2 -->
+<div class="absolute top-4 left-4 glass-panel p-3 rounded-xl flex items-center gap-2 border border-white/15">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+<span class="font-label-sm text-label-sm text-on-surface">درگاه امن و آنلاین فعال</span>
+</div>
+</div>
+<!-- Bottom Metric Bar inside mockup -->
+<div class="grid grid-cols-2 gap-3 mt-4 pt-3 border-t border-white/10 text-right">
+<div class="bg-surface-container/60 p-2.5 rounded-lg border border-white/5">
+<span class="text-xs text-on-surface-variant block">نرخ بازگشت سرمایه (ROI)</span>
+<span class="font-label-md text-label-md font-bold text-secondary">+۳۲۰٪ رشد فصلی</span>
+</div>
+<div class="bg-surface-container/60 p-2.5 rounded-lg border border-white/5">
+<span class="text-xs text-on-surface-variant block">معماری سیستم</span>
+<span class="font-label-md text-label-md font-bold text-primary">Next.js 14 / Edge API</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- BRAND TRUST BANNER -->
+<section class="py-12 border-y border-outline-variant/20 bg-surface-container-lowest/70 backdrop-blur-sm">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<p class="text-center font-label-md text-label-md text-on-surface-variant mb-8 tracking-wider">
+        مورد اعتماد بیش از ۱۰۰ برند، سازمان پیشرو و استارتاپ برتر کشور
+      </p>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-300">
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-bold text-on-surface hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="diamond">diamond</span>
+<span>آرمان‌پارس</span>
+</div>
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-bold text-on-surface hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="hub">hub</span>
+<span>تکنولوژیکس</span>
+</div>
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-bold text-on-surface hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="token">token</span>
+<span>زرین‌ویژن</span>
+</div>
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-bold text-on-surface hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="cloud">cloud</span>
+<span>ابرسازه</span>
+</div>
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-bold text-on-surface hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="bolt">bolt</span>
+<span>پالس‌تک</span>
+</div>
+<div class="flex items-center gap-2 font-headline-md text-headline-md font-bold text-on-surface hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary" data-icon="shield">shield</span>
+<span>امن‌پرداز</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CORE SERVICES SECTION (Bento / Glass Grid) -->
+<section class="py-24 relative" id="services">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/20 border border-primary-container/40 text-secondary mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="layers">layers</span>
+<span class="font-label-sm text-label-sm">خدمات ۳۶۰ درجه دیجیتال</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface mb-4">
+          خدمات تخصصی طراحی سایت <span class="text-secondary">آژانس حامی</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          هر پروژه وب برای ما یک شاهکار مهندسی اختصاصی است؛ بدون استفاده از قالب‌های آماده کند، همراه با زیرساخت مدرن و کدنویسی استاندارد.
+        </p>
+</div>
+<!-- Services 6 Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Service 1: Corporate -->
+<div class="glass-panel p-8 rounded-2xl glow-cyan-hover transition-all duration-300 flex flex-col justify-between group">
+<div>
+<div class="w-14 h-14 rounded-xl bg-surface-container-high border border-secondary/30 flex items-center justify-center text-secondary mb-6 group-hover:scale-110 group-hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="domain" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-3">طراحی سایت شرکتی و سازمانی</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+              خلق هویت دیجیتال مقتدر برای کمپانی‌ها، هولدینگ‌ها و موسسات با طراحی فاخر، پنل معرفی پروژه‌ها و سازگاری کامل چندزبانه بین‌المللی.
+            </p>
+<ul class="space-y-2 mb-8 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>معماری چندزبانه (EN, AR, FA)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>سیستم ارتباط با سرمایه‌گذاران و مشتریان</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>امنیت سازمانی غیرقابل نفوذ</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center gap-2 text-secondary font-headline-md text-headline-md font-medium group-hover:gap-3 transition-all" href="#calculator">
+<span>دریافت پیش‌فاکتور شرکتی</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+</a>
+</div>
+<!-- Service 2: Ecommerce -->
+<div class="glass-panel p-8 rounded-2xl glow-cyan-hover transition-all duration-300 flex flex-col justify-between group border-secondary/40 relative overflow-hidden">
+<div class="absolute top-0 left-0 bg-secondary-container/20 text-secondary text-xs px-3 py-1 rounded-br-xl font-label-sm border-b border-r border-secondary/40">
+            فوق پرسرعت
+          </div>
+<div>
+<div class="w-14 h-14 rounded-xl bg-surface-container-high border border-secondary/30 flex items-center justify-center text-secondary mb-6 group-hover:scale-110 group-hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="shopping_cart" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-3">طراحی سایت فروشگاهی پیشرفته</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+              فروشگاه‌های آنلاین با نرخ تبدیل فوق‌العاده بالا، پردازش تراکنش‌های سنگین همزمان، اتصال به انبارداری، حسابداری و درگاه‌های پرداخت متعدد.
+            </p>
+<ul class="space-y-2 mb-8 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>فرایند تسویه‌حساب تک‌مرحله‌ای (1-Click)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>مدیریت اتوماتیک موجودی و تخفیف‌ها</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>سرعت بارگذاری لود کمتر از ۲ ثانیه</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center gap-2 text-secondary font-headline-md text-headline-md font-medium group-hover:gap-3 transition-all" href="#calculator">
+<span>شروع فروشگاه آنلاین</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+</a>
+</div>
+<!-- Service 3: Custom Portals & Web Apps -->
+<div class="glass-panel p-8 rounded-2xl glow-cyan-hover transition-all duration-300 flex flex-col justify-between group">
+<div>
+<div class="w-14 h-14 rounded-xl bg-surface-container-high border border-secondary/30 flex items-center justify-center text-secondary mb-6 group-hover:scale-110 group-hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="code" style="font-variation-settings: 'FILL' 1;">code</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-3">پورتال‌ها و وب‌اپلیکیشن‌های سفارشی</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+              طراحی و توسعه پلتفرم‌های پیچیده ابری SaaS، پورتال‌های درون‌سازمانی، پنل‌های اختصاصی کاربری با فریم‌ورک‌های مدرن React و Next.js.
+            </p>
+<ul class="space-y-2 mb-8 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>معماری میکروسرویس و Rest/GraphQL API</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>امنیت لایه‌ای و محافظت داده حساس</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>داشبوردهای تحلیلی Real-Time</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center gap-2 text-secondary font-headline-md text-headline-md font-medium group-hover:gap-3 transition-all" href="#calculator">
+<span>مشاوره پلتفرم سفارشی</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+</a>
+</div>
+<!-- Service 4: UI/UX Design -->
+<div class="glass-panel p-8 rounded-2xl glow-cyan-hover transition-all duration-300 flex flex-col justify-between group">
+<div>
+<div class="w-14 h-14 rounded-xl bg-surface-container-high border border-secondary/30 flex items-center justify-center text-secondary mb-6 group-hover:scale-110 group-hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="palette" style="font-variation-settings: 'FILL' 1;">palette</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-3">طراحی رابط و تجربه کاربری (UI/UX)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+              طراحی اختصاصی با فیگما پس از تحقیقات رفتار کاربر، تست‌های کاربردپذیری، معماری اطلاعات و پروتوتایپ‌های تعاملی دقیق و چشم‌نواز.
+            </p>
+<ul class="space-y-2 mb-8 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>دیزاین سیستم یکپارچه برند (Design Tokens)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>تحلیل مسیر سفر کاربر (User Journey Map)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>پروتوتایپ تعاملی و قابل تست زنده</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center gap-2 text-secondary font-headline-md text-headline-md font-medium group-hover:gap-3 transition-all" href="#calculator">
+<span>سفارش دیزاین UI/UX</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+</a>
+</div>
+<!-- Service 5: Technical SEO & Speed -->
+<div class="glass-panel p-8 rounded-2xl glow-cyan-hover transition-all duration-300 flex flex-col justify-between group">
+<div>
+<div class="w-14 h-14 rounded-xl bg-surface-container-high border border-secondary/30 flex items-center justify-center text-secondary mb-6 group-hover:scale-110 group-hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="speed" style="font-variation-settings: 'FILL' 1;">speed</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-3">سئو تکنیکال و بهینه‌سازی سرعت</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+              رساندن Core Web Vitals به نمره سبز ۱۰۰، نشانه‌گذاری اسکیمای غنی، کشینگ هوشمند و ساختاری که ربات‌های گوگل شیفته آن می‌شوند.
+            </p>
+<ul class="space-y-2 mb-8 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>بهینه‌سازی تصاویر به فرمت‌های نسل بعد (WebP, AVIF)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>حل خطاهای کدهای جاوااسکریپت و CSS بلاک‌کننده</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>استراتژی ارتقای رتبه کلمات کلیدی درآمدزا</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center gap-2 text-secondary font-headline-md text-headline-md font-medium group-hover:gap-3 transition-all" href="#calculator">
+<span>بررسی وضعیت سئو سایت شما</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+</a>
+</div>
+<!-- Service 6: Support & Maintenance -->
+<div class="glass-panel p-8 rounded-2xl glow-cyan-hover transition-all duration-300 flex flex-col justify-between group">
+<div>
+<div class="w-14 h-14 rounded-xl bg-surface-container-high border border-secondary/30 flex items-center justify-center text-secondary mb-6 group-hover:scale-110 group-hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="support_agent" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-3">پشتیبانی و نگهداری تخصصی ۲۴/۷</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+              خیال راحت از پایداری سایت؛ بکاپ‌گیری منظم ساعتی و روزانه در سرور مجزا، فایروال ضد DDoS و پاسخگویی تیکتی در کمتر از ۱۵ دقیقه.
+            </p>
+<ul class="space-y-2 mb-8 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>مانیتورینگ آپ‌تایم ۹۹.۹۸٪ بصورت لحظه‌ای</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>به‌روزرسانی امنیتی مداوم هسته و ماژول‌ها</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span>تیم مهندسی اختصاصی مستقر در ایران</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center gap-2 text-secondary font-headline-md text-headline-md font-medium group-hover:gap-3 transition-all" href="#calculator">
+<span>پلن‌های نگهداری سازمانی</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- WHY CHOOSE HAMI / COMPARISON SECTION -->
+<section class="py-20 bg-surface-container-low/50 relative">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface mb-4">
+          چرا کارفرمایان حرفه‌ای، <span class="text-secondary">حامی</span> را انتخاب می‌کنند؟
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          تفاوت بین یک سایت معمولی و یک زیرساخت فروشگاهی و شرکتی کلاس جهانی در جزئیات مهندسی نهفته است.
+        </p>
+</div>
+<!-- Comparative Table / Visual Bento -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+<!-- Agency Standard (Hami) -->
+<div class="glass-panel-elevated p-8 sm:p-10 rounded-3xl border border-secondary/40 relative">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">استاندارد اختصاصی حامی (Hami Standard)</h3>
+</div>
+<span class="px-3 py-1 rounded-full text-xs font-label-sm bg-secondary-container/20 text-secondary border border-secondary/40">پیشنهاد برتر</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 mt-1">
+<span class="material-symbols-outlined text-xl" data-icon="code">code</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface mb-1">کدنویسی اختصاصی بدون کدهای زاید</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">معماری تمیز، بدون افزونه‌های سنگین و مخرب؛ حداکثر سرعت، پایداری و امنیت ۱۰۰٪ تضمین‌شده.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 mt-1">
+<span class="material-symbols-outlined text-xl" data-icon="bolt">bolt</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface mb-1">لودینگ آنی و بهینه‌سازی فوق‌پیشرفته</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">زمان پاسخ‌دهی سرور زیر ۲۰۰ میلی‌ثانیه و لود کامل صفحه زیر ۱.۵ ثانیه حتی با ترافیک‌های میلیونی.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 mt-1">
+<span class="material-symbols-outlined text-xl" data-icon="design_services">design_services</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface mb-1">طراحی منحصربه‌فرد بر اساس DNA برند شما</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">هیچ سایتی شبیه سایت شما نخواهد بود؛ خلق اثر اورجینال متناسب با نیاز مشتریان بازار هدف شما.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 mt-1">
+<span class="material-symbols-outlined text-xl" data-icon="lock_reset">lock_reset</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface mb-1">گارانتی بازگشت ۱۰۰٪ وجه در صورت عدم رضایت</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">تضمین کتبی در قرارداد رسمی شرکت؛ تا زمان تایید نهایی و لبخند رضایت شما کار را بازطراحی می‌کنیم.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- The Typical Generic Providers -->
+<div class="glass-panel p-8 sm:p-10 rounded-3xl opacity-80 border-dashed border-white/10 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3 mb-8">
+<span class="w-10 h-10 rounded-full bg-error/10 text-error flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+</span>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface-variant">قالب‌های آماده و سایت‌های ارزان‌قیمت</h3>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="p-2 rounded-lg bg-error/10 text-error mt-1">
+<span class="material-symbols-outlined text-xl" data-icon="warning">warning</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md font-semibold text-on-surface mb-1">انبوه کدهای زائد و کندی شدید</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">ده‌ها افزونه کرک‌شده، حجم بالای صفحه (بالای ۷ مگابایت) و لودینگ خسته‌کننده ۵ تا ۱۰ ثانیه.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-2 rounded-lg bg-error/10 text-error mt-1">
+<span class="material-symbols-outlined text-xl" data-icon="gpp_bad">gpp_bad</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md font-semibold text-on-surface mb-1">رخنه امنیتی و هک‌های مداوم</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">آسیب‌پذیری‌های کشف‌شده در قالب‌های عمومی که اطلاعات کاربران و فروشگاه را به خطر می‌اندازند.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-2 rounded-lg bg-error/10 text-error mt-1">
+<span class="material-symbols-outlined text-xl" data-icon="content_copy">content_copy</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md font-semibold text-on-surface mb-1">ظاهر کپی‌شده و تکراری صدها سایت دیگر</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">فقدان هویت متمایز، افت ارزش برند در ذهن خریدار و نرخ پرش (Bounce Rate) بسیار بالا.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-2 rounded-lg bg-error/10 text-error mt-1">
+<span class="material-symbols-outlined text-xl" data-icon="headset_off">headset_off</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md font-semibold text-on-surface mb-1">پاسخگویی ضعیف و عدم پشتیبانی بعد از تحویل</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">رها کردن کارفرما در برابر خطاهای سرور و باگ‌های ناگهانی سیستم بدون پاسخ‌گویی متعهدانه.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/10 text-left">
+<span class="text-xs text-on-surface-variant">انتخاب هوشمندانه = سرمایه‌گذاری برای آینده برند</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PORTFOLIO SHOWCASE SECTION -->
+<section class="py-24 relative" id="portfolio">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+<span class="font-label-sm text-label-sm">پروژه‌های شاخص</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface">
+            جدیدترین شاهکارهای <span class="text-secondary">طراحی وب حامی</span>
+</h2>
+</div>
+<!-- Filter Tabs -->
+<div class="flex items-center gap-2 p-1.5 rounded-full bg-surface-container border border-outline-variant/30 overflow-x-auto">
+<button class="px-5 py-2 rounded-full font-label-md text-label-md font-semibold bg-primary-container text-on-primary shadow-sm">همه</button>
+<button class="px-5 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">فروشگاهی</button>
+<button class="px-5 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">شرکتی</button>
+<button class="px-5 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">استارتاپی</button>
+</div>
+</div>
+<!-- Projects Grid (3 showcase cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="glass-panel rounded-2xl overflow-hidden group glow-cyan-hover transition-all duration-300 flex flex-col">
+<div class="relative overflow-hidden aspect-[16/10] bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean modern high-converting luxury jewelry ecommerce website homepage displayed on an angled perspective display mockup, with glowing cyan accents, elegant dark mode styling, and Persian typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdQtNxFEbZvRHBzx-tieu4xhO8c_dDJ41thU4ICSGsv4GsZtLmcmN1db9tHg_w3cVdjpsUN6iSqSegXgoC_iQu8LzaJqza1ccV5q2IwFq1q2pN-0sTPK1G2dRvJjATFSOkEH6aYtu3Xxak-IpCrA1q77jP7Xu9tGv5Shuyk_bHBRe4JF65YhTWRGubZIylAXHQUOStFn4J-Yo2hAwvoeMzFvfkixL4JqaPfG9u7fiS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+<div class="absolute top-4 right-4 bg-surface-container/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-label-sm text-secondary border border-secondary/20">
+              فروشگاهی لاکچری
+            </div>
+<div class="absolute bottom-4 left-4 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-label-sm flex items-center gap-1.5 backdrop-blur-md">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+<span>+۱۸۰٪ رشد فروش ماهانه</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-2">فروشگاه بین‌المللی طلای درسا</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                توسعه هایپر‌استور جواهرات با درگاه لحظه‌ای شتاب، سیستم قیمت‌گذاری آنلاین طلا و UI مینی‌مال چشم‌نواز.
+              </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-xs font-label-sm text-on-surface-variant">Next.js 14</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-xs font-label-sm text-on-surface-variant">Tailwind CSS</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-xs font-label-sm text-on-surface-variant">PostgreSQL</span>
+</div>
+</div>
+<a class="w-full py-3 rounded-xl border border-secondary/30 text-secondary font-headline-md text-headline-md text-center hover:bg-secondary/10 transition-colors flex items-center justify-center gap-2" href="#calculator">
+<span>مشاهده و تحلیل پرونده پروژه</span>
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+</a>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="glass-panel rounded-2xl overflow-hidden group glow-cyan-hover transition-all duration-300 flex flex-col">
+<div class="relative overflow-hidden aspect-[16/10] bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern corporate website for an energy technology holding company showing slick 3D solar asset components, dynamic charts, dark royal blue visual aesthetic, and bilingual Arabic English Persian options." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLjrw-EkRYncW1Mmhs1JylN1wnKkTu1uAUlOYTGynpt8VHoOGtINRkph_idFNd7i4ZdBREaNequSudkkwCad5u7VbQuCCf8aiXUoNPKFxxQaYL0QUgbfhMrh2rD-VvIDpDwyVS4kKlKbSg9nbOMAQWSpsdS6ld-yb5kkhrUiiiwEOQ0Ob934rjgHErjaGbFe8EE0SvXH5kk3cLlo7cTEv8qSU3I648OBnpMr855lfy"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+<div class="absolute top-4 right-4 bg-surface-container/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-label-sm text-secondary border border-secondary/20">
+              هلدینگ سرمایه‌گذاری
+            </div>
+<div class="absolute bottom-4 left-4 bg-secondary/20 text-secondary border border-secondary/30 px-3 py-1 rounded-full text-xs font-label-sm flex items-center gap-1.5 backdrop-blur-md">
+<span class="material-symbols-outlined text-xs" data-icon="bolt">bolt</span>
+<span>لودینگ ۰.۸ ثانیه</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-2">پرتال سازمانی انرژی پاک فردا</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                سامانه ۳زبانه با پرتال گزارش‌های مالی سالانه، نقشه پویا نیروگاه‌ها و معرفی ۴۲ شرکت زیرمجموعه.
+              </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-xs font-label-sm text-on-surface-variant">Vue 3</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-xs font-label-sm text-on-surface-variant">Nuxt</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-xs font-label-sm text-on-surface-variant">Docker</span>
+</div>
+</div>
+<a class="w-full py-3 rounded-xl border border-secondary/30 text-secondary font-headline-md text-headline-md text-center hover:bg-secondary/10 transition-colors flex items-center justify-center gap-2" href="#calculator">
+<span>مشاهده و تحلیل پرونده پروژه</span>
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+</a>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="glass-panel rounded-2xl overflow-hidden group glow-cyan-hover transition-all duration-300 flex flex-col">
+<div class="relative overflow-hidden aspect-[16/10] bg-surface-container-highest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Futuristic SaaS tech startup web application dashboard showcasing telemetry cards, machine learning nodes, sleek neon borders, and dark obsidian UI with vivid electric cyan charts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkYpH-lHpiDoQNVYCOFrfyXjAURKHjRebm-CZ8dfqcNXdXMCC_6M5lFwD6XjFlGK4s5jX1cTCJJQwyj9KdMFop4gvfE_pK7Ckx6PQBdVYvZniGZ3RWpGgARwfEvcD2wgh_cvVQ5qBd6sK6PPG3XgFiTFVnA3z1JBoYKcjaHhEU5e0IMTIKUwLRgSsLGNxFNXhav9o7lN1tV7tqA3pjzQ0n_Rw29lRf9aO_1wlITXh_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+<div class="absolute top-4 right-4 bg-surface-container/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-label-sm text-secondary border border-secondary/20">
+              استارتاپ هوش مصنوعی
+            </div>
+<div class="absolute bottom-4 left-4 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-label-sm flex items-center gap-1.5 backdrop-blur-md">
+<span class="material-symbols-outlined text-xs" data-icon="verified_user">verified_user</span>
+<span>۴۰ هزار کاربر فعال</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-2">پلتفرم وب هوش مصنوعی «دیتاویژن»</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                توسعه اپلیکیشن تحت‌وب آنالیز داده‌های متنی با اشتراک ماهانه، چت‌بات بلادرنگ و احراز هویت دوعاملی.
+              </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-xs font-label-sm text-on-surface-variant">React 18</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-xs font-label-sm text-on-surface-variant">Node.js</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container text-xs font-label-sm text-on-surface-variant">Tailwind</span>
+</div>
+</div>
+<a class="w-full py-3 rounded-xl border border-secondary/30 text-secondary font-headline-md text-headline-md text-center hover:bg-secondary/10 transition-colors flex items-center justify-center gap-2" href="#calculator">
+<span>مشاهده و تحلیل پرونده پروژه</span>
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PROCESS / WORKFLOW SECTION -->
+<section class="py-20 bg-surface-container-lowest/80 border-y border-outline-variant/30 relative" id="process">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface mb-4">
+          مسیر خلق وب‌سایت شما در <span class="text-secondary">۴ مرحله شفاف</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          فرایندی منظم، ساختاریافته و بدون ابهام از اولین جلسه ایده تا روز رونمایی و ورود اولین مشتری.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+<!-- Step 1 -->
+<div class="glass-panel p-6 rounded-2xl relative group">
+<div class="font-label-md text-label-md font-bold text-secondary mb-3 text-2xl opacity-60">۰۱</div>
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-secondary flex items-center justify-center mb-4 border border-secondary/20">
+<span class="material-symbols-outlined" data-icon="search_insights">search_insights</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-2">کشف، ایده و استراتژی</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            بررسی دقیق رقبای ایرانی و جهانی، تحلیل جامعه هدف، تعیین معماری محتوا و نقشه راه فنی اختصاصی.
+          </p>
+</div>
+<!-- Step 2 -->
+<div class="glass-panel p-6 rounded-2xl relative group">
+<div class="font-label-md text-label-md font-bold text-secondary mb-3 text-2xl opacity-60">۰۲</div>
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-secondary flex items-center justify-center mb-4 border border-secondary/20">
+<span class="material-symbols-outlined" data-icon="draw">draw</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-2">طراحی UI/UX و تایید</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            خلق وایرفریم‌ها و پروتوتایپ گرافیکی در فیگما، اعمال سلیقه کارفرما و بهینه‌سازی تجربه خرید کاربر.
+          </p>
+</div>
+<!-- Step 3 -->
+<div class="glass-panel p-6 rounded-2xl relative group">
+<div class="font-label-md text-label-md font-bold text-secondary mb-3 text-2xl opacity-60">۰۳</div>
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-secondary flex items-center justify-center mb-4 border border-secondary/20">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-2">کدنویسی و توسعه فنی</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            تبدیل طرح به کدنویسی مدرن، اتصال پایگاه داده، پنل مدیریت آسان و پیاده‌سازی استانداردهای سختگیرانه سئو.
+          </p>
+</div>
+<!-- Step 4 -->
+<div class="glass-panel p-6 rounded-2xl relative group">
+<div class="font-label-md text-label-md font-bold text-secondary mb-3 text-2xl opacity-60">۰۴</div>
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 text-secondary flex items-center justify-center mb-4 border border-secondary/20">
+<span class="material-symbols-outlined" data-icon="rocket">rocket</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-2">تست، انتشار و آموزش</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            آزمون نهایی امنیت و سرعت روی سرور، تحویل سورس‌کد، آموزش ویدیویی تیم شما و شروع ۱۲ ماه پشتیبانی ویژه.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- PRICING & PACKAGES SECTION -->
+<section class="py-24 relative" id="pricing">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/10 text-secondary mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="price_check">price_check</span>
+<span class="font-label-sm text-label-sm">سرمایه‌گذاری هوشمند</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface mb-4">
+          تعرفه‌های شفاف، بدون هزینه‌های پنهان
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          تمامی پلن‌ها شامل قرارداد رسمی حقوقی، مالکیت قطعی سورس‌کد و دامین، و پشتیبانی فنی اختصاصی هستند.
+        </p>
+</div>
+<!-- 3 Tier Pricing Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+<!-- Plan 1: Silver -->
+<div class="glass-panel p-8 rounded-3xl flex flex-col justify-between hover:border-white/20 transition-all">
+<div>
+<div class="mb-6">
+<span class="text-xs font-label-sm text-on-surface-variant">مناسب استارتاپ‌ها و کسب‌وکارهای نوپا</span>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">پلن نقره‌ای (استارتاپ)</h3>
+</div>
+<div class="mb-6 pb-6 border-b border-white/10">
+<div class="flex items-baseline gap-2">
+<span class="font-display text-display font-extrabold text-on-surface font-label-md">۲۹</span>
+<span class="font-body-md text-body-md text-on-surface-variant">میلیون تومان</span>
+</div>
+<span class="text-xs text-secondary-fixed-dim">تحویل سریع: ۱۴ الی ۱۸ روز کاری</span>
+</div>
+<ul class="space-y-3.5 mb-8 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+<span>طراحی اختصاصی تا ۶ صفحه اصلی</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+<span>کاملاً واکنش‌گرا (موبایل و تبلت)</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+<span>سئو مقدماتی و متاتگ‌های استاندارد</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+<span>اتصال به درگاه پرداخت و پنل پیامک</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+<span>۶ ماه پشتیبانی فنی رایگان</span>
+</li>
+</ul>
+</div>
+<a class="w-full py-3.5 rounded-full glass-panel border border-white/20 text-on-surface font-headline-md text-headline-md text-center hover:border-secondary hover:text-secondary transition-all" href="#calculator">
+            انتخاب پلن نقره‌ای
+          </a>
+</div>
+<!-- Plan 2: Gold (Featured) -->
+<div class="glass-panel-elevated p-8 rounded-3xl flex flex-col justify-between border-2 border-secondary relative -translate-y-2 shadow-2xl">
+<div class="absolute -top-4 right-1/2 translate-x-1/2 bg-gradient-to-l from-primary-container to-secondary-container text-on-primary text-xs font-label-sm font-bold px-4 py-1.5 rounded-full shadow-lg">
+            محبوب‌ترین انتخاب شرکت‌ها
+          </div>
+<div>
+<div class="mb-6 mt-2">
+<span class="text-xs font-label-sm text-secondary">کسب‌وکارهای در حال رشد و شرکت‌های تجاری</span>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">پلن طلایی (پرمیوم شرکتی)</h3>
+</div>
+<div class="mb-6 pb-6 border-b border-white/10">
+<div class="flex items-baseline gap-2">
+<span class="font-display text-display font-extrabold text-secondary font-label-md">۵۸</span>
+<span class="font-body-md text-body-md text-on-surface-variant">میلیون تومان</span>
+</div>
+<span class="text-xs text-secondary">تحویل مطمئن: ۲۵ الی ۳۰ روز کاری</span>
+</div>
+<ul class="space-y-3.5 mb-8 font-body-md text-body-md text-on-surface">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span class="font-medium">طراحی ۱۰۰٪ اختصاصی UI/UX در فیگما</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span class="font-medium">سئو تکنیکال پیشرفته با گارانتی رتبه گوگل</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span class="font-medium">سرعت لود فوق‌العاده زیر ۱.۵ ثانیه</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span class="font-medium">پنل مدیریت اختصاصی و آموزش ویدیویی کامل</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span class="font-medium">۱۲ ماه پشتیبانی طلایی با پایش مانیتورینگ</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+<span class="font-medium">پیکربندی هاست ابری و دامین اختصاصی</span>
+</li>
+</ul>
+</div>
+<a class="w-full py-4 rounded-full bg-gradient-to-l from-primary-container to-secondary-container text-on-primary font-headline-md text-headline-md font-bold text-center shadow-lg hover:shadow-cyan-400/40 hover:scale-[1.02] transition-all" href="#calculator">
+            سفارش پلن طلایی
+          </a>
+</div>
+<!-- Plan 3: Diamond (Enterprise) -->
+<div class="glass-panel p-8 rounded-3xl flex flex-col justify-between hover:border-white/20 transition-all">
+<div>
+<div class="mb-6">
+<span class="text-xs font-label-sm text-on-surface-variant">پلتفرم‌های خاص، هلدینگ‌ها و پورتال‌ها</span>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface mt-1">پلن الماس (سازمانی و سفارشی)</h3>
+</div>
+<div class="mb-6 pb-6 border-b border-white/10">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface">استعلام اختصاصی</span>
+</div>
+<span class="text-xs text-secondary-fixed-dim">توسعه ماژولار و بر اساس پروپوزال فنی</span>
+</div>
+<ul class="space-y-3.5 mb-8 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+<span>معماری کلاود مقیاس‌پذیر میکروسرویس</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+<span>سیستم‌های چندزبانه بین‌المللی نامحدود</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+<span>تست نفوذ امنیتی و گواهی SSL سازمانی</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+<span>پروتکل اختصاصی اتصال به CRM و ERP</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+<span>تیم مهندسی مستقر و قرارداد SLA سطح یک</span>
+</li>
+</ul>
+</div>
+<a class="w-full py-3.5 rounded-full glass-panel border border-white/20 text-on-surface font-headline-md text-headline-md text-center hover:border-secondary hover:text-secondary transition-all" href="#calculator">
+            درخواست جلسه مشاوره سازمانی
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS SECTION -->
+<section class="py-20 bg-surface-container-low/40 relative" id="testimonials">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface mb-3">
+          داستان موفقیت کارفرمایان ما
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          نظرات مدیران و بنیان‌گذارانی که رشد چشمگیر کسب‌وکار آنلاین خود را با آژانس حامی تجربه کرده‌اند.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Review 1 -->
+<div class="glass-panel p-7 rounded-2xl flex flex-col justify-between">
+<div>
+<div class="flex text-amber-400 gap-1 mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+              «تیم مهندسی حامی فراتر از یک مجری سایت، یک مشاور ارشد کسب‌وکار برای ما بود. بعد از ریدیزاین فروشگاه، سرعت سایت از ۷ ثانیه به ۱.۲ ثانیه رسید و فروش ماهانه ما بیش از ۲.۵ برابر شد.»
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-4 border-t border-white/10">
+<div class="w-11 h-11 rounded-full bg-gradient-to-tr from-secondary to-primary flex items-center justify-center font-bold text-surface">
+              مه
+            </div>
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface text-sm">مهندس حمیدرضا علوی</h4>
+<p class="text-xs text-on-surface-variant">مدیرعامل هولدینگ تجهیزات آریا</p>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="glass-panel p-7 rounded-2xl flex flex-col justify-between border-secondary/30">
+<div>
+<div class="flex text-amber-400 gap-1 mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+              «طراحی UI/UX اختصاصی حامی باعث شد سرمایه‌گذاران خارجی ما در همان نگاه اول کیفیت پلتفرم را تحسین کنند. نظم زمانی و تحویل در موعد مقرر، بزرگترین وجه تمایز این تیم بود.»
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-4 border-t border-white/10">
+<div class="w-11 h-11 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-600 flex items-center justify-center font-bold text-surface">
+              سپ
+            </div>
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface text-sm">دکتر سپیده رهنما</h4>
+<p class="text-xs text-on-surface-variant">هم‌بنیان‌گذار استارتاپ مدیکال مدیکال‌نت</p>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="glass-panel p-7 rounded-2xl flex flex-col justify-between">
+<div>
+<div class="flex text-amber-400 gap-1 mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+              «پشتیبانی سریع و دلسوزانه حامی کم‌نظیر است. هر تغییری که مدنظر داشتیم ظرف چند ساعت پیاده شد و آموزش پنل کاربری به‌قدری روان بود که تیم داخلی ما بدون مشکل محتواگذاری می‌کند.»
+            </p>
+</div>
+<div class="flex items-center gap-3 pt-4 border-t border-white/10">
+<div class="w-11 h-11 rounded-full bg-gradient-to-tr from-indigo-400 to-sky-500 flex items-center justify-center font-bold text-surface">
+              فر
+            </div>
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface text-sm">فرزاد مقدم</h4>
+<p class="text-xs text-on-surface-variant">مدیر مارکتینگ برند پوشاک زاگرس</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE PROJECT COST ESTIMATOR / CONSULTATION SECTION -->
+<section class="py-24 relative overflow-hidden" id="calculator">
+<div class="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
+<div class="glass-panel-elevated p-8 sm:p-12 rounded-3xl border border-secondary/30 relative">
+<div class="text-center mb-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="calculate">calculate</span>
+<span class="font-label-sm text-label-sm">محاسبه آنلاین و فوری</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface mb-3">
+            برآورد هوشمند هزینه پروژه شما در کمتر از ۲ دقیقه
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            مشخصات مدنظر خود را علامت بزنید؛ مشاوران ما پیش‌فاکتور دقیق به همراه مشاوره تلفنی ۳۰ دقیقه‌ای رایگان برای شما ارسال می‌کنند.
+          </p>
+</div>
+<form class="space-y-8" onsubmit="event.preventDefault(); alert('درخواست مشاوره و برآورد هزینه شما ثبت شد. کارشناسان حامی ظرف کمتر از ۳۰ دقیقه با شما تماس خواهند گرفت.');">
+<!-- Step 1: Project Type -->
+<div>
+<label class="block font-headline-md text-headline-md font-semibold text-on-surface mb-4">
+              ۱. نوع وب‌سایت یا پلتفرم مورد نیاز شما:
+            </label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+<label class="glass-panel p-4 rounded-xl cursor-pointer flex items-center gap-3 border border-white/10 hover:border-secondary transition-all">
+<input checked="" class="w-4 h-4 text-primary-container bg-surface-container border-white/20 focus:ring-secondary" name="project_type" type="radio"/>
+<span class="font-body-md text-body-md text-on-surface font-medium">سایت شرکتی / پرتال</span>
+</label>
+<label class="glass-panel p-4 rounded-xl cursor-pointer flex items-center gap-3 border border-white/10 hover:border-secondary transition-all">
+<input class="w-4 h-4 text-primary-container bg-surface-container border-white/20 focus:ring-secondary" name="project_type" type="radio"/>
+<span class="font-body-md text-body-md text-on-surface font-medium">فروشگاه آنلاین پیشرفته</span>
+</label>
+<label class="glass-panel p-4 rounded-xl cursor-pointer flex items-center gap-3 border border-white/10 hover:border-secondary transition-all">
+<input class="w-4 h-4 text-primary-container bg-surface-container border-white/20 focus:ring-secondary" name="project_type" type="radio"/>
+<span class="font-body-md text-body-md text-on-surface font-medium">وب‌اپلیکیشن اختصاصی</span>
+</label>
+</div>
+</div>
+<!-- Step 2: Essential Features -->
+<div>
+<label class="block font-headline-md text-headline-md font-semibold text-on-surface mb-4">
+              ۲. امکانات و نیازهای کلیدی:
+            </label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+<label class="glass-panel p-3.5 rounded-xl cursor-pointer flex items-center gap-3 border border-white/10 hover:border-secondary transition-all">
+<input checked="" class="w-4 h-4 rounded text-primary-container bg-surface-container border-white/20 focus:ring-secondary" type="checkbox"/>
+<span class="text-sm text-on-surface">چندزبانه بودن (انگلیسی / عربی)</span>
+</label>
+<label class="glass-panel p-3.5 rounded-xl cursor-pointer flex items-center gap-3 border border-white/10 hover:border-secondary transition-all">
+<input checked="" class="w-4 h-4 rounded text-primary-container bg-surface-container border-white/20 focus:ring-secondary" type="checkbox"/>
+<span class="text-sm text-on-surface">سئو و استراتژی ارتقای کلمات در گوگل</span>
+</label>
+<label class="glass-panel p-3.5 rounded-xl cursor-pointer flex items-center gap-3 border border-white/10 hover:border-secondary transition-all">
+<input class="w-4 h-4 rounded text-primary-container bg-surface-container border-white/20 focus:ring-secondary" type="checkbox"/>
+<span class="text-sm text-on-surface">اتصال به سیستم انبارداری / حسابداری (ERP)</span>
+</label>
+<label class="glass-panel p-3.5 rounded-xl cursor-pointer flex items-center gap-3 border border-white/10 hover:border-secondary transition-all">
+<input checked="" class="w-4 h-4 rounded text-primary-container bg-surface-container border-white/20 focus:ring-secondary" type="checkbox"/>
+<span class="text-sm text-on-surface">پشتیبانی اختصاصی VIP ۲۴ ساعته</span>
+</label>
+</div>
+</div>
+<!-- Step 3: Contact Details -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-label-md text-on-surface-variant mb-2">نام و نام خانوادگی / نام شرکت</label>
+<input class="w-full px-4 py-3 rounded-xl bg-surface-container/80 border border-white/10 text-on-surface placeholder:text-on-surface-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="مثال: علیرضا پارسا" required="" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-label-md text-on-surface-variant mb-2">شماره تماس (جهت دریافت برآورد و هماهنگی)</label>
+<input class="w-full px-4 py-3 rounded-xl bg-surface-container/80 border border-white/10 text-on-surface placeholder:text-on-surface-variant/40 text-left focus:border-secondary focus:ring-1 focus:ring-secondary" dir="ltr" placeholder="0912..." required="" type="tel"/>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full py-4 rounded-full font-headline-md text-headline-md font-bold text-on-primary bg-gradient-to-l from-primary-container to-secondary-container hover:shadow-lg hover:shadow-cyan-400/40 active:scale-95 transition-all duration-150 flex items-center justify-center gap-2" type="submit">
+<span>دریافت پیش‌فاکتور آنی و رزرو مشاوره رایگان</span>
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+<p class="text-center text-xs text-on-surface-variant">
+            اطلاعات شما نزد آژانس حامی کاملاً محفوظ بوده و صرفاً جهت تماس اولیه استفاده می‌شود.
+          </p>
+</form>
+</div>
+</div>
+</section>
+<!-- FAQ SECTION -->
+<section class="py-20 border-t border-outline-variant/30 relative">
+<div class="max-w-4xl mx-auto px-6 lg:px-12">
+<div class="text-center mb-16">
+<h2 class="font-headline-xl text-headline-xl font-bold text-on-surface mb-3">
+          پاسخ به سوالات متداول کارفرمایان
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          هرآنچه پیش از سفارش طراحی سایت در آژانس حامی باید بدانید
+        </p>
+</div>
+<div class="space-y-4">
+<details class="glass-panel p-5 rounded-2xl group [&amp;_summary::-webkit-details-marker]:hidden cursor-pointer" open="">
+<summary class="flex items-center justify-between font-headline-md text-headline-md font-semibold text-on-surface">
+<span>مدت زمان تکمیل و تحویل وب‌سایت چقدر است؟</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="mt-4 font-body-md text-body-md text-on-surface-variant leading-relaxed border-t border-white/10 pt-3">
+            برای پروژه‌های استاندارد شرکتی بین ۱۴ تا ۲۱ روز کاری و برای فروشگاه‌های آنلاین پیشرفته بین ۲۵ تا ۳۵ روز کاری زمان نیاز است. زمان‌بندی دقیق در قرارداد رسمی درج و روزانه گزارش پیشرفت ارائه می‌گردد.
+          </p>
+</details>
+<details class="glass-panel p-5 rounded-2xl group [&amp;_summary::-webkit-details-marker]:hidden cursor-pointer">
+<summary class="flex items-center justify-between font-headline-md text-headline-md font-semibold text-on-surface">
+<span>شرایط پرداخت هزینه پروژه به چه صورت است؟</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="mt-4 font-body-md text-body-md text-on-surface-variant leading-relaxed border-t border-white/10 pt-3">
+            پرداخت در سه مرحله شفاف صورت می‌پذیرد: ۴۰٪ پیش‌پرداخت همزمان با عقد قرارداد، ۳۰٪ پس از تایید کامل اتودهای طراحی UI/UX در فیگما، و ۳۰٪ باقیمانده پس از تست کامل نهایی، دیپلوی روی سرور و تحویل سورس‌کدها.
+          </p>
+</details>
+<details class="glass-panel p-5 rounded-2xl group [&amp;_summary::-webkit-details-marker]:hidden cursor-pointer">
+<summary class="flex items-center justify-between font-headline-md text-headline-md font-semibold text-on-surface">
+<span>آیا سورس‌کد، هاست و دامین به نام کارفرما ثبت می‌شود؟</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="mt-4 font-body-md text-body-md text-on-surface-variant leading-relaxed border-t border-white/10 pt-3">
+            بله، ۱۰۰٪ مالکیت حقوقی و مادی دامین، هاست و تمامی سورس‌کدها بدون هیچ وابستگی یا قفل‌شدگی متعلق به کارفرما خواهد بود و تمام دسترسی‌های روت و سورس مخزن Git تحویل شما می‌گردد.
+          </p>
+</details>
+<details class="glass-panel p-5 rounded-2xl group [&amp;_summary::-webkit-details-marker]:hidden cursor-pointer">
+<summary class="flex items-center justify-between font-headline-md text-headline-md font-semibold text-on-surface">
+<span>آیا کارمندان ما می‌توانند بدون دانش فنی محتوای سایت را مدیریت کنند؟</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="mt-4 font-body-md text-body-md text-on-surface-variant leading-relaxed border-t border-white/10 pt-3">
+            قطعاً. پنل مدیریت طراحی‌شده کاملاً به زبان فارسی، به شدت کاربرپسند و اختصاصی است. علاوه بر آن، جلسات آموزش ویدیویی ضبط‌شده اختصاصی همراه با پنل پشتیبانی آنلاین به کارشناسان شما ارائه می‌شود.
+          </p>
+</details>
+</div>
+</div>
+</section>
+<!-- SHARED COMPONENT: Footer -->
+<footer class="docked full-width bottom bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/30">
+<div class="w-full px-6 lg:px-12 py-16 max-w-7xl mx-auto flex flex-col gap-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 items-start">
+<!-- Col 1: Brand & Bio (2 cols) -->
+<div class="lg:col-span-2">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-9 h-9 rounded-full bg-gradient-to-tr from-primary-container to-secondary-container flex items-center justify-center p-0.5">
+<div class="w-full h-full bg-surface-container-lowest rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-xl" data-icon="deployed_code" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+</div>
+<span class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary">حامی Hami</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6 max-w-sm">
+            آژانس مهندسی و تحول دیجیتال حامی؛ همراه مورد اعتماد رهبران بازار در خلق تجربه‌های وب کلاس جهانی، مقیاس‌پذیر، امن و پربازده.
+          </p>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<a class="w-9 h-9 rounded-lg bg-surface-container hover:text-secondary hover:bg-secondary/10 transition-colors flex items-center justify-center" href="#">
+<span class="material-symbols-outlined text-base" data-icon="alternate_email">alternate_email</span>
+</a>
+<a class="w-9 h-9 rounded-lg bg-surface-container hover:text-secondary hover:bg-secondary/10 transition-colors flex items-center justify-center" href="#">
+<span class="material-symbols-outlined text-base" data-icon="send">send</span>
+</a>
+<a class="w-9 h-9 rounded-lg bg-surface-container hover:text-secondary hover:bg-secondary/10 transition-colors flex items-center justify-center" href="#">
+<span class="material-symbols-outlined text-base" data-icon="share">share</span>
+</a>
+</div>
+</div>
+<!-- Col 2: Services Links -->
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface mb-4">خدمات تخصصی</h4>
+<ul class="space-y-2.5">
+<li><a class="text-on-surface-variant dark:text-on-surface-variant text-body-md hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#services">طراحی سایت شرکتی</a></li>
+<li><a class="text-on-surface-variant dark:text-on-surface-variant text-body-md hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#services">طراحی سایت فروشگاهی</a></li>
+<li><a class="text-on-surface-variant dark:text-on-surface-variant text-body-md hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#services">سئو و بهینه‌سازی</a></li>
+<li><a class="text-on-surface-variant dark:text-on-surface-variant text-body-md hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#services">پرتال‌های اختصاصی</a></li>
+</ul>
+</div>
+<!-- Col 3: Quick Links -->
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface mb-4">دسترسی سریع</h4>
+<ul class="space-y-2.5">
+<li><a class="text-on-surface-variant dark:text-on-surface-variant text-body-md hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#portfolio">نمونه‌کارها</a></li>
+<li><a class="text-on-surface-variant dark:text-on-surface-variant text-body-md hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#pricing">تعرفه‌ها</a></li>
+<li><a class="text-on-surface-variant dark:text-on-surface-variant text-body-md hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#testimonials">درباره حامی</a></li>
+<li><a class="text-on-surface-variant dark:text-on-surface-variant text-body-md hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#calculator">تماس با ما</a></li>
+<li><a class="text-on-surface-variant dark:text-on-surface-variant text-body-md hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#">قوانین و حریم خصوصی</a></li>
+</ul>
+</div>
+<!-- Col 4: Contact & Office -->
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface mb-4">دفتر مرکزی و ارتباط</h4>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-sm mt-1" data-icon="location_on">location_on</span>
+<span>تهران، سعادت‌آباد، بلوار فرهنگ، برج فناوری حامی، طبقه ۷</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="call">call</span>
+<span dir="ltr">021 - 8899 4433</span>
+</li>
+<li class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="mail">mail</span>
+<span dir="ltr">hello@hami.tech</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Copyright Bottom Bar -->
+<div class="pt-8 border-t border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+          © ۱۴۰۳ تمامی حقوق مادی و معنوی متعلق به آژانس مهندسی وب حامی (Hami Tech) می‌باشد.
+        </p>
+<div class="flex items-center gap-6">
+<span class="inline-flex items-center gap-2 text-xs text-secondary-fixed-dim">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            وضعیت سرورها: پایدار ۱۰۰٪
+          </span>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary" href="#">
+            بازگشت به بالای صفحه ↑
+          </a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,6 @@
+{
+  "name": "مبدل مهندسی HTML به Elementor JSON",
+  "description": "ابزار تخصصی تحلیل استایل‌های محاسباتی DOM و تبدیل دقیق فایل‌های HTML/ZIP به قالب استاندارد و قابل ویرایش Elementor JSON",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,11 +1,93 @@
-<div align="center">
+# مبدل مهندسی معکوس HTML به Elementor (نسخه Native 1:1 Exact-DOM)
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+این پروژه یک موتور کامپایلر و مهندسی معکوس در سمت مرورگر (Client-Side) است که صفحات استاندارد یا پیشرفته **HTML / CSS / JS** را بدون افت ظاهری، بدون به‌هم‌ریختگی ابعاد و با حفظ ۱۰۰٪ انیمیشن‌ها و تعاملات جاوااسکریپت به **قالب بومی المنتور وردپرس (`page.json`)** به همراه استایل‌های ایزوله (`extra.css`)، منطق تعاملی (`extra.js`) و دارایی‌های گرافیکی محلی (`assets/svg/*.svg`) تبدیل می‌کند.
 
-  <h1>Built with AI Studio</h2>
+---
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## فهرست مستندات فنی
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+- **[معماری و مکانیزم داخلی موتور تبدیل (`ARCHITECTURE.md`)](./ARCHITECTURE.md)**: مستندات جامع و گام‌به‌گام برای برنامه‌نویسان شامل جریان داده، الگوریتم‌های استخراج استایل محاسبه‌شده (`getComputedStyle`)، نگاشت ۱:۱ درخت DOM به ویجت‌های بومی المنتور، سیستم دوگانه رندر آیکن‌های SVG و مکانیزم پل زمان اجرا (Runtime DOM Bridge).
 
-</div>
+---
+
+## ویژگی‌های کلیدی این نسخه (Sealed Production Release)
+
+### ۱. تفکیک ۱:۱ به ویجت‌های بومی المنتور (1:1 Native Elementor Widgets)
+برخلاف مبدل‌های معمولی که کل صفحه یا بخش‌ها را داخل ویجت `html` کپسوله می‌کنند، این موتور درخت DOM را به‌صورت بازگشتی تحلیل کرده و اجزا را به ویجت‌های استاندارد و قابل‌ویرایش المنتور تبدیل می‌کند:
+- **`container` (`e-con` / `e-flex`)**: تگ‌های ساختاری (`section`, `header`, `footer`, `nav`, `main`, `article`, `aside`, `div`) با حفظ دقیق تگ معنایی (`html_tag`)، کلاس‌ها و چیدمان Flexbox / Grid.
+- **`heading`**: تمامی تیترها (`h1`..`h6`)، برچسب‌ها و متون تک‌خطی با حفظ تگ اصلی (`header_size`) و بدون هیچ‌گونه تگ HTML اضافی در فیلد `title`.
+- **`button`**: دکمه‌ها (`<button>`) و لینک‌های تعاملی (`<a>`) به ویجت بومی `button` با حفظ آیکن دقیق SVG و متون داخل دکمه.
+- **`icon-box`**: کارت‌های آیکن و باکس‌های SVG تک‌فرزندی به ویجت بومی `icon-box`.
+- **`accordion` / `toggle`**: بلوک‌های پرسش‌های متداول (FAQ) شامل `<details><summary>` و ساختارهای سفارشی (`.gf-item`, `.faq-item`, `.accordion-item`, `.qa-item`) به ویجت بومی `accordion` المنتور (`tabs: [{ _id, tab_title, tab_content }]`).
+- **`text-editor`**: پاراگراف‌ها (`<p>`, `<blockquote>`) و لیست‌های متنی.
+- **`image` و `divider`**: تصاویر (`<img>`)، بلوک‌های گرافیکی SVG (`assets/svg/*.svg`) و خطوط جداکننده (`<hr>`).
+
+### ۲. تزریق ابعاد و استایل‌های محاسبه‌شده واقعی (`getComputedStyle` Injection)
+پیش از تولید JSON، کل سند HTML در یک `iframe` ایزوله در سه نمای استاندارد المنتور اندازه‌گیری می‌شود:
+- **Desktop**: `1440×900`
+- **Tablet**: `1024×768`
+- **Mobile**: `390×844`
+
+تابع `injectComputedStylesIntoElementorController` مقادیر دقیق `width`, `height`, `padding`, `margin`, `gap`, `border-radius`, `font-size`, `line-height`, `letter-spacing`, `color` و `background-color` را مستقیماً در کنترلرهای استاندارد المنتور تزریق می‌کند تا ابعاد خروجی مو نزند.
+
+### ۳. حفظ ۱۰۰٪ طرح دقیق آیکن‌های SVG و رفتار `:hover`
+- تمامی تگ‌های `<svg>` از کدهای صفحه استخراج شده و در پوشه `assets/svg/svg-XXX.svg` داخل پکیج ZIP ذخیره می‌شوند.
+- برای ویجت‌های `icon-box` و `button`، موتور از یک **مکانیزم دولایه (CSS Mask + Runtime Exact SVG Replacement)** استفاده می‌کند:
+  1. در لایه CSS، آیکن پیش‌فرض FontAwesome المنتور مخفی شده و از `-webkit-mask: url(...)` با `background-color: currentColor` استفاده می‌شود.
+  2. در لایه زمان اجرا (`extra.js`)، کد دقیق `<svg data-el-exact-svg="1">` با حفظ ویژگی‌های `fill="none"` و `stroke="currentColor"` جایگزین می‌شود تا در حالت `:hover` آیکن‌های خطی هرگز توپُر (Solid Fill) نشوند و دقیقاً رنگ هاور دکمه یا کارت را به ارث ببرند.
+
+### ۴. خروجی کاملاً تمیز و بدون کامنت (Zero-Comment Output)
+- تمامی کامنت‌های CSS (`/* ... */`)، کامنت‌های JS و کامنت‌های HTML پیش از ساخت خروجی حذف می‌شوند.
+- کلیدهای راهنمای داخلی (`_ converter_notes` و مشابه) در فایل نهایی `page.json` وجود ندارند.
+- استایل‌های پایه المنتور برای دکمه‌ها (`.elementor-button:hover`) و آیکن‌ها خنثی شده‌اند تا تداخل رنگی در هاور رخ ندهد.
+
+---
+
+## ساختار پکیج خروجی (ZIP)
+
+با کلیک روی دکمه **«دانلود پکیج کامل ZIP»**، فایل فشرده حاوی موارد زیر تولید می‌شود:
+
+| مسیر فایل در ZIP | کاربرد |
+| :--- | :--- |
+| `page.json` | فایل قالب استاندارد المنتور (قابل ایمپورت در `قالب‌ها > قالب‌های ذخیره‌شده > درون‌ریزی قالب‌ها`). در حالت یکپارچه (Self-Contained)، استایل‌ها و اسکریپت‌ها نیز در انتهای همین فایل جاسازی شده‌اند. |
+| `extra.css` | استایل‌های ایزوله‌شده با پیشوند `.elementor-<slug>`، متغیرهای `:root`، انیمیشن‌های `@keyframes` و قوانین آیکن‌های SVG. |
+| `extra.js` | اسکریپت‌های تعاملی صفحه + پل بازسازی زمان اجرا (`DOM Bridge`) برای آکاردئون‌ها، آیکن‌های SVG و لایه‌های تزئینی. |
+| `assets/svg/svg-XXX.svg` | فایل‌های گرافیکی SVG استخراج‌شده به‌صورت مجزا و محلی. |
+| `manifest.json` | گزارش متادیتای تبدیل، آمار ویجت‌ها، فونت‌های شناسایی‌شده و وضعیت اعتبارسنجی ۲۰گانه. |
+
+---
+
+## راه‌اندازی و توسعه محلی
+
+```bash
+# نصب وابستگی‌ها
+npm install
+
+# اجرای سرور توسعه روی پورت 3000
+npm run dev
+
+# بررسی خطاهای تایپ‌اسکریپت و بیلد نهایی
+npm run lint
+npm run build
+```
+
+---
+
+## ساختار پوشه‌ها و ماژول‌های پروژه
+
+```text
+src/
+├── App.tsx                             # رابط کاربری اصلی، مدیریت وضعیت و ارکستراسیون 파이پ‌لاین تبدیل
+├── types/
+│   └── elementor.ts                    # تایپ‌ها و اینترفیس‌های داده المنتور، تنظیمات، گزارش اعتبارسنجی و دارایی‌های SVG
+├── services/
+│   ├── htmlParser.ts                   # رندر سند در iframe مخفی، اندازه‌گیری سه نمای ریسپانسیو و تزریق getComputedStyle
+│   ├── elementorBuilder.ts             # موتور کامپایلر درخت DOM به ویجت‌های بومی المنتور (Container, Heading, Button, Icon-Box, Accordion, ...)
+│   ├── extraAssetsExtractor.ts         # استخراج، ایزولاسیون (Scoping) و پاک‌سازی extra.css و extra.js + تولید DOM Bridge
+│   ├── tailwindSandboxHelper.ts        # سنتز خودکار کلاس‌های Tailwind CDN به قوانین خالص CSS
+│   └── validator.ts                    # موتور اعتبارسنجی ۲۰گانه ساختار JSON المنتور پیش از دانلود
+├── components/
+│   └── ElementorVisualPreview.tsx      # شبیه‌ساز بصری زنده المنتور و مقایسه کنارهم (Side-by-Side) با HTML اصلی
+└── samples/
+    └── sampleHtml.ts                   # قالب‌های نمونه آماده برای تست سریع پایپ‌لاین
+```

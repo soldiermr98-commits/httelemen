@@ -1,0 +1,5314 @@
+{
+  "title": "gilaclick-single",
+  "type": "page",
+  "version": "0.4",
+  "page_settings": {
+    "background_background": "classic",
+    "background_color": "#FFFFFF"
+  },
+  "content": [
+    {
+      "id": "7c8e2531",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "721c06ed",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {
+            "image": {
+              "url": "https://placehold.co/400x300?text=Replace+Image",
+              "id": "",
+              "alt": "تصویر قالب"
+            },
+            "image_size": "full",
+            "align": "left"
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "5edbb00e",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#A3F451",
+        "padding": {
+          "unit": "px",
+          "top": "10",
+          "right": "16",
+          "bottom": "10",
+          "left": "16",
+          "isLinked": false
+        },
+        "border_radius": {
+          "unit": "px",
+          "top": "6",
+          "right": "6",
+          "bottom": "6",
+          "left": "6",
+          "isLinked": true
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "01d68df6",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "پرش به محتوای اصلی",
+            "link": {
+              "url": "#main",
+              "is_external": "",
+              "nofollow": ""
+            },
+            "size": "md",
+            "background_color": "#A3F451",
+            "button_text_color": "#06271F",
+            "border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            },
+            "text_padding": {
+              "unit": "px",
+              "top": "10",
+              "right": "16",
+              "bottom": "10",
+              "left": "16",
+              "isLinked": false
+            },
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 31
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "10",
+              "right": "16",
+              "bottom": "10",
+              "left": "16",
+              "isLinked": false
+            },
+            "_border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "e2b3f566",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [],
+      "isInner": false
+    },
+    {
+      "id": "5e7a2ac8",
+      "elType": "container",
+      "settings": {
+        "margin": {
+          "unit": "px",
+          "top": "-280",
+          "right": "0",
+          "bottom": "0",
+          "left": "-280",
+          "isLinked": false
+        },
+        "border_radius": {
+          "unit": "px",
+          "top": "50",
+          "right": "50",
+          "bottom": "50",
+          "left": "50",
+          "isLinked": true
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "04d5e722",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "e61a41f6",
+      "elType": "container",
+      "settings": {
+        "padding": {
+          "unit": "px",
+          "top": "14",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "6be74542",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 66
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "db39c8c7",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p><a href=\"https://gilaclick.ir/\">گیلاکلیک GILACLICK صفحه اصلی</a></p>",
+            "text_color": "#172B25",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 31
+            },
+            "_border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "01208816",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "1311b597",
+                "text": "صفحه اصلی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "6e6e3b29",
+                "text": "فروشگاه محصولات همه محصولات فهرست کامل محصولات نرم‌افزاری و قیمت‌ها افزونه‌ها و ماژول‌ها افزونه‌های وردپرس و ووکامرس دانلودهای من دسترسی به فایل محصولات خریداری‌شده سبد خرید بررسی و تکمیل سفارش مشاهده فروشگاه محصولات",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "30ce2bd3",
+                "text": "خدمات وب طراحی و توسعه وب‌سایت سایت شرکتی، فروشگاهی و اختصاصی سئو و بهینه‌سازی سایت سئو تکنیکال، داخلی و استراتژی محتوا پشتیبانی و نگهداری امنیت، بکاپ و بروزرسانی منظم برنامه‌نویسی اختصاصی افزونه، ماژول و اتصال API درخواست مشاوره فنی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "f59094b1",
+                "text": "راهنمای گیلان",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/category/%D9%85%D8%B9%D8%B1%D9%81%DB%8C-%DA%AF%DB%8C%D9%84%D8%A7%D9%86/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "e8f703e7",
+                "text": "درباره ما",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/about-us/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "165033e1",
+                "text": "تماس با ما",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/contact-us/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 8
+            },
+            "icon_color": "#172B25",
+            "text_color": "#172B25",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "7db34dd3",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "[متن دکمه]",
+            "link": {
+              "url": "https://gilaclick.ir/cart/",
+              "is_external": "on",
+              "nofollow": ""
+            },
+            "size": "md",
+            "background_color": "#FFFFFF",
+            "button_text_color": "#172B25",
+            "border_radius": {
+              "unit": "px",
+              "top": "10",
+              "right": "10",
+              "bottom": "10",
+              "left": "10",
+              "isLinked": true
+            },
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 31
+            },
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "rgba(23, 43, 37, 0.1)",
+            "_border_radius": {
+              "unit": "px",
+              "top": "10",
+              "right": "10",
+              "bottom": "10",
+              "left": "10",
+              "isLinked": true
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "a8ce0116",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "ورود / حساب کاربری",
+            "link": {
+              "url": "https://gilaclick.ir/my-account/",
+              "is_external": "on",
+              "nofollow": ""
+            },
+            "size": "md",
+            "background_color": "#06271F",
+            "button_text_color": "#FFFFFF",
+            "border_radius": {
+              "unit": "px",
+              "top": "10",
+              "right": "10",
+              "bottom": "10",
+              "left": "10",
+              "isLinked": true
+            },
+            "text_padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "16",
+              "bottom": "0",
+              "left": "16",
+              "isLinked": false
+            },
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 27
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "16",
+              "bottom": "0",
+              "left": "16",
+              "isLinked": false
+            },
+            "_border_radius": {
+              "unit": "px",
+              "top": "10",
+              "right": "10",
+              "bottom": "10",
+              "left": "10",
+              "isLinked": true
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7cb1de00",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#06271F",
+        "padding": {
+          "unit": "px",
+          "top": "152",
+          "right": "0",
+          "bottom": "101",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "120",
+          "right": "0",
+          "bottom": "64",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "120",
+          "right": "0",
+          "bottom": "64",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "row"
+      },
+      "elements": [
+        {
+          "id": "716dcfd1",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "width": {
+              "unit": "%",
+              "size": 25
+            }
+          },
+          "elements": [
+            {
+              "id": "4502d983",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 300
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "7bc1a4df",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 300
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "c439a8d7",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 300
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "af870be3",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 300
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "0c20f530",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "width": {
+              "unit": "%",
+              "size": 35
+            }
+          },
+          "elements": [
+            {
+              "id": "5fbc82b2",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 300
+                }
+              },
+              "elements": []
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "b681a5b6",
+          "elType": "container",
+          "settings": {
+            "margin_tablet": {
+              "unit": "px",
+              "top": "0",
+              "right": "31",
+              "bottom": "0",
+              "left": "31",
+              "isLinked": false
+            },
+            "margin_mobile": {
+              "unit": "px",
+              "top": "0",
+              "right": "20",
+              "bottom": "0",
+              "left": "20",
+              "isLinked": false
+            },
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_gap": {
+              "unit": "px",
+              "size": 58,
+              "column": "58",
+              "row": "58",
+              "isLinked": true
+            },
+            "width": {
+              "unit": "%",
+              "size": 30
+            }
+          },
+          "elements": [
+            {
+              "id": "5f5ea148",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "width": {
+                  "unit": "%",
+                  "size": 51
+                }
+              },
+              "elements": [
+                {
+                  "id": "60ccd573",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>توسعه فناوری | محصولات نرم‌افزاری | راهکارهای دیجیتال</p>",
+                    "text_color": "rgba(233, 247, 240, 0.72)",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 12
+                    },
+                    "typography_font_weight": "600",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 22
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 19
+                    },
+                    "_padding": {
+                      "unit": "px",
+                      "top": "7",
+                      "right": "14",
+                      "bottom": "7",
+                      "left": "14",
+                      "isLinked": false
+                    },
+                    "_padding_mobile": {
+                      "unit": "px",
+                      "top": "6",
+                      "right": "11",
+                      "bottom": "6",
+                      "left": "11",
+                      "isLinked": false
+                    },
+                    "_background_background": "classic",
+                    "_background_color": "rgba(163, 244, 81, 0.05)",
+                    "_border_border": "solid",
+                    "_border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "_border_color": "rgba(163, 244, 81, 0.22)",
+                    "_border_radius": {
+                      "unit": "px",
+                      "top": "6",
+                      "right": "6",
+                      "bottom": "6",
+                      "left": "6",
+                      "isLinked": true
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "da464f86",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "گیلاکلیک؛ از ایده تا توسعه راهکارهای دیجیتال",
+                    "header_size": "h1",
+                    "title_color": "#FFFFFF",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 58
+                    },
+                    "typography_font_size_tablet": {
+                      "unit": "px",
+                      "size": 43
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 33
+                    },
+                    "typography_font_weight": "850",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 82
+                    },
+                    "typography_line_height_tablet": {
+                      "unit": "px",
+                      "size": 61
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 47
+                    },
+                    "_margin": {
+                      "unit": "px",
+                      "top": "24",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "920ba9c7",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>از طراحی و توسعه وب‌سایت تا تولید افزونه‌ها و ابزارهای نرم‌افزاری؛ راهکارهای کاربردی برای ساخت، مدیریت و توسعه کسب‌وکار آنلاین شما.</p>",
+                    "text_color": "rgba(233, 247, 240, 0.72)",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 19
+                    },
+                    "typography_font_size_tablet": {
+                      "unit": "px",
+                      "size": 18
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 16
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 38
+                    },
+                    "typography_line_height_tablet": {
+                      "unit": "px",
+                      "size": 35
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 33
+                    },
+                    "_margin": {
+                      "unit": "px",
+                      "top": "22",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "44552f54",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "مشاهده محصولات نرم‌افزاری",
+                    "link": {
+                      "url": "#products",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "size": "md",
+                    "background_color": "#A3F451",
+                    "button_text_color": "#06271F",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "6",
+                      "right": "6",
+                      "bottom": "6",
+                      "left": "6",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "14",
+                      "right": "26",
+                      "bottom": "14",
+                      "left": "26",
+                      "isLinked": false
+                    },
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 17
+                    },
+                    "typography_font_weight": "700",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 22
+                    },
+                    "_padding": {
+                      "unit": "px",
+                      "top": "14",
+                      "right": "26",
+                      "bottom": "14",
+                      "left": "26",
+                      "isLinked": false
+                    },
+                    "_border_border": "solid",
+                    "_border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "_border_color": "rgba(163, 244, 81, 0.8)",
+                    "_border_radius": {
+                      "unit": "px",
+                      "top": "6",
+                      "right": "6",
+                      "bottom": "6",
+                      "left": "6",
+                      "isLinked": true
+                    },
+                    "_box_shadow_box_shadow_type": "yes",
+                    "_box_shadow_box_shadow": {
+                      "horizontal": 0,
+                      "vertical": 10,
+                      "blur": 30,
+                      "spread": -14,
+                      "color": "rgba(163, 244, 81, 0.55)"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "6f87b6cd",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "آشنایی با خدمات وب",
+                    "link": {
+                      "url": "#services",
+                      "is_external": "",
+                      "nofollow": ""
+                    },
+                    "size": "md",
+                    "background_color": "rgba(233, 247, 240, 0.04)",
+                    "button_text_color": "#E9F7F0",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "6",
+                      "right": "6",
+                      "bottom": "6",
+                      "left": "6",
+                      "isLinked": true
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "14",
+                      "right": "26",
+                      "bottom": "14",
+                      "left": "26",
+                      "isLinked": false
+                    },
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 17
+                    },
+                    "typography_font_weight": "700",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 22
+                    },
+                    "_padding": {
+                      "unit": "px",
+                      "top": "14",
+                      "right": "26",
+                      "bottom": "14",
+                      "left": "26",
+                      "isLinked": false
+                    },
+                    "_border_border": "solid",
+                    "_border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "_border_color": "rgba(233, 247, 240, 0.22)",
+                    "_border_radius": {
+                      "unit": "px",
+                      "top": "6",
+                      "right": "6",
+                      "bottom": "6",
+                      "left": "6",
+                      "isLinked": true
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "256ff6f8",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>بیش از ۱۰ سال تجربه در طراحی و توسعه وب</p>",
+                    "text_color": "rgba(233, 247, 240, 0.72)",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "typography_font_weight": "600",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 27
+                    },
+                    "_margin": {
+                      "unit": "px",
+                      "top": "36",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_padding": {
+                      "unit": "px",
+                      "top": "22",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_border_border": "solid",
+                    "_border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_border_color": "rgba(233, 247, 240, 0.1)"
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "1b83ddb7",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "width": {
+                  "unit": "%",
+                  "size": 49
+                }
+              },
+              "elements": [
+                {
+                  "id": "ec76b40f",
+                  "elType": "widget",
+                  "widgetType": "spacer",
+                  "settings": {
+                    "space": {
+                      "unit": "px",
+                      "size": 300
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "1842fda9",
+                  "elType": "widget",
+                  "widgetType": "spacer",
+                  "settings": {
+                    "space": {
+                      "unit": "px",
+                      "size": 197
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "1aabcd89",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "image": {
+                      "url": "https://placehold.co/580x541?text=Replace+Image",
+                      "id": "",
+                      "alt": "تصویر قالب"
+                    },
+                    "image_size": "full",
+                    "width": {
+                      "unit": "px",
+                      "size": 580
+                    },
+                    "align": "left"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "8b9ea87a",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>call-for-price.php</p>",
+                    "text_color": "rgba(233, 247, 240, 0.85)",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "SFMono-Regular",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 7
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 22
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 13
+                    },
+                    "_padding": {
+                      "unit": "px",
+                      "top": "3",
+                      "right": "8",
+                      "bottom": "3",
+                      "left": "8",
+                      "isLinked": false
+                    },
+                    "_padding_mobile": {
+                      "unit": "px",
+                      "top": "2",
+                      "right": "5",
+                      "bottom": "2",
+                      "left": "5",
+                      "isLinked": false
+                    },
+                    "_background_background": "classic",
+                    "_background_color": "rgba(233, 247, 240, 0.06)",
+                    "_border_radius": {
+                      "unit": "px",
+                      "top": "4",
+                      "right": "4",
+                      "bottom": "4",
+                      "left": "4",
+                      "isLinked": true
+                    },
+                    "_box_shadow_box_shadow_type": "yes",
+                    "_box_shadow_box_shadow": {
+                      "horizontal": 0,
+                      "vertical": -1,
+                      "blur": 0,
+                      "spread": 0,
+                      "color": "#A3F451"
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "f30c793f",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>فعال</p>",
+                    "text_color": "#A3F451",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 7
+                    },
+                    "typography_font_weight": "600",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 22
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 13
+                    },
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "140",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_margin_tablet": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "126",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_margin_mobile": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "57",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "a2e3def5",
+                  "elType": "widget",
+                  "widgetType": "icon-list",
+                  "settings": {
+                    "icon_list": [
+                      {
+                        "_id": "1826cabf",
+                        "text": "<?php",
+                        "selected_icon": {
+                          "value": "fas fa-angle-left",
+                          "library": "fa-solid"
+                        },
+                        "link": {
+                          "url": "",
+                          "is_external": "",
+                          "nofollow": ""
+                        }
+                      },
+                      {
+                        "_id": "32c2b02a",
+                        "text": "// Hami · Call for Price for WooCommerce",
+                        "selected_icon": {
+                          "value": "fas fa-angle-left",
+                          "library": "fa-solid"
+                        },
+                        "link": {
+                          "url": "",
+                          "is_external": "",
+                          "nofollow": ""
+                        }
+                      },
+                      {
+                        "_id": "8d5a5112",
+                        "text": "add_filter('woocommerce_get_price_html',",
+                        "selected_icon": {
+                          "value": "fas fa-angle-left",
+                          "library": "fa-solid"
+                        },
+                        "link": {
+                          "url": "",
+                          "is_external": "",
+                          "nofollow": ""
+                        }
+                      },
+                      {
+                        "_id": "56b0081a",
+                        "text": "'gc_price_inquiry', 20, 2);",
+                        "selected_icon": {
+                          "value": "fas fa-angle-left",
+                          "library": "fa-solid"
+                        },
+                        "link": {
+                          "url": "",
+                          "is_external": "",
+                          "nofollow": ""
+                        }
+                      },
+                      {
+                        "_id": "418322da",
+                        "text": "آیتم لیست 5",
+                        "selected_icon": {
+                          "value": "fas fa-angle-left",
+                          "library": "fa-solid"
+                        },
+                        "link": {
+                          "url": "",
+                          "is_external": "",
+                          "nofollow": ""
+                        }
+                      },
+                      {
+                        "_id": "78bc3682",
+                        "text": "function gc_price_inquiry($html, $product) {",
+                        "selected_icon": {
+                          "value": "fas fa-angle-left",
+                          "library": "fa-solid"
+                        },
+                        "link": {
+                          "url": "",
+                          "is_external": "",
+                          "nofollow": ""
+                        }
+                      },
+                      {
+                        "_id": "d8f12fba",
+                        "text": "return gc_inquiry_button($product);",
+                        "selected_icon": {
+                          "value": "fas fa-angle-left",
+                          "library": "fa-solid"
+                        },
+                        "link": {
+                          "url": "",
+                          "is_external": "",
+                          "nofollow": ""
+                        }
+                      },
+                      {
+                        "_id": "9cd09de2",
+                        "text": "}",
+                        "selected_icon": {
+                          "value": "fas fa-angle-left",
+                          "library": "fa-solid"
+                        },
+                        "link": {
+                          "url": "",
+                          "is_external": "",
+                          "nofollow": ""
+                        }
+                      }
+                    ],
+                    "space_between": {
+                      "unit": "px",
+                      "size": 10
+                    },
+                    "icon_color": "#E9F7F0",
+                    "text_color": "#E9F7F0",
+                    "icon_typography_typography": "custom",
+                    "icon_typography_font_family": "SFMono-Regular",
+                    "icon_typography_font_size": {
+                      "unit": "px",
+                      "size": 12
+                    },
+                    "icon_typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 7
+                    },
+                    "icon_typography_font_weight": "400",
+                    "icon_typography_line_height": {
+                      "unit": "px",
+                      "size": 21
+                    },
+                    "icon_typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 13
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "ef347e01",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>ساخت</p>",
+                    "text_color": "rgba(233, 247, 240, 0.7)",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 7
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 22
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 13
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "b0799308",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>آزمون</p>",
+                    "text_color": "rgba(233, 247, 240, 0.7)",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 7
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 22
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 13
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "e6d6064f",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>انتشار</p>",
+                    "text_color": "#A3F451",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 11
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 7
+                    },
+                    "typography_font_weight": "600",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 22
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 13
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "5ab76133",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>تماس برای قیمت افزونه ووکامرس</p>",
+                    "text_color": "#172B25",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 8
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 20
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 13
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "45235ca9",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Hami AI</p>",
+                    "text_color": "#172B25",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 8
+                    },
+                    "typography_font_weight": "800",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 24
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 15
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "0196070f",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>آنلاین</p>",
+                    "text_color": "#0B4435",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 10
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 6
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 19
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 12
+                    },
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "103",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_margin_tablet": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "94",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_margin_mobile": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "46",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "540a6221",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>سلام! دنبال چه محصولی هستید؟ بگویید چه می‌خواهید؛ مرتبط‌ترین محصولات را پیدا می‌کنم. سؤالی درباره محصولات دارید؟ همین‌جا بپرسید.</p>",
+                    "text_color": "#172B25",
+                    "align": "left",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Peyda",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 7
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "px",
+                      "size": 20
+                    },
+                    "typography_line_height_mobile": {
+                      "unit": "px",
+                      "size": 13
+                    },
+                    "_padding": {
+                      "unit": "px",
+                      "top": "7",
+                      "right": "10",
+                      "bottom": "7",
+                      "left": "10",
+                      "isLinked": false
+                    },
+                    "_padding_mobile": {
+                      "unit": "px",
+                      "top": "4",
+                      "right": "6",
+                      "bottom": "4",
+                      "left": "6",
+                      "isLinked": false
+                    },
+                    "_background_background": "classic",
+                    "_background_color": "#FFFFFF",
+                    "_border_border": "solid",
+                    "_border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "_border_color": "rgba(23, 43, 37, 0.1)",
+                    "_border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "2",
+                      "bottom": "8",
+                      "left": "8",
+                      "isLinked": false
+                    }
+                  },
+                  "elements": []
+                }
+              ],
+              "isInner": true
+            }
+          ],
+          "isInner": true
+        },
+        {
+          "id": "44d2711a",
+          "elType": "container",
+          "settings": {
+            "padding": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            },
+            "content_width": "full",
+            "flex_direction": "column",
+            "flex_gap": {
+              "unit": "px",
+              "size": 6,
+              "column": "6",
+              "row": "6",
+              "isLinked": true
+            },
+            "width": {
+              "unit": "%",
+              "size": 10
+            }
+          },
+          "elements": [],
+          "isInner": true
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "d87758eb",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F0FBF6",
+        "padding": {
+          "unit": "px",
+          "top": "128",
+          "right": "0",
+          "bottom": "128",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "91",
+          "right": "0",
+          "bottom": "91",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "72",
+          "right": "0",
+          "bottom": "72",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "b2d16a53",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "d80fb1e4",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>ابزارهایی برای توسعه و مدیریت بهتر</p>",
+            "text_color": "#0B4435",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 22
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "4319bae1",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "محصولات نرم‌افزاری گیلاکلیک",
+            "header_size": "h2",
+            "title_color": "#172B25",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 40
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 32
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 26
+            },
+            "typography_font_weight": "800",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 58
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 46
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 38
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "167926a6",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>مجموعه‌ای از افزونه‌ها، ابزارها و نرم‌افزارهای کاربردی که با هدف رفع نیازهای واقعی وب‌سایت‌ها و کسب‌وکارهای آنلاین توسعه داده شده‌اند.</p>",
+            "text_color": "#64756E",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 17
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 33
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "b29367c4",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "94ae30fb",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 22
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "90784a8e",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 26
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "d3696c96",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 14
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "349675ca",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 14
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "c27281c2",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 14
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "43cb46d6",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 14
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "fa605179",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 44
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "3ee6483a",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 264
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "0004f262",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 22
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "bfb4d46e",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 26
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "356134ce",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 14
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "0bf036ea",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 44
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "f225ab4e",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {
+            "image": {
+              "url": "https://placehold.co/396x119?text=Replace+Image",
+              "id": "",
+              "alt": "تصویر قالب"
+            },
+            "image_size": "full",
+            "width": {
+              "unit": "px",
+              "size": 396
+            },
+            "align": "left"
+          },
+          "elements": []
+        },
+        {
+          "id": "f969fdd8",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>راهکار اختصاصی</p>",
+            "text_color": "#A3F451",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 13
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 21
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "3",
+              "right": "10",
+              "bottom": "3",
+              "left": "10",
+              "isLinked": false
+            },
+            "_background_background": "classic",
+            "_background_color": "rgba(163, 244, 81, 0.1)",
+            "_border_radius": {
+              "unit": "px",
+              "top": "4",
+              "right": "4",
+              "bottom": "4",
+              "left": "4",
+              "isLinked": true
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "ab13be26",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "ابزارهای مدیریتی و نرم‌افزارهای اختصاصی",
+            "header_size": "h3",
+            "title_color": "#FFFFFF",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 21
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 19
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 18
+            },
+            "typography_font_weight": "800",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 32
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 29
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 28
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "c0a56b84",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>راهکارهای نرم‌افزاری برای ساده‌سازی فرایندهای کاری و مدیریت بهتر کسب‌وکارها.</p>",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 27
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "d2bcab96",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "درخواست مشاوره فنی",
+            "link": {
+              "url": "https://gilaclick.ir/contact-us/",
+              "is_external": "on",
+              "nofollow": ""
+            },
+            "size": "md",
+            "background_color": "#A3F451",
+            "button_text_color": "#06271F",
+            "border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            },
+            "text_padding": {
+              "unit": "px",
+              "top": "7",
+              "right": "16",
+              "bottom": "7",
+              "left": "16",
+              "isLinked": false
+            },
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 18
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "7",
+              "right": "16",
+              "bottom": "7",
+              "left": "16",
+              "isLinked": false
+            },
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "rgba(163, 244, 81, 0.8)",
+            "_border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            },
+            "_box_shadow_box_shadow_type": "yes",
+            "_box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 10,
+              "blur": 30,
+              "spread": -14,
+              "color": "rgba(163, 244, 81, 0.55)"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "683a2fcf",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "مشاهده همه محصولات",
+            "link": {
+              "url": "https://gilaclick.ir/shop/",
+              "is_external": "on",
+              "nofollow": ""
+            },
+            "size": "md",
+            "background_color": "#06271F",
+            "button_text_color": "#FFFFFF",
+            "border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            },
+            "text_padding": {
+              "unit": "px",
+              "top": "14",
+              "right": "26",
+              "bottom": "14",
+              "left": "26",
+              "isLinked": false
+            },
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 17
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 22
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "14",
+              "right": "26",
+              "bottom": "14",
+              "left": "26",
+              "isLinked": false
+            },
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "#06271F",
+            "_border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "066cdb71",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding": {
+          "unit": "px",
+          "top": "128",
+          "right": "0",
+          "bottom": "128",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "91",
+          "right": "0",
+          "bottom": "91",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "72",
+          "right": "0",
+          "bottom": "72",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "70ad236f",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 55
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "a289458f",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 55
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "914f9438",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 55
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "4cb0871c",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 55
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "1de73afc",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 55
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "2e5e3fd0",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 55
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "c60ff9e0",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 55
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "ce8930b3",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 55
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "2141c4a9",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>خدمات تخصصی وب</p>",
+            "text_color": "#0B4435",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 22
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "2d461ae2",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "راهکارهای تخصصی برای حضور قدرتمند در فضای دیجیتال",
+            "header_size": "h2",
+            "title_color": "#172B25",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 40
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 32
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 26
+            },
+            "typography_font_weight": "800",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 58
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 46
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 38
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "981d79e7",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>از راه‌اندازی یک وب‌سایت حرفه‌ای تا بهینه‌سازی، توسعه و نگهداری آن؛ خدمات موردنیاز کسب‌وکار شما را در یک مسیر یکپارچه ارائه می‌کنیم.</p>",
+            "text_color": "#64756E",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 17
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 33
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "a1776be1",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "7fb87e76",
+                "text": "۰۱ طراحی و توسعه وب‌سایت طراحی سایت‌های مدرن، سریع و اختصاصی متناسب با نیاز کسب‌وکار شما. طراحی سایت شرکتی و خدماتی طراحی فروشگاه اینترنتی طراحی سایت اختصاصی طراحی سامانه‌های رزرو و نوبت‌دهی مشاهده خدمات و تعرفه طراحی سایت",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "8c33fa2c",
+                "text": "۰۲ سئو و بهینه‌سازی سایت بهبود ساختار سایت و افزایش شانس دیده‌شدن در نتایج جستجوی گوگل. سئو تکنیکال سئو داخلی تحقیق کلمات کلیدی استراتژی محتوا بهینه‌سازی فروشگاه اینترنتی مشاهده خدمات سئو",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "273a2c3e",
+                "text": "۰۳ پشتیبانی و نگهداری وب‌سایت حفظ امنیت، سلامت و عملکرد وب‌سایت با خدمات نگهداری منظم. افزایش امنیت سایت بکاپ‌گیری منظم بروزرسانی وردپرس و افزونه‌ها رفع خطاهای فنی بررسی عملکرد و سلامت سایت مشاهده تعرفه پشتیبانی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "a8f39310",
+                "text": "۰۴ برنامه‌نویسی و توسعه اختصاصی توسعه قابلیت‌ها و ابزارهای نرم‌افزاری متناسب با نیازهای خاص کسب‌وکارها. توسعه افزونه وردپرس برنامه‌نویسی PHP سفارشی‌سازی ووکامرس توسعه ماژول‌های اختصاصی اتصال API و سرویس‌های خارجی درخواست مشاوره فنی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 23
+            },
+            "icon_color": "#172B25",
+            "text_color": "#172B25",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "_margin_tablet": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "_margin_mobile": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "498f927e",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#06271F",
+        "padding": {
+          "unit": "px",
+          "top": "128",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "91",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "72",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "bac8a4ed",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "c238272e",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "1da040c8",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "90eb934f",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>توانمندی‌ها و تجربه</p>",
+            "text_color": "#A3F451",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 22
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "1cfaaef5",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "تجربه فنی، از طراحی تا توسعه راهکارهای دیجیتال",
+            "header_size": "h2",
+            "title_color": "#FFFFFF",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 40
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 32
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 26
+            },
+            "typography_font_weight": "800",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 58
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 46
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 38
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "05aba7d8",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>بیش از ۱۰ سال فعالیت در زمینه طراحی و توسعه وب، شناخت دقیقی از نیازهای فنی وب‌سایت‌ها و کسب‌وکارهای آنلاین در اختیار ما قرار داده است.</p>",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 17
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 33
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "85c72584",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>در گیلاکلیک تلاش می‌کنیم به‌جای ارائه راهکارهای تکراری، ابزارها و خدماتی کاربردی، قابل توسعه و متناسب با نیاز واقعی هر پروژه ارائه کنیم.</p>",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 17
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 33
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "438c0d7b",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "91d4dc41",
+                "text": "بیش از ۱۰ سال تجربه در حوزه وب",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "a2160d6f",
+                "text": "توسعه محصولات نرم‌افزاری اختصاصی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "1dc74e69",
+                "text": "تمرکز بر کیفیت فنی و تجربه کاربری",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "c25cf638",
+                "text": "ارائه خدمات نصب، آموزش و پشتیبانی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 12
+            },
+            "icon_color": "#E9F7F0",
+            "text_color": "#E9F7F0",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "36",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "5cda362b",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "68c731ff",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {
+            "image": {
+              "url": "https://placehold.co/560x495?text=Replace+Image",
+              "id": "",
+              "alt": "تصویر قالب"
+            },
+            "image_size": "full",
+            "width": {
+              "unit": "px",
+              "size": 560
+            },
+            "align": "left"
+          },
+          "elements": []
+        },
+        {
+          "id": "75378813",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>WordPress</p>",
+            "text_color": "#E9F7F0",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "SFMono-Regular",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 13
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 12
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 9
+            },
+            "typography_font_weight": "600",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 25
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 24
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 17
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "6",
+              "right": "10",
+              "bottom": "6",
+              "left": "10",
+              "isLinked": false
+            },
+            "_padding_mobile": {
+              "unit": "px",
+              "top": "4",
+              "right": "7",
+              "bottom": "4",
+              "left": "7",
+              "isLinked": false
+            },
+            "_background_background": "classic",
+            "_background_color": "rgba(6, 39, 31, 0.88)",
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "rgba(25, 197, 139, 0.4)",
+            "_border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            },
+            "_box_shadow_box_shadow_type": "yes",
+            "_box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 10,
+              "blur": 24,
+              "spread": -14,
+              "color": "rgba(0, 0, 0, 0.8)"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "7b23d92c",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>WooCommerce</p>",
+            "text_color": "#E9F7F0",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "SFMono-Regular",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 13
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 12
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 9
+            },
+            "typography_font_weight": "600",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 25
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 24
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 17
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "6",
+              "right": "10",
+              "bottom": "6",
+              "left": "10",
+              "isLinked": false
+            },
+            "_padding_mobile": {
+              "unit": "px",
+              "top": "4",
+              "right": "7",
+              "bottom": "4",
+              "left": "7",
+              "isLinked": false
+            },
+            "_background_background": "classic",
+            "_background_color": "rgba(6, 39, 31, 0.88)",
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "rgba(25, 197, 139, 0.4)",
+            "_border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            },
+            "_box_shadow_box_shadow_type": "yes",
+            "_box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 10,
+              "blur": 24,
+              "spread": -14,
+              "color": "rgba(0, 0, 0, 0.8)"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "d0987552",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>PHP</p>",
+            "text_color": "#E9F7F0",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "SFMono-Regular",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 13
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 12
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 9
+            },
+            "typography_font_weight": "600",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 25
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 24
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 17
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "6",
+              "right": "10",
+              "bottom": "6",
+              "left": "10",
+              "isLinked": false
+            },
+            "_padding_mobile": {
+              "unit": "px",
+              "top": "4",
+              "right": "7",
+              "bottom": "4",
+              "left": "7",
+              "isLinked": false
+            },
+            "_background_background": "classic",
+            "_background_color": "rgba(6, 39, 31, 0.88)",
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "rgba(25, 197, 139, 0.4)",
+            "_border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            },
+            "_box_shadow_box_shadow_type": "yes",
+            "_box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 10,
+              "blur": 24,
+              "spread": -14,
+              "color": "rgba(0, 0, 0, 0.8)"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "c460d040",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>REST API</p>",
+            "text_color": "#E9F7F0",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "SFMono-Regular",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 13
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 12
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 9
+            },
+            "typography_font_weight": "600",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 25
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 24
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 17
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "6",
+              "right": "10",
+              "bottom": "6",
+              "left": "10",
+              "isLinked": false
+            },
+            "_padding_mobile": {
+              "unit": "px",
+              "top": "4",
+              "right": "7",
+              "bottom": "4",
+              "left": "7",
+              "isLinked": false
+            },
+            "_background_background": "classic",
+            "_background_color": "rgba(6, 39, 31, 0.88)",
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "rgba(25, 197, 139, 0.4)",
+            "_border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            },
+            "_box_shadow_box_shadow_type": "yes",
+            "_box_shadow_box_shadow": {
+              "horizontal": 0,
+              "vertical": 10,
+              "blur": 24,
+              "spread": -14,
+              "color": "rgba(0, 0, 0, 0.8)"
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "aa516425",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "3c6a9489",
+                "text": "WordPress",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "e366a44d",
+                "text": "WooCommerce",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "4f158d80",
+                "text": "PHP",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "a77bab24",
+                "text": "REST API",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 44
+            },
+            "icon_color": "#E9F7F0",
+            "text_color": "#E9F7F0",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "44",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "66721b3f",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "81dd9c3d",
+                "text": "طراحی سایت شرکتی و خدماتی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "47046687",
+                "text": "طراحی فروشگاه اینترنتی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "6907586d",
+                "text": "سئو تکنیکال",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "9bfa4f4b",
+                "text": "توسعه افزونه وردپرس",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "1fbfd3fd",
+                "text": "سفارشی‌سازی ووکامرس",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "b0f84ba7",
+                "text": "اتصال API و سرویس‌های خارجی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "48d9c56d",
+                "text": "پشتیبانی و نگهداری وب‌سایت",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "03292408",
+                "text": "راهنمای جامع گیلان",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 44
+            },
+            "icon_color": "#E9F7F0",
+            "text_color": "#E9F7F0",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "44",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "9259a5f6",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F0FBF6",
+        "padding": {
+          "unit": "px",
+          "top": "128",
+          "right": "0",
+          "bottom": "128",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "91",
+          "right": "0",
+          "bottom": "91",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "72",
+          "right": "0",
+          "bottom": "72",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "0deda928",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "9add75b4",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>در حال توسعه و برنامه‌های آینده</p>",
+            "text_color": "#0B4435",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 27
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "6",
+              "right": "14",
+              "bottom": "6",
+              "left": "16",
+              "isLinked": false
+            },
+            "_background_background": "classic",
+            "_background_color": "rgba(255, 255, 255, 0.7)",
+            "_border_border": "dashed",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "rgba(11, 68, 53, 0.35)",
+            "_border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "214267db",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "فراتر از وب‌سایت؛ توسعه ابزارهای هوشمند مدیریتی",
+            "header_size": "h2",
+            "title_color": "#172B25",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 40
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 32
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 26
+            },
+            "typography_font_weight": "800",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 58
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 46
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 38
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "20",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "f689d4c4",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>مسیر توسعه گیلاکلیک به تولید افزونه‌های کاربردی محدود نمی‌شود. توسعه سیستم‌های مدیریتی، نرم‌افزارهای تحت وب و اپلیکیشن‌های کاربردی نیز بخشی از برنامه آینده ماست.</p>",
+            "text_color": "#64756E",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 17
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 33
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "18",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "0df4b824",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>این موارد حوزه‌های برنامه توسعه هستند و هنوز به‌عنوان محصول عرضه نشده‌اند.</p>",
+            "text_color": "#64756E",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 26
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "22",
+              "right": "0",
+              "bottom": "12",
+              "left": "0",
+              "isLinked": false
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "13",
+              "right": "16",
+              "bottom": "13",
+              "left": "16",
+              "isLinked": false
+            },
+            "_background_background": "classic",
+            "_background_color": "rgba(255, 255, 255, 0.75)",
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "rgba(23, 43, 37, 0.1)",
+            "_border_radius": {
+              "unit": "px",
+              "top": "10",
+              "right": "10",
+              "bottom": "10",
+              "left": "10",
+              "isLinked": true
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "74e50845",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "طرح نیاز یا پیشنهاد همکاری",
+            "link": {
+              "url": "https://gilaclick.ir/contact-us/",
+              "is_external": "on",
+              "nofollow": ""
+            },
+            "size": "md",
+            "button_text_color": "#0B4435",
+            "text_padding": {
+              "unit": "px",
+              "top": "6",
+              "right": "0",
+              "bottom": "6",
+              "left": "0",
+              "isLinked": false
+            },
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 21
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "6",
+              "right": "0",
+              "bottom": "6",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "dbae09c9",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "نمونه حوزه‌های توسعه",
+            "header_size": "h3",
+            "title_color": "#64756E",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 20
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "20",
+              "left": "0",
+              "isLinked": false
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "44",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "e582b4ce",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "8b78c60b",
+                "text": "حوزه ۰۱ سیستم مدیریت کافه و رستوران برنامه آینده",
+                "selected_icon": {
+                  "value": "fas fa-angle-left",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "405bb62b",
+                "text": "حوزه ۰۲ سامانه‌های مدیریت سفارش و مشتریان برنامه آینده",
+                "selected_icon": {
+                  "value": "fas fa-angle-left",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "d76f0807",
+                "text": "حوزه ۰۳ ابزارهای اتوماسیون کسب‌وکار برنامه آینده",
+                "selected_icon": {
+                  "value": "fas fa-angle-left",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "f2c5293f",
+                "text": "حوزه ۰۴ نرم‌افزارهای مدیریتی و کاربردی برنامه آینده",
+                "selected_icon": {
+                  "value": "fas fa-angle-left",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_color": "#172B25",
+            "text_color": "#172B25",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "83cb578c",
+      "elType": "container",
+      "settings": {
+        "background_background": "gradient",
+        "background_color": "#FFFFFF",
+        "background_color_b": "rgba(240, 251, 246, 0.7)",
+        "background_gradient_angle": {
+          "unit": "deg",
+          "size": 180
+        },
+        "padding": {
+          "unit": "px",
+          "top": "128",
+          "right": "0",
+          "bottom": "128",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "91",
+          "right": "0",
+          "bottom": "91",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "72",
+          "right": "0",
+          "bottom": "72",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "4f816e09",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>راهنمای جامع گیلان</p>",
+            "text_color": "#0B4435",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 22
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "3f077b86",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "گیلان را بهتر بشناسید؛ کسب‌وکارها و جاذبه‌های اطراف شما",
+            "header_size": "h2",
+            "title_color": "#172B25",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 40
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 32
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 26
+            },
+            "typography_font_weight": "800",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 58
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 46
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 38
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "2f6cc059",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>گیلاکلیک بستری برای معرفی ظرفیت‌های گردشگری، خدماتی و تجاری استان گیلان است. از پیدا کردن یک رستوران و اقامتگاه تا آشنایی با کسب‌وکارها و جاذبه‌های دیدنی این استان.</p>",
+            "text_color": "#64756E",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 17
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 33
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "f1aa75e8",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+            "text": "ورود به راهنمای جامع گیلان",
+            "link": {
+              "url": "https://gilaclick.ir/category/%D9%85%D8%B9%D8%B1%D9%81%DB%8C-%DA%AF%DB%8C%D9%84%D8%A7%D9%86/",
+              "is_external": "on",
+              "nofollow": ""
+            },
+            "size": "md",
+            "background_color": "#06271F",
+            "button_text_color": "#FFFFFF",
+            "border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            },
+            "text_padding": {
+              "unit": "px",
+              "top": "14",
+              "right": "26",
+              "bottom": "14",
+              "left": "26",
+              "isLinked": false
+            },
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 17
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 22
+            },
+            "_padding": {
+              "unit": "px",
+              "top": "14",
+              "right": "26",
+              "bottom": "14",
+              "left": "26",
+              "isLinked": false
+            },
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "1",
+              "bottom": "1",
+              "left": "1",
+              "isLinked": true
+            },
+            "_border_color": "#06271F",
+            "_border_radius": {
+              "unit": "px",
+              "top": "6",
+              "right": "6",
+              "bottom": "6",
+              "left": "6",
+              "isLinked": true
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "4af92d2a",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "842a2e37",
+                "text": "۰۱ جاذبه‌های گردشگری پارک جنگلی سراوان",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/category/%D9%85%D8%B9%D8%B1%D9%81%DB%8C-%DA%AF%DB%8C%D9%84%D8%A7%D9%86/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "0ca9e3a3",
+                "text": "۰۲ رستوران‌ها و کافه‌ها کافه آدرس، رشت",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/category/caferestaurant/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "d2c31097",
+                "text": "۰۳ اقامتگاه‌ها خانه موزه میرزا کوچک خان، رشت",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/?s=%D8%A7%D9%82%D8%A7%D9%85%D8%AA%DA%AF%D8%A7%D9%87",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "0919ee2b",
+                "text": "۰۴ فروشگاه‌ها و کسب‌وکارها بازار بزرگ رشت",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/category/business/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 20
+            },
+            "icon_color": "#172B25",
+            "text_color": "#172B25",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "56",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "_margin_tablet": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "_margin_mobile": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "dabf354b",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#0B4435",
+        "padding": {
+          "unit": "px",
+          "top": "128",
+          "right": "0",
+          "bottom": "128",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "91",
+          "right": "0",
+          "bottom": "91",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "72",
+          "right": "0",
+          "bottom": "72",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "2eeb8d3b",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "e133e179",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "00532cba",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>مزایای همکاری</p>",
+            "text_color": "#A3F451",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 22
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "3140ea32",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "چرا گیلاکلیک؟",
+            "header_size": "h2",
+            "title_color": "#FFFFFF",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 40
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 32
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 26
+            },
+            "typography_font_weight": "800",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 58
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 46
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 38
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "2b44c0fd",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "a15c1bec",
+                "text": "۰۱ تجربه و تخصص بیش از یک دهه فعالیت در حوزه طراحی و توسعه وب.",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "d83740a8",
+                "text": "۰۲ تولید محصولات اختصاصی ابزارهایی که با شناخت نیازهای واقعی وب‌سایت‌ها توسعه داده می‌شوند.",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "3cfcd910",
+                "text": "۰۳ خدمات یکپارچه از طراحی و توسعه تا سئو، امنیت و پشتیبانی.",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "989a4a0c",
+                "text": "۰۴ همراهی پس از خرید ارائه مستندات، آموزش، نصب و راه‌اندازی و پشتیبانی متناسب با محصول.",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 10
+            },
+            "icon_color": "#E9F7F0",
+            "text_color": "#E9F7F0",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            },
+            "_border_border": "solid",
+            "_border_width": {
+              "unit": "px",
+              "top": "1",
+              "right": "0",
+              "bottom": "1",
+              "left": "0",
+              "isLinked": false
+            },
+            "_border_color": "rgba(233, 247, 240, 0.1)"
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "6e864c74",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F0FBF6",
+        "padding": {
+          "unit": "px",
+          "top": "128",
+          "right": "0",
+          "bottom": "72",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "91",
+          "right": "0",
+          "bottom": "48",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "72",
+          "right": "0",
+          "bottom": "48",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "2bd30d49",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "6f9eefe0",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>مسیر همکاری</p>",
+            "text_color": "#0B4435",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 22
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "04600b24",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "شروع همکاری با گیلاکلیک ساده است",
+            "header_size": "h2",
+            "title_color": "#172B25",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 40
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 32
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 26
+            },
+            "typography_font_weight": "800",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 58
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 46
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 38
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "1ec7ba4d",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "46109be7",
+                "text": "مرحله ۱ انتخاب نیاز نیاز یا مسئله خود را مشخص کنید.",
+                "selected_icon": {
+                  "value": "fas fa-angle-left",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "d7334d42",
+                "text": "مرحله ۲ انتخاب راهکار از میان محصولات آماده یا خدمات تخصصی، راهکار مناسب را انتخاب کنید.",
+                "selected_icon": {
+                  "value": "fas fa-angle-left",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "692cc27c",
+                "text": "مرحله ۳ اجرا و راه‌اندازی محصول یا خدمت موردنظر را دریافت و راه‌اندازی کنید.",
+                "selected_icon": {
+                  "value": "fas fa-angle-left",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "2979ebf2",
+                "text": "مرحله ۴ پشتیبانی و توسعه برای استفاده بهتر و توسعه امکانات در کنار شما هستیم.",
+                "selected_icon": {
+                  "value": "fas fa-angle-left",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 32
+            },
+            "icon_color": "#172B25",
+            "text_color": "#172B25",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "147996bf",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F0FBF6",
+        "padding": {
+          "unit": "px",
+          "top": "29",
+          "right": "0",
+          "bottom": "128",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "16",
+          "right": "0",
+          "bottom": "91",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "16",
+          "right": "0",
+          "bottom": "72",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "8d66b69b",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "cc7162f1",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "d7a66aab",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "189675b5",
+          "elType": "widget",
+          "widgetType": "spacer",
+          "settings": {
+            "space": {
+              "unit": "px",
+              "size": 300
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "134e696b",
+          "elType": "widget",
+          "widgetType": "icon-box",
+          "settings": {
+            "selected_icon": {
+              "value": "fas fas fa-star",
+              "library": "fa-solid"
+            },
+            "title_text": "برای قدم بعدی کسب‌وکار دیجیتال خود آماده‌اید؟",
+            "description_text": "چه به دنبال یک ابزار نرم‌افزاری کاربردی باشید، چه قصد طراحی سایت جدید یا توسعه امکانات کسب‌وکار آنلاین خود را داشته باشید، گیلاکلیک می‌تواند نقطه شروع مناسبی برای شما باشد.",
+            "position": "top",
+            "text_align": "center",
+            "primary_color": "#4F46E5",
+            "title_color": "#E9F7F0",
+            "title_typography_typography": "custom",
+            "title_typography_font_family": "Peyda",
+            "title_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "title_typography_font_weight": "400",
+            "title_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "188",
+              "bottom": "0",
+              "left": "188",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "377c7b59",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#041C16",
+        "padding": {
+          "unit": "px",
+          "top": "88",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "71",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "56",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [
+        {
+          "id": "f09ef417",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "اطلاعات و پیوندهای گیلاکلیک",
+            "header_size": "h2",
+            "title_color": "rgba(233, 247, 240, 0.72)",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 24
+            },
+            "typography_font_weight": "800",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 35
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "-1",
+              "right": "-1",
+              "bottom": "-1",
+              "left": "-1",
+              "isLinked": true
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "15891a88",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {
+            "image": {
+              "url": "https://placehold.co/1425x100?text=Replace+Image",
+              "id": "",
+              "alt": "تصویر قالب"
+            },
+            "image_size": "full",
+            "width": {
+              "unit": "px",
+              "size": 1425
+            },
+            "align": "left"
+          },
+          "elements": []
+        },
+        {
+          "id": "b07a80bc",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p><a href=\"https://gilaclick.ir/\">گیلاکلیک GILACLICK صفحه اصلی</a></p>",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 31
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "f3b73f07",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>گیلاکلیک مجموعه‌ای فعال در زمینه تولید محصولات نرم‌افزاری، طراحی و توسعه وب و معرفی ظرفیت‌های کسب‌وکار و گردشگری گیلان است.</p>",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 14
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 28
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "20",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "8151fb55",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "ارتباط با گیلاکلیک",
+            "header_size": "h3",
+            "title_color": "#FFFFFF",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 23
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "16",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "491931a1",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "28046e66",
+                "text": "فرم تماس و ثبت پروژه",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/contact-us/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "55d3eed6",
+                "text": "پرسش‌های متداول",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/faq/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 9
+            },
+            "icon_color": "rgba(233, 247, 240, 0.72)",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "4a5365d5",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "دسترسی سریع",
+            "header_size": "h3",
+            "title_color": "#FFFFFF",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 23
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "16",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "8e4855ad",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "80e2b845",
+                "text": "صفحه اصلی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "9adb1c09",
+                "text": "درباره ما",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/about-us/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "b7740a95",
+                "text": "تماس با ما",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/contact-us/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 10
+            },
+            "icon_color": "rgba(233, 247, 240, 0.72)",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "e23e729f",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "فروشگاه",
+            "header_size": "h3",
+            "title_color": "#FFFFFF",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 23
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "16",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "d96870a2",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "c92912b8",
+                "text": "افزونه‌ها",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/product-category/plugins/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "9440dbea",
+                "text": "ابزارهای وب",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/shop/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "b55e6ce8",
+                "text": "قالب‌ها و محصولات دیجیتال",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/shop/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 10
+            },
+            "icon_color": "rgba(233, 247, 240, 0.72)",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "9e712aec",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "خدمات",
+            "header_size": "h3",
+            "title_color": "#FFFFFF",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 23
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "16",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "a4c38484",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "75ea5ba9",
+                "text": "طراحی سایت",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "#service-web",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "2fbf0179",
+                "text": "سئو",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "#service-seo",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "0373e0bd",
+                "text": "پشتیبانی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "#service-support",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "098118cd",
+                "text": "توسعه اختصاصی",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "#service-dev",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 10
+            },
+            "icon_color": "rgba(233, 247, 240, 0.72)",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "363731ca",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+            "title": "راهنمای گیلان",
+            "header_size": "h3",
+            "title_color": "#FFFFFF",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "typography_font_weight": "700",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 23
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "16",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "08a177e5",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+            "icon_list": [
+              {
+                "_id": "ca11b29f",
+                "text": "مشاغل",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/category/business/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "10341aaf",
+                "text": "رستوران‌ها",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/category/caferestaurant/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "41c8950f",
+                "text": "گردشگری",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/category/%D9%85%D8%B9%D8%B1%D9%81%DB%8C-%DA%AF%DB%8C%D9%84%D8%A7%D9%86/",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              },
+              {
+                "_id": "25694bdf",
+                "text": "اقامتگاه‌ها",
+                "selected_icon": {
+                  "value": "fas fa-check-circle",
+                  "library": "fa-solid"
+                },
+                "link": {
+                  "url": "https://gilaclick.ir/?s=%D8%A7%D9%82%D8%A7%D9%85%D8%AA%DA%AF%D8%A7%D9%87",
+                  "is_external": "",
+                  "nofollow": ""
+                }
+              }
+            ],
+            "space_between": {
+              "unit": "px",
+              "size": 10
+            },
+            "icon_color": "rgba(233, 247, 240, 0.72)",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "icon_typography_typography": "custom",
+            "icon_typography_font_family": "Peyda",
+            "icon_typography_font_size": {
+              "unit": "px",
+              "size": 16
+            },
+            "icon_typography_font_weight": "400",
+            "icon_typography_line_height": {
+              "unit": "px",
+              "size": 31
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "3c5f7970",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>گیلاکلیک</p>",
+            "align": "center",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 240
+            },
+            "typography_font_size_tablet": {
+              "unit": "px",
+              "size": 131
+            },
+            "typography_font_size_mobile": {
+              "unit": "px",
+              "size": 72
+            },
+            "typography_font_weight": "900",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 276
+            },
+            "typography_line_height_tablet": {
+              "unit": "px",
+              "size": 150
+            },
+            "typography_line_height_mobile": {
+              "unit": "px",
+              "size": 83
+            },
+            "_margin": {
+              "unit": "px",
+              "top": "-8",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "_background_background": "gradient",
+            "_background_color": "#4F46E5",
+            "_background_color_b": "#06B6D4",
+            "_background_gradient_angle": {
+              "unit": "deg",
+              "size": 100
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "c7d67c6b",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p>© ۱۴۰۵ گیلاکلیک — تمامی حقوق محفوظ است.</p>",
+            "text_color": "rgba(233, 247, 240, 0.5)",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 13
+            },
+            "typography_font_weight": "400",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 25
+            }
+          },
+          "elements": []
+        },
+        {
+          "id": "98147cca",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+            "editor": "<p><a href=\"#top\">بازگشت به بالا</a></p>",
+            "text_color": "rgba(233, 247, 240, 0.72)",
+            "align": "left",
+            "typography_typography": "custom",
+            "typography_font_family": "Peyda",
+            "typography_font_size": {
+              "unit": "px",
+              "size": 13
+            },
+            "typography_font_weight": "600",
+            "typography_line_height": {
+              "unit": "px",
+              "size": 25
+            }
+          },
+          "elements": []
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "eb8f8f30",
+      "elType": "container",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#06271F",
+        "border_radius": {
+          "unit": "px",
+          "top": "50",
+          "right": "50",
+          "bottom": "50",
+          "left": "50",
+          "isLinked": true
+        },
+        "box_shadow_box_shadow_type": "yes",
+        "box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 16,
+          "blur": 34,
+          "spread": -14,
+          "color": "rgba(0, 0, 0, 0.55)"
+        },
+        "content_width": "boxed",
+        "flex_direction": "column"
+      },
+      "elements": [],
+      "isInner": false
+    }
+  ]
+}
