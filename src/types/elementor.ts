@@ -20,6 +20,7 @@ export interface ConverterSettings {
   embedAssetsInPageJson?: boolean;
   exactHtmlMatch?: boolean;
   customFontFamily?: string;
+  optimizeMobileLayout?: boolean;
 }
 
 export interface ElementorDimension {

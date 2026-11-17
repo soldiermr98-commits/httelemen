@@ -500,6 +500,23 @@ function shouldIgnoreElement(el: Element): boolean {
     return true;
   }
 
+  // Ignore hidden SVG symbol sprites (e.g., <svg width="0" height="0" style="position:absolute"><defs><symbol>...</symbol></defs></svg>)
+  if (tag === 'SVG') {
+    const attrW = el.getAttribute('width');
+    const attrH = el.getAttribute('height');
+    if (
+      el.classList.contains('sprite') ||
+      (attrW === '0' && attrH === '0') ||
+      (el.children.length > 0 &&
+        Array.from(el.children).every((ch) => {
+          const ct = ch.tagName.toUpperCase();
+          return ct === 'DEFS' || ct === 'SYMBOL';
+        }))
+    ) {
+      return true;
+    }
+  }
+
   // Ignore tiny empty decorative status dots (e.g., w-2 h-2 rounded-full animate-ping)
   const classList = Array.from(el.classList);
   if (
@@ -1146,15 +1163,6 @@ export function injectComputedStylesIntoElementorController(
     targetSettings._computed_height_tablet_px = tab.heightPx || d.heightPx;
     targetSettings._computed_height_mobile_px = mob.heightPx || d.heightPx;
   }
-  if (
-    d.display === 'none' &&
-    !el.hasAttribute('hidden') &&
-    !el.classList.contains('js-only') &&
-    !el.closest('[hidden], .js-only')
-  ) {
-    targetSettings.hide_desktop = 'hidden-desktop';
-    targetSettings._hide_desktop = 'hidden-desktop';
-  }
 
   const effectiveFont = cleanCustomFont || d.fontFamily || '';
 
@@ -1290,7 +1298,11 @@ export function injectComputedStylesIntoElementorController(
     if (d.textAlign) {
       targetSettings.align = d.textAlign;
     }
-    if (!edgesZero(d.padding)) {
+    if (
+      !edgesZero(d.padding) ||
+      (tab.padding && !edgesZero(tab.padding)) ||
+      (mob.padding && !edgesZero(mob.padding))
+    ) {
       targetSettings._padding = formatDimension(d.padding, 'px');
       if (tab.padding) {
         targetSettings._padding_tablet = formatDimension(tab.padding, 'px');
@@ -1299,13 +1311,34 @@ export function injectComputedStylesIntoElementorController(
         targetSettings._padding_mobile = formatDimension(mob.padding, 'px');
       }
     }
-    if (!edgesZero(d.margin)) {
-      targetSettings._margin = formatDimension(d.margin, 'px');
+    const isTextAutoCenteredMargin =
+      d.maxWidthPx > 0 &&
+      d.maxWidthPx < DESKTOP_WIDTH &&
+      d.margin.left >= 16 &&
+      Math.abs(d.margin.left - d.margin.right) <= 4;
+    const cleanTextMargin = isTextAutoCenteredMargin
+      ? { ...d.margin, left: 0, right: 0 }
+      : d.margin;
+    if (isTextAutoCenteredMargin) {
+      targetSettings._margin_inline_auto = true;
+    }
+    if (
+      !edgesZero(cleanTextMargin) ||
+      (tab.margin && !edgesZero(tab.margin)) ||
+      (mob.margin && !edgesZero(mob.margin))
+    ) {
+      targetSettings._margin = formatDimension(cleanTextMargin, 'px');
       if (tab.margin) {
-        targetSettings._margin_tablet = formatDimension(tab.margin, 'px');
+        const cleanTabTextMargin = isTextAutoCenteredMargin
+          ? { ...tab.margin, left: 0, right: 0 }
+          : tab.margin;
+        targetSettings._margin_tablet = formatDimension(cleanTabTextMargin, 'px');
       }
       if (mob.margin) {
-        targetSettings._margin_mobile = formatDimension(mob.margin, 'px');
+        const cleanMobTextMargin = isTextAutoCenteredMargin
+          ? { ...mob.margin, left: 0, right: 0 }
+          : mob.margin;
+        targetSettings._margin_mobile = formatDimension(cleanMobTextMargin, 'px');
       }
     }
   } else if (role === 'spacer') {
@@ -1348,17 +1381,18 @@ export function injectComputedStylesIntoElementorController(
         };
       }
     }
-    const isHeaderTag = el.tagName.toLowerCase() === 'header';
     if (d.minHeightPx >= 40) {
       targetSettings.min_height = formatSize(d.minHeightPx, 'px');
-    } else if (isHeaderTag && d.heightPx >= 48 && d.heightPx <= 140) {
-      targetSettings.min_height = formatSize(d.heightPx, 'px');
     }
     if (d.maxWidthPx >= 280 && d.maxWidthPx < DESKTOP_WIDTH) {
       targetSettings.boxed_width = formatSize(d.maxWidthPx, 'px');
       targetSettings._max_width_px = d.maxWidthPx;
     }
-    if (!edgesZero(d.padding)) {
+    if (
+      !edgesZero(d.padding) ||
+      (tab.padding && !edgesZero(tab.padding)) ||
+      (mob.padding && !edgesZero(mob.padding))
+    ) {
       targetSettings.padding = formatDimension(d.padding, 'px');
       if (tab.padding) {
         targetSettings.padding_tablet = formatDimension(tab.padding, 'px');
@@ -1369,6 +1403,7 @@ export function injectComputedStylesIntoElementorController(
     }
     const isAutoCenteredMargin =
       el.classList.contains('container') ||
+      el.classList.contains('e-container') ||
       el.classList.contains('mx-auto') ||
       (d.maxWidthPx > 0 &&
         d.maxWidthPx < DESKTOP_WIDTH &&
@@ -1380,22 +1415,26 @@ export function injectComputedStylesIntoElementorController(
     const cleanMargin = isAutoCenteredMargin
       ? { ...d.margin, left: 0, right: 0 }
       : d.margin;
-    if (!edgesZero(cleanMargin)) {
-      targetSettings.margin = formatDimension(cleanMargin, 'px');
-    }
-    if (tab.margin) {
-      const cleanTabMargin = isAutoCenteredMargin
+    const cleanTabMargin = tab.margin
+      ? isAutoCenteredMargin
         ? { ...tab.margin, left: 0, right: 0 }
-        : tab.margin;
-      if (!edgesZero(cleanTabMargin)) {
+        : tab.margin
+      : undefined;
+    const cleanMobMargin = mob.margin
+      ? isAutoCenteredMargin
+        ? { ...mob.margin, left: 0, right: 0 }
+        : mob.margin
+      : undefined;
+    if (
+      !edgesZero(cleanMargin) ||
+      (cleanTabMargin && !edgesZero(cleanTabMargin)) ||
+      (cleanMobMargin && !edgesZero(cleanMobMargin))
+    ) {
+      targetSettings.margin = formatDimension(cleanMargin, 'px');
+      if (cleanTabMargin) {
         targetSettings.margin_tablet = formatDimension(cleanTabMargin, 'px');
       }
-    }
-    if (mob.margin) {
-      const cleanMobMargin = isAutoCenteredMargin
-        ? { ...mob.margin, left: 0, right: 0 }
-        : mob.margin;
-      if (!edgesZero(cleanMobMargin)) {
+      if (cleanMobMargin) {
         targetSettings.margin_mobile = formatDimension(cleanMobMargin, 'px');
       }
     }

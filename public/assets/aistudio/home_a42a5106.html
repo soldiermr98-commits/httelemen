@@ -1,0 +1,2852 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فانتزیجات گندم | فروشگاه نوشت‌افزار و اکسسوری‌های بامزه</title>
+  <!-- Google Fonts: Vazirmatn for clean UI & Lalezar/Rubik for soft playful display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       1. ELEMENTOR GLOBAL DESIGN SYSTEM & COLOR VARIABLES
+       ========================================================================== */
+    :root {
+      --primary-pink: #E7A7CB;
+      --accent-pink: #F36FA8;
+      --lavender: #DCC5F2;
+      --pastel-yellow: #FFE9A8;
+      --mint-green: #CDEEDB;
+      --cream: #FFF7EF;
+      --dark-purple: #65436B;
+      --muted-purple: #9B5A91;
+      --white: #FFFFFF;
+      --border-pastel: #F0DCE9;
+      
+      /* Subtle Tints for Breathing Space */
+      --soft-pink-bg: #FDF7FB;
+      --soft-lavender-bg: #FAF6FE;
+      --soft-mint-bg: #F4FBF7;
+      --soft-yellow-bg: #FFFDF5;
+
+      /* Layout & Typography */
+      --container-width: 1220px;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+      --transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --font-main: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--white);
+      color: var(--dark-purple);
+      line-height: 1.75;
+      font-size: 15px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button, input {
+      font-family: var(--font-main);
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    /* ==========================================================================
+       2. REUSABLE GRAPH-PAPER & HAND-DRAWN BACKGROUNDS (ABRAA STYLE)
+       ========================================================================== */
+    .graph-paper-pink {
+      background-color: var(--white);
+      background-image: 
+        linear-gradient(to right, rgba(231, 167, 203, 0.22) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(220, 197, 242, 0.22) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .graph-paper-cream {
+      background-color: var(--cream);
+      background-image: 
+        linear-gradient(to right, rgba(231, 167, 203, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(231, 167, 203, 0.2) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .graph-paper-subtle {
+      background-color: var(--soft-pink-bg);
+      background-image: 
+        linear-gradient(to right, rgba(240, 220, 233, 0.55) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(240, 220, 233, 0.55) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+
+    .e-container {
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+    }
+
+    /* Section Headings */
+    .section-header {
+      text-align: center;
+      margin-bottom: 42px;
+      position: relative;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--muted-purple);
+      background: var(--cream);
+      border: 1px dashed var(--primary-pink);
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--dark-purple);
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--muted-purple);
+      margin-top: 6px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 26px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-pink);
+      color: var(--white);
+      border: 1.5px solid var(--dark-purple);
+      box-shadow: 0 3px 0 var(--dark-purple);
+    }
+
+    .btn-primary:hover {
+      background-color: #e65c97;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 0 var(--dark-purple);
+    }
+
+    .btn-primary:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 var(--dark-purple);
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--dark-purple);
+      border: 1.5px solid var(--dark-purple);
+      box-shadow: 0 3px 0 var(--border-pastel);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--cream);
+      border-color: var(--accent-pink);
+      color: var(--accent-pink);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       3. TOP ANNOUNCEMENT BAR & MINIMAL HEADER
+       ========================================================================== */
+    .top-bar {
+      background-color: var(--cream);
+      border-bottom: 1px solid var(--border-pastel);
+      padding: 7px 16px;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--dark-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .top-bar-badge {
+      background-color: var(--primary-pink);
+      color: var(--white);
+      padding: 1px 8px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .site-header {
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-pastel);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-main {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 14px 0 10px;
+      gap: 20px;
+    }
+
+    /* Search Bar (Right Side in RTL) */
+    .header-search {
+      display: flex;
+      align-items: center;
+      max-width: 260px;
+      background-color: var(--soft-pink-bg);
+      border: 1px solid var(--border-pastel);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      transition: var(--transition);
+    }
+
+    .header-search:focus-within {
+      border-color: var(--primary-pink);
+      background-color: var(--white);
+      box-shadow: 0 0 0 3px rgba(231, 167, 203, 0.15);
+    }
+
+    .header-search input {
+      width: 100%;
+      font-size: 13px;
+      color: var(--dark-purple);
+      padding-right: 8px;
+    }
+
+    .header-search input::placeholder {
+      color: var(--muted-purple);
+      opacity: 0.75;
+    }
+
+    .header-search svg {
+      width: 17px;
+      height: 17px;
+      stroke: var(--muted-purple);
+      flex-shrink: 0;
+    }
+
+    /* Centered Brand Logo */
+    .brand-logo {
+      display: flex;
+       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 2px;
+      group: logo;
+    }
+
+    .brand-logo-emblem {
+      width: 62px;
+      height: 62px;
+      transition: transform 0.35s ease;
+    }
+
+    .brand-logo:hover .brand-logo-emblem {
+      transform: rotate(-5deg) scale(1.05);
+    }
+
+    .brand-logo-text {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--dark-purple);
+      letter-spacing: -0.4px;
+      line-height: 1.2;
+    }
+
+    .brand-logo-sub {
+      font-size: 10.5px;
+      color: var(--muted-purple);
+      font-weight: 500;
+    }
+
+    /* Header Action Icons (Left Side in RTL) */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .action-btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-pastel);
+      background-color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark-purple);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .action-btn:hover {
+      background-color: var(--cream);
+      border-color: var(--primary-pink);
+      color: var(--accent-pink);
+      transform: translateY(-1px);
+    }
+
+    .action-btn svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .badge-count {
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      background-color: var(--accent-pink);
+      color: var(--white);
+      font-size: 10.5px;
+      font-weight: 700;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 99px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      border: 1.5px solid var(--white);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* Navigation Menu */
+    .header-nav {
+      border-top: 1px dashed var(--border-pastel);
+      padding: 9px 0;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--dark-purple);
+      padding: 4px 2px;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-pink);
+      border-radius: 2px;
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-pink);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: var(--primary-pink);
+      display: inline-block;
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION (ABRAA INSPIRED ILLUSTRATED BOUTIQUE)
+       ========================================================================== */
+    .hero-section {
+      padding: 44px 0 60px;
+      border-bottom: 1px solid var(--border-pastel);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    /* Dominant Hand-Drawn Illustration Stage */
+    .hero-illustration-stage {
+      width: 100%;
+      max-width: 780px;
+      margin: 0 auto 22px;
+      position: relative;
+      padding: 10px;
+    }
+
+    .hero-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 8px 20px rgba(101, 67, 107, 0.04));
+    }
+
+    /* Subtle floating animation for kawaii elements */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+
+    .float-cloud { animation: floatSlow 4.5s ease-in-out infinite; }
+    .float-char { animation: floatSlow 3.8s ease-in-out 0.6s infinite; }
+    .twinkle-star { animation: twinkle 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+
+    /* Editable Elementor Hero Text & CTAs */
+    .hero-content {
+      max-width: 620px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 18px 28px;
+      border-radius: var(--radius-lg);
+      border: 1px dashed var(--primary-pink);
+    }
+
+    .hero-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--dark-purple);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .hero-desc {
+      font-size: 15.5px;
+      color: var(--muted-purple);
+      margin-bottom: 22px;
+      font-weight: 400;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       5. DUAL ILLUSTRATED PROMOTIONAL BANNERS
+       ========================================================================== */
+    .promo-section {
+      padding: 52px 0 36px;
+    }
+
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .promo-card {
+      border-radius: var(--radius-lg);
+      border: 1.5px solid var(--border-pastel);
+      padding: 26px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .promo-card:hover {
+      border-color: var(--primary-pink);
+      transform: translateY(-3px);
+    }
+
+    .promo-card--desk {
+      background-color: var(--cream);
+      background-image: radial-gradient(rgba(231, 167, 203, 0.28) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .promo-card--gift {
+      background-color: var(--soft-lavender-bg);
+      background-image: radial-gradient(rgba(220, 197, 242, 0.4) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    .promo-text-col {
+      flex: 1;
+      z-index: 2;
+    }
+
+    .speech-bubble-tag {
+      display: inline-block;
+      background-color: var(--white);
+      border: 1.5px solid var(--dark-purple);
+      border-radius: 14px 14px 2px 14px;
+      padding: 3px 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--dark-purple);
+      margin-bottom: 10px;
+      box-shadow: 2px 2px 0 rgba(101, 67, 107, 0.12);
+    }
+
+    .promo-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--dark-purple);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .promo-sub {
+      font-size: 13px;
+      color: var(--muted-purple);
+      margin-bottom: 16px;
+    }
+
+    .promo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark-purple);
+      background-color: var(--white);
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--dark-purple);
+    }
+
+    .promo-link:hover {
+      background-color: var(--accent-pink);
+      color: var(--white);
+      border-color: var(--accent-pink);
+    }
+
+    .promo-art-col {
+      width: 150px;
+      height: 135px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       6. CATEGORY TILES SECTION
+       ========================================================================== */
+    .category-section {
+      padding: 44px 0 56px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .category-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      group: cat;
+    }
+
+    .category-art-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      border: 1.5px solid var(--border-pastel);
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-tile:hover .category-art-box {
+      border-color: var(--accent-pink);
+      background-color: var(--cream);
+      transform: translateY(-4px);
+    }
+
+    .category-art-box svg {
+      width: 100%;
+      height: 100%;
+      max-width: 96px;
+      max-height: 96px;
+      transition: transform 0.3s ease;
+    }
+
+    .category-tile:hover .category-art-box svg {
+      transform: scale(1.08) rotate(-2deg);
+    }
+
+    .category-name {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--dark-purple);
+      transition: var(--transition);
+    }
+
+    .category-count {
+      font-size: 11.5px;
+      color: var(--muted-purple);
+      margin-top: 2px;
+    }
+
+    .category-tile:hover .category-name {
+      color: var(--accent-pink);
+    }
+
+    /* ==========================================================================
+       7. WOOCOMMERCE PRODUCT GRIDS (NEW ARRIVALS & BEST SELLERS)
+       ========================================================================== */
+    .products-section {
+      padding: 52px 0;
+    }
+
+    .products-section--tinted {
+      background-color: var(--soft-pink-bg);
+      border-top: 1px solid var(--border-pastel);
+      border-bottom: 1px solid var(--border-pastel);
+    }
+
+    .wc-products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .wc-product-card {
+      background-color: var(--white);
+      border: 1px solid var(--border-pastel);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .wc-product-card:hover {
+      border-color: var(--primary-pink);
+      transform: translateY(-3px);
+    }
+
+    .wc-product-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      background-color: var(--cream);
+      border: 1px dashed var(--border-pastel);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .wc-product-thumb svg {
+      width: 100%;
+      height: 100%;
+      max-width: 145px;
+      max-height: 145px;
+      transition: transform 0.35s ease;
+    }
+
+    .wc-product-card:hover .wc-product-thumb svg {
+      transform: scale(1.06);
+    }
+
+    /* Badges & Wishlist */
+    .wc-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      z-index: 2;
+      border: 1px solid var(--dark-purple);
+    }
+
+    .wc-badge--sale {
+      background-color: var(--pastel-yellow);
+      color: var(--dark-purple);
+    }
+
+    .wc-badge--new {
+      background-color: var(--mint-green);
+      color: var(--dark-purple);
+    }
+
+    .wc-badge--hot {
+      background-color: var(--lavender);
+      color: var(--dark-purple);
+    }
+
+    .wc-wishlist-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--white);
+      border: 1px solid var(--border-pastel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      color: var(--muted-purple);
+      transition: var(--transition);
+    }
+
+    .wc-wishlist-btn:hover,
+    .wc-wishlist-btn.is-active {
+      background-color: #FFF0F6;
+      border-color: var(--accent-pink);
+      color: var(--accent-pink);
+    }
+
+    .wc-wishlist-btn.is-active svg {
+      fill: var(--accent-pink);
+    }
+
+    .wc-product-cat {
+      font-size: 11.5px;
+      color: var(--muted-purple);
+      margin-bottom: 4px;
+    }
+
+    .wc-product-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark-purple);
+      margin-bottom: 10px;
+      line-height: 1.45;
+      min-height: 43px;
+    }
+
+    .wc-product-title a:hover {
+      color: var(--accent-pink);
+    }
+
+    .wc-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: auto;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .wc-price-regular-del {
+      font-size: 12px;
+      color: var(--muted-purple);
+      text-decoration: line-through;
+      opacity: 0.75;
+    }
+
+    .wc-price-current {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--dark-purple);
+    }
+
+    .wc-currency {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--muted-purple);
+    }
+
+    .wc-add-to-cart {
+      width: 100%;
+      padding: 9px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-pastel);
+      background-color: var(--soft-pink-bg);
+      color: var(--dark-purple);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .wc-add-to-cart:hover {
+      background-color: var(--accent-pink);
+      border-color: var(--dark-purple);
+      color: var(--white);
+    }
+
+    .wc-add-to-cart.added {
+      background-color: var(--mint-green);
+      border-color: var(--dark-purple);
+      color: var(--dark-purple);
+    }
+
+    /* ==========================================================================
+       8. FEATURED COLLECTION SECTION (3 ILLUSTRATED BANNERS)
+       ========================================================================== */
+    .collections-section {
+      padding: 60px 0;
+    }
+
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .collection-card {
+      border-radius: var(--radius-lg);
+      border: 1.5px solid var(--border-pastel);
+      padding: 28px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .collection-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--dark-purple);
+    }
+
+    .collection-card--pink {
+      background-color: var(--soft-pink-bg);
+    }
+
+    .collection-card--mint {
+      background-color: var(--soft-mint-bg);
+    }
+
+    .collection-card--lavender {
+      background-color: var(--soft-lavender-bg);
+    }
+
+    .collection-art {
+      width: 140px;
+      height: 120px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .collection-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--dark-purple);
+      margin-bottom: 8px;
+    }
+
+    .collection-desc {
+      font-size: 13px;
+      color: var(--muted-purple);
+      margin-bottom: 18px;
+      max-width: 260px;
+    }
+
+    .collection-cta {
+      margin-top: auto;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark-purple);
+      background: var(--white);
+      border: 1px solid var(--dark-purple);
+      padding: 6px 18px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .collection-card:hover .collection-cta {
+      background: var(--dark-purple);
+      color: var(--white);
+    }
+
+    /* ==========================================================================
+       9. BRAND STORY SECTION ("گندم از کجا شروع شد؟")
+       ========================================================================== */
+    .story-section {
+      padding: 56px 0;
+    }
+
+    .story-box {
+      border-radius: 28px;
+      border: 1.5px dashed var(--primary-pink);
+      padding: 44px 48px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+    }
+
+    .story-content {
+      text-align: right;
+    }
+
+    .story-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--dark-purple);
+      margin-bottom: 14px;
+    }
+
+    .story-quote {
+      font-size: 16px;
+      color: var(--dark-purple);
+      line-height: 1.9;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      border-right: 3px solid var(--accent-pink);
+    }
+
+    .story-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-pink);
+      border-bottom: 1.5px dashed var(--accent-pink);
+      padding-bottom: 2px;
+    }
+
+    .story-link:hover {
+      color: var(--dark-purple);
+      border-color: var(--dark-purple);
+      gap: 12px;
+    }
+
+    .story-illustration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .story-illustration svg {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+    }
+
+    /* ==========================================================================
+       10. BLOG / JOURNAL SECTION ("از دنیای رنگی گندم")
+       ========================================================================== */
+    .blog-section {
+      padding: 52px 0;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .blog-card {
+      background-color: var(--white);
+      border: 1px solid var(--border-pastel);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .blog-card:hover {
+      border-color: var(--primary-pink);
+      transform: translateY(-3px);
+    }
+
+    .blog-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-bottom: 1px solid var(--border-pastel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .blog-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--white);
+      border: 1px solid var(--border-pastel);
+      padding: 2px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted-purple);
+    }
+
+    .blog-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .blog-meta {
+      font-size: 11.5px;
+      color: var(--muted-purple);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .blog-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark-purple);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .blog-title a:hover {
+      color: var(--accent-pink);
+    }
+
+    .blog-excerpt {
+      font-size: 13px;
+      color: var(--muted-purple);
+      margin-bottom: 16px;
+    }
+
+    .blog-readmore {
+      margin-top: auto;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark-purple);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .blog-readmore:hover {
+      color: var(--accent-pink);
+    }
+
+    /* ==========================================================================
+       11. CUSTOMER TRUST BAR
+       ========================================================================== */
+    .trust-section {
+      padding: 36px 0;
+    }
+
+    .trust-bar {
+      background-color: var(--cream);
+      border: 1px solid var(--border-pastel);
+      border-radius: var(--radius-lg);
+      padding: 26px 32px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .trust-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background-color: var(--white);
+      border: 1px dashed var(--primary-pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .trust-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .trust-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark-purple);
+    }
+
+    .trust-sub {
+      font-size: 12px;
+      color: var(--muted-purple);
+    }
+
+    /* ==========================================================================
+       12. FAQ ACCORDION SECTION
+       ========================================================================== */
+    .faq-section {
+      padding: 48px 0 68px;
+    }
+
+    .faq-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background-color: var(--white);
+      border: 1px solid var(--border-pastel);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.active {
+      border-color: var(--primary-pink);
+      background-color: var(--soft-pink-bg);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: right;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark-purple);
+      cursor: pointer;
+    }
+
+    .faq-toggle-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-color: var(--cream);
+      border: 1px solid var(--border-pastel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark-purple);
+      font-size: 16px;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-toggle-icon {
+      transform: rotate(45deg);
+      background-color: var(--primary-pink);
+      color: var(--white);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 22px 18px;
+      font-size: 13.5px;
+      color: var(--muted-purple);
+      line-height: 1.8;
+    }
+
+    /* ==========================================================================
+       13. MINIMAL WHITE & PASTEL FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--cream);
+      border-top: 1.5px dashed var(--primary-pink);
+      padding: 56px 0 28px;
+      position: relative;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
+      gap: 32px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-pastel);
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      color: var(--muted-purple);
+      margin: 12px 0 18px;
+      line-height: 1.8;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-pill {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--white);
+      border: 1px solid var(--border-pastel);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark-purple);
+    }
+
+    .social-pill:hover {
+      background-color: var(--accent-pink);
+      color: var(--white);
+      border-color: var(--accent-pink);
+    }
+
+    .footer-col-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--dark-purple);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted-purple);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-pink);
+      padding-right: 4px;
+    }
+
+    .contact-list li {
+      font-size: 13px;
+      color: var(--muted-purple);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .trust-badges-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .trust-badge-placeholder {
+      width: 68px;
+      height: 74px;
+      background-color: var(--white);
+      border: 1px dashed var(--primary-pink);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--muted-purple);
+      text-align: center;
+      padding: 6px;
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: var(--muted-purple);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ==========================================================================
+       14. ELEMENTOR PRO + WOOCOMMERCE INSPECTOR MODE (DEVELOPER HELPER)
+       ========================================================================== */
+    .elementor-floating-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--dark-purple);
+      color: var(--white);
+      padding: 9px 16px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 8px 24px rgba(101, 67, 107, 0.25);
+      font-size: 12.5px;
+      font-weight: 600;
+      border: 1.5px solid var(--primary-pink);
+    }
+
+    .elementor-toggle-btn {
+      background-color: var(--accent-pink);
+      color: var(--white);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .elementor-toggle-btn:hover {
+      background-color: var(--primary-pink);
+      color: var(--dark-purple);
+    }
+
+    /* Inspector Overlay Labels when Body has .elementor-xray */
+    [data-elementor-widget] {
+      position: relative;
+    }
+
+    body.elementor-xray [data-elementor-widget] {
+      outline: 1.5px dashed #9B5A91 !important;
+      outline-offset: 2px;
+    }
+
+    body.elementor-xray [data-elementor-widget]::before {
+      content: attr(data-elementor-widget);
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #65436B;
+      color: #FFE9A8;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 0 0 0 6px;
+      z-index: 90;
+      pointer-events: none;
+      direction: ltr;
+      font-family: monospace;
+    }
+
+    /* Toast Notification for Cart / Wishlist */
+    .gandom-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--white);
+      border: 1.5px solid var(--dark-purple);
+      box-shadow: 0 4px 0 var(--primary-pink);
+      color: var(--dark-purple);
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-size: 13.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .gandom-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       15. RESPONSIVE BREAKPOINTS (DESKTOP / TABLET / MOBILE)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .wc-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .collections-grid,
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .trust-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .story-box {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 32px 24px;
+      }
+      .story-content {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-main {
+        grid-template-columns: auto 1fr auto;
+      }
+      .header-search {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+      .header-nav {
+        display: none;
+      }
+      .header-nav.open {
+        display: block;
+      }
+      .nav-list {
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px 0;
+      }
+      .hero-title {
+        font-size: 24px;
+      }
+      .promo-grid,
+      .collections-grid,
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+      .wc-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .wc-product-card {
+        padding: 10px;
+      }
+      .wc-product-title {
+        font-size: 13.5px;
+      }
+      .trust-bar {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       SHARED SVG DEFS: RECREATION OF THE UPLOADED GANDOM LOGO EMBLEM
+       ======================================================================== -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <!-- Exact Kawaii Wheat + Pink Fountain Pen Logo Symbol -->
+      <symbol id="gandom-logo-symbol" viewBox="0 0 120 120">
+        <!-- Soft white circular backdrop -->
+        <circle cx="60" cy="60" r="52" fill="#FFFFFF" />
+        <!-- Hand-drawn sketchy pink circle border -->
+        <path d="M 38 13 A 50 50 0 1 1 14 42" fill="none" stroke="#F08CAE" stroke-width="3" stroke-linecap="round" />
+        <path d="M 17 32 A 50 50 0 0 1 31 17" fill="none" stroke="#F08CAE" stroke-width="3" stroke-linecap="round" />
+        
+        <!-- Tiny Background Sparkles -->
+        <path d="M60 18 L62 24 L68 26 L62 28 L60 34 L58 28 L52 26 L58 24 Z" fill="#FFE9A8" />
+        <path d="M77 24 L79 29 L84 31 L79 33 L77 38 L75 33 L70 31 L75 29 Z" fill="#FFE9A8" />
+        <path d="M63 36 L64.5 40 L68.5 41.5 L64.5 43 L63 47 L61.5 43 L57.5 41.5 L61.5 40 Z" fill="#DCC5F2" />
+        <path d="M95 78 L97 83 L102 85 L97 87 L95 92 L93 87 L88 85 L93 83 Z" fill="#FFE9A8" />
+        <circle cx="48" cy="25" r="2" fill="#E7A7CB" />
+        <circle cx="88" cy="68" r="2" fill="#DCC5F2" />
+
+        <!-- Kawaii Golden Wheat Stalk (Left Side) -->
+        <g transform="rotate(-14 45 62)">
+          <!-- Whiskers/Awns -->
+          <path d="M35 22 Q32 10 35 6" stroke="#65436B" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M47 22 Q50 10 47 6" stroke="#65436B" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M24 44 Q18 35 19 28" stroke="#65436B" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M58 44 Q64 35 63 28" stroke="#65436B" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M24 64 Q18 56 19 49" stroke="#65436B" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M58 64 Q64 56 63 49" stroke="#65436B" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+          <!-- Center stem -->
+          <path d="M41 50 Q42 86 62 104" stroke="#65436B" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+          <!-- Lower Grain Pairs -->
+          <ellipse cx="31" cy="78" rx="11" ry="7" transform="rotate(28 31 78)" fill="#FFE08C" stroke="#65436B" stroke-width="2.4"/>
+          <ellipse cx="51" cy="78" rx="11" ry="7" transform="rotate(-28 51 78)" fill="#FFE08C" stroke="#65436B" stroke-width="2.4"/>
+          
+          <ellipse cx="30" cy="61" rx="12" ry="7.5" transform="rotate(28 30 61)" fill="#FFE599" stroke="#65436B" stroke-width="2.4"/>
+          <ellipse cx="52" cy="61" rx="12" ry="7.5" transform="rotate(-28 52 61)" fill="#FFE599" stroke="#65436B" stroke-width="2.4"/>
+
+          <!-- Top Main Smiling Wheat Kernel -->
+          <path d="M41 14 C27 24 25 46 41 51 C57 46 55 24 41 14 Z" fill="#FFE9A8" stroke="#65436B" stroke-width="2.6" stroke-linejoin="round"/>
+          <!-- Highlight on top kernel -->
+          <path d="M34 26 Q32 33 34 38" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <!-- Kawaii Face -->
+          <circle cx="35" cy="37" r="2.3" fill="#65436B"/>
+          <circle cx="47" cy="37" r="2.3" fill="#65436B"/>
+          <path d="M39 39 Q41 42 43 39" fill="none" stroke="#65436B" stroke-width="2" stroke-linecap="round"/>
+          <!-- Rosy Cheeks -->
+          <ellipse cx="32" cy="40.5" rx="3" ry="1.6" fill="#F36FA8" opacity="0.65"/>
+          <ellipse cx="50" cy="40.5" rx="3" ry="1.6" fill="#F36FA8" opacity="0.65"/>
+        </g>
+
+        <!-- Pastel Pink & Lavender Fountain Pen (Right Side) -->
+        <g transform="rotate(30 77 64)">
+          <!-- Fountain Nib -->
+          <path d="M70 90 L77 112 L84 90 Z" fill="#DCC5F2" stroke="#65436B" stroke-width="2.4" stroke-linejoin="round"/>
+          <line x1="77" y1="97" x2="77" y2="111" stroke="#65436B" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="77" cy="97" r="2" fill="#65436B"/>
+          <!-- Neck Ring -->
+          <rect x="68" y="84" width="18" height="6" rx="3" fill="#DCC5F2" stroke="#65436B" stroke-width="2.3"/>
+          <!-- Pen Barrel -->
+          <rect x="67" y="48" width="20" height="36" rx="4" fill="#F48FB1" stroke="#65436B" stroke-width="2.4"/>
+          <line x1="72" y1="54" x2="72" y2="76" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+          <!-- Cap Ring -->
+          <rect x="65" y="43" width="24" height="6" rx="3" fill="#DCC5F2" stroke="#65436B" stroke-width="2.3"/>
+          <!-- Pen Cap -->
+          <path d="M66 43 L68 22 C69 15 85 15 86 22 L88 43 Z" fill="#F48FB1" stroke="#65436B" stroke-width="2.4" stroke-linejoin="round"/>
+          <!-- Pen Clip -->
+          <path d="M77 18 L77 34" stroke="#DCC5F2" stroke-width="5" stroke-linecap="round"/>
+          <path d="M77 18 L77 34" stroke="#65436B" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="77" cy="35" r="3.2" fill="#DCC5F2" stroke="#65436B" stroke-width="2"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ========================================================================
+       SECTION 4: HEADER & TOP ANNOUNCEMENT BAR
+       ======================================================================== -->
+  <div class="top-bar" data-elementor-widget="Elementor Container • Announcement Bar">
+    <span class="top-bar-badge">هدیه گندم</span>
+    <span>ارسال رایگان برای سفارش‌های بالای ۶۰۰ هزار تومان + یک پک استیکر دستی روی هر بسته! ✨</span>
+  </div>
+
+  <header class="site-header" data-elementor-widget="Elementor Theme Builder • Header">
+    <div class="e-container">
+      <div class="header-main">
+        
+        <!-- Right Column (RTL): Minimal Search Widget -->
+        <div class="header-right">
+          <button class="action-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="منوی موبایل">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="4" y1="7" x2="20" y2="7"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="17" x2="20" y2="17"></line>
+            </svg>
+          </button>
+          <form class="header-search" onsubmit="event.preventDefault(); showToast('در حال جستجو در دنیای رنگی گندم... 🔍');" data-elementor-widget="Elementor Search Form">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" placeholder="جستجوی دفتر، خودکار، استیکر..." aria-label="جستجو" />
+          </form>
+        </div>
+
+        <!-- Center Column: Small Centered Brand Logo -->
+        <a href="#" class="brand-logo" data-elementor-widget="Site Logo Widget">
+          <svg class="brand-logo-emblem" aria-hidden="true">
+            <use href="#gandom-logo-symbol"></use>
+          </svg>
+          <span class="brand-logo-text">فانتزیجات گندم</span>
+          <span class="brand-logo-sub">بوتیک نوشت‌افزار و هدیه‌های خاص</span>
+        </a>
+
+        <!-- Left Column (RTL): Account, Wishlist, WooCommerce Cart -->
+        <div class="header-actions" data-elementor-widget="WooCommerce Header Icons">
+          <button class="action-btn" onclick="showToast('ورود / ثبت‌نام در حساب کاربری گندم 🌸')" title="حساب کاربری" aria-label="حساب کاربری">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+
+          <button class="action-btn" onclick="showToast('لیست علاقه‌مندی‌های شما باز شد 💖')" title="علاقه‌مندی‌ها" aria-label="علاقه‌مندی‌ها">
+            <span class="badge-count" id="wishlistCount">۲</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+
+          <button class="action-btn" onclick="showToast('سبد خرید ووکامرس شما آماده تسویه‌حساب است 🛍️')" title="سبد خرید" aria-label="سبد خرید">
+            <span class="badge-count" id="cartCount">۳</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Simple Centered Navigation Menu -->
+      <nav class="header-nav" id="headerNav" data-elementor-widget="Elementor Nav Menu">
+        <ul class="nav-list">
+          <li><a href="#" class="nav-link active"><span class="nav-dot"></span>خانه</a></li>
+          <li><a href="#new-arrivals" class="nav-link">فروشگاه</a></li>
+          <li><a href="#categories" class="nav-link">نوشت‌افزار</a></li>
+          <li><a href="#categories" class="nav-link">دفتر و پلنر</a></li>
+          <li><a href="#categories" class="nav-link">اکسسوری فانتزی</a></li>
+          <li><a href="#categories" class="nav-link">لوازم هنری</a></li>
+          <li><a href="#brand-story" class="nav-link">درباره ما</a></li>
+          <li><a href="#footer" class="nav-link">تماس با ما</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         SECTION 5: HERO SECTION (ABRAA GRAPH-PAPER + KAWAII BOUTIQUE ART)
+         ====================================================================== -->
+    <section class="hero-section graph-paper-pink" data-elementor-widget="Flexbox Container • Hero (Graph-Paper BG)">
+      <div class="e-container">
+        <div class="hero-inner">
+          
+          <!-- Dominant Centered Hand-Drawn Illustration (Image Widget in Elementor) -->
+          <div class="hero-illustration-stage" data-elementor-widget="Elementor Image Widget • Illustrated SVG">
+            <svg class="hero-svg" viewBox="0 0 820 350" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="تصویرسازی فروشگاه فانتزیجات گندم">
+              
+              <!-- Soft Pastel Rainbow Arch in Background -->
+              <path d="M 230 270 A 180 180 0 0 1 590 270" stroke="#FFE9A8" stroke-width="14" stroke-linecap="round" opacity="0.7"/>
+              <path d="M 244 270 A 166 166 0 0 1 576 270" stroke="#E7A7CB" stroke-width="14" stroke-linecap="round" opacity="0.65"/>
+              <path d="M 258 270 A 152 152 0 0 1 562 270" stroke="#DCC5F2" stroke-width="14" stroke-linecap="round" opacity="0.65"/>
+              <path d="M 272 270 A 138 138 0 0 1 548 270" stroke="#CDEEDB" stroke-width="14" stroke-linecap="round" opacity="0.7"/>
+
+              <!-- Floating Kawaii Cloud Mascot (Top Left) -->
+              <g class="float-cloud">
+                <path d="M125 95 C125 78 143 68 158 76 C167 60 194 62 201 79 C217 79 227 93 221 108 C221 118 210 124 198 124 L136 124 C122 124 114 109 125 95 Z" fill="#FFFFFF" stroke="#65436B" stroke-width="2.5" stroke-linejoin="round"/>
+                <!-- Cloud Kawaii Face -->
+                <circle cx="160" cy="99" r="2.6" fill="#65436B"/>
+                <circle cx="182" cy="99" r="2.6" fill="#65436B"/>
+                <path d="M168 101 Q171 105 174 101" stroke="#65436B" stroke-width="2" stroke-linecap="round"/>
+                <ellipse cx="154" cy="102" rx="3.5" ry="2" fill="#E7A7CB"/>
+                <ellipse cx="188" cy="102" rx="3.5" ry="2" fill="#E7A7CB"/>
+              </g>
+
+              <!-- Floating Kawaii Cloud (Top Right) -->
+              <g class="float-cloud" style="animation-delay: 1.2s;">
+                <path d="M615 85 C615 72 630 64 642 70 C650 58 672 59 678 73 C690 73 698 84 693 96 C693 104 684 109 674 109 L624 109 C612 109 606 97 615 85 Z" fill="#FFFFFF" stroke="#65436B" stroke-width="2.3" stroke-linejoin="round"/>
+                <circle cx="645" cy="90" r="2.2" fill="#65436B"/>
+                <circle cx="663" cy="90" r="2.2" fill="#65436B"/>
+                <path d="M651 92 Q654 95 657 92" stroke="#65436B" stroke-width="1.8" stroke-linecap="round"/>
+                <ellipse cx="640" cy="93" rx="3" ry="1.6" fill="#E7A7CB"/>
+                <ellipse cx="668" cy="93" rx="3" ry="1.6" fill="#E7A7CB"/>
+              </g>
+
+              <!-- Hand-drawn Stars, Hearts & Sparkles -->
+              <g class="twinkle-star">
+                <path d="M95 160 L99 170 L109 174 L99 178 L95 188 L91 178 L81 174 L91 170 Z" fill="#FFE9A8" stroke="#65436B" stroke-width="1.8"/>
+              </g>
+              <g class="twinkle-star" style="animation-delay: 0.9s;">
+                <path d="M715 150 L719 160 L729 164 L719 168 L715 178 L711 168 L701 164 L711 160 Z" fill="#FFE9A8" stroke="#65436B" stroke-width="1.8"/>
+              </g>
+              <!-- Cute floating hearts -->
+              <path d="M255 68 C250 60 238 64 242 74 C245 81 255 87 255 87 C255 87 265 81 268 74 C272 64 260 60 255 68 Z" fill="#E7A7CB" stroke="#65436B" stroke-width="2"/>
+              <path d="M565 58 C561 52 552 55 555 63 C557 68 565 73 565 73 C565 73 573 68 575 63 C578 55 569 52 565 58 Z" fill="#DCC5F2" stroke="#65436B" stroke-width="2"/>
+
+              <!-- Ground Line with Little Sprouts -->
+              <line x1="80" y1="305" x2="740" y2="305" stroke="#65436B" stroke-width="2.6" stroke-linecap="round"/>
+              <line x1="130" y1="316" x2="240" y2="316" stroke="#E7A7CB" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="570" y1="316" x2="680" y2="316" stroke="#DCC5F2" stroke-width="2.5" stroke-linecap="round"/>
+
+              <!-- ============================================================
+                   CENTERPIECE: TINY CUTE STATIONERY SHOP ("بوتیک گندم")
+                   ============================================================ -->
+              <g id="stationery-shop">
+                <!-- Main Shop Body -->
+                <rect x="305" y="135" width="210" height="170" rx="8" fill="#FFF7EF" stroke="#65436B" stroke-width="2.8"/>
+                <!-- Roof Base -->
+                <rect x="292" y="102" width="236" height="34" rx="10" fill="#DCC5F2" stroke="#65436B" stroke-width="2.6"/>
+                <!-- Shop Sign Board on Roof -->
+                <rect x="345" y="76" width="130" height="34" rx="10" fill="#FFFFFF" stroke="#65436B" stroke-width="2.5"/>
+                <circle cx="357" cy="93" r="4" fill="#FFE9A8" stroke="#65436B" stroke-width="1.6"/>
+                <circle cx="463" cy="93" r="4" fill="#E7A7CB" stroke="#65436B" stroke-width="1.6"/>
+                <text x="410" y="98" text-anchor="middle" font-family="Vazirmatn" font-size="14" font-weight="800" fill="#65436B">فانتزیجات گندم</text>
+
+                <!-- Striped Scalloped Awning -->
+                <g transform="translate(296, 134)">
+                  <path d="M0 0 L228 0 L220 26 L8 26 Z" fill="#FFFFFF" stroke="#65436B" stroke-width="2.5" stroke-linejoin="round"/>
+                  <!-- Scallops -->
+                  <path d="M8 26 A 15 13 0 0 0 38 26 A 15 13 0 0 0 68 26 A 15 13 0 0 0 98 26 A 15 13 0 0 0 128 26 A 15 13 0 0 0 158 26 A 15 13 0 0 0 188 26 A 15 13 0 0 0 220 26" fill="#E7A7CB" stroke="#65436B" stroke-width="2.4"/>
+                  <!-- Stripes -->
+                  <rect x="38" y="2" width="30" height="23" fill="#E7A7CB"/>
+                  <rect x="98" y="2" width="30" height="23" fill="#E7A7CB"/>
+                  <rect x="158" y="2" width="30" height="23" fill="#E7A7CB"/>
+                </g>
+
+                <!-- Shop Display Window (Left) -->
+                <rect x="322" y="182" width="104" height="78" rx="8" fill="#FFFFFF" stroke="#65436B" stroke-width="2.5"/>
+                <!-- Stationery inside window: tiny books & pen cup -->
+                <rect x="336" y="226" width="14" height="32" rx="2" fill="#CDEEDB" stroke="#65436B" stroke-width="1.8"/>
+                <rect x="351" y="220" width="14" height="38" rx="2" fill="#E7A7CB" stroke="#65436B" stroke-width="1.8"/>
+                <rect x="366" y="228" width="14" height="30" rx="2" fill="#FFE9A8" stroke="#65436B" stroke-width="1.8"/>
+                <!-- Pen Holder in Window -->
+                <rect x="392" y="232" width="20" height="26" rx="4" fill="#DCC5F2" stroke="#65436B" stroke-width="1.8"/>
+                <line x1="398" y1="232" x2="395" y2="215" stroke="#F36FA8" stroke-width="3" stroke-linecap="round"/>
+                <line x1="405" y1="232" x2="408" y2="214" stroke="#65436B" stroke-width="3" stroke-linecap="round"/>
+                <!-- Window Sill Flower Box -->
+                <rect x="318" y="258" width="112" height="12" rx="4" fill="#CDEEDB" stroke="#65436B" stroke-width="2.2"/>
+
+                <!-- Cute Arched Shop Door (Right) -->
+                <path d="M444 305 L444 205 A 26 26 0 0 1 496 205 L496 305 Z" fill="#FFE9A8" stroke="#65436B" stroke-width="2.5"/>
+                <rect x="454" y="206" width="32" height="42" rx="14" fill="#FFFFFF" stroke="#65436B" stroke-width="2"/>
+                <!-- Hanging "باز است" Cute Heart Tag -->
+                <circle cx="470" cy="226" r="7" fill="#E7A7CB" stroke="#65436B" stroke-width="1.6"/>
+                <circle cx="452" cy="258" r="3" fill="#65436B"/>
+              </g>
+
+              <!-- ============================================================
+                   LEFT CHARACTER: SMILING KAWAII NOTEBOOK & WHEAT SPRIG
+                   ============================================================ -->
+              <g class="float-char" transform="translate(155, 175)">
+                <!-- Spiral Notebook Body -->
+                <rect x="15" y="20" width="76" height="96" rx="10" fill="#E7A7CB" stroke="#65436B" stroke-width="2.6"/>
+                <rect x="23" y="20" width="68" height="96" rx="8" fill="#FFF7EF" stroke="#65436B" stroke-width="2.4"/>
+                <!-- Pastel Cover Label -->
+                <rect x="37" y="36" width="40" height="22" rx="6" fill="#CDEEDB" stroke="#65436B" stroke-width="1.8"/>
+                <!-- Spiral Rings -->
+                <path d="M10 34 H22 M10 50 H22 M10 66 H22 M10 82 H22 M10 98 H22" stroke="#65436B" stroke-width="2.6" stroke-linecap="round"/>
+                <!-- Kawaii Face on Notebook -->
+                <circle cx="46" cy="76" r="2.8" fill="#65436B"/>
+                <circle cx="68" cy="76" r="2.8" fill="#65436B"/>
+                <path d="M54 79 Q57 84 60 79" stroke="#65436B" stroke-width="2.2" stroke-linecap="round"/>
+                <ellipse cx="40" cy="80" rx="4" ry="2.2" fill="#F36FA8" opacity="0.65"/>
+                <ellipse cx="74" cy="80" rx="4" ry="2.2" fill="#F36FA8" opacity="0.65"/>
+                <!-- Bookmark Ribbon -->
+                <path d="M56 116 L56 128 L62 123 L68 128 L68 116" fill="#F36FA8" stroke="#65436B" stroke-width="1.8"/>
+              </g>
+
+              <!-- ============================================================
+                   RIGHT CHARACTER: SMILING PASTEL PENCIL & GOLDEN WHEAT MASCOT
+                   ============================================================ -->
+              <g class="float-char" style="animation-delay: 0.4s;" transform="translate(565, 165)">
+                <!-- Smiling Pencil Character -->
+                <g transform="rotate(8 55 65)">
+                  <!-- Eraser Top -->
+                  <path d="M35 28 C35 16 71 16 71 28 L71 38 L35 38 Z" fill="#F36FA8" stroke="#65436B" stroke-width="2.5"/>
+                  <!-- Ferrule Metal Ring -->
+                  <rect x="35" y="36" width="36" height="9" fill="#DCC5F2" stroke="#65436B" stroke-width="2.3"/>
+                  <!-- Pencil Body -->
+                  <rect x="35" y="45" width="36" height="62" fill="#FFE9A8" stroke="#65436B" stroke-width="2.5"/>
+                  <!-- Wood Cone -->
+                  <path d="M35 107 L53 134 L71 107 Z" fill="#FFF7EF" stroke="#65436B" stroke-width="2.5" stroke-linejoin="round"/>
+                  <!-- Lead Tip -->
+                  <path d="M47 125 L53 134 L59 125 Z" fill="#65436B"/>
+                  <!-- Kawaii Face on Pencil -->
+                  <circle cx="45" cy="74" r="2.6" fill="#65436B"/>
+                  <circle cx="61" cy="74" r="2.6" fill="#65436B"/>
+                  <path d="M50 77 Q53 81 56 77" stroke="#65436B" stroke-width="2" stroke-linecap="round"/>
+                  <ellipse cx="40" cy="78" rx="3.2" ry="1.8" fill="#F36FA8" opacity="0.7"/>
+                  <ellipse cx="66" cy="78" rx="3.2" ry="1.8" fill="#F36FA8" opacity="0.7"/>
+                </g>
+
+                <!-- Cute Golden Wheat Companion next to Pencil -->
+                <g transform="translate(88, 45) rotate(12)">
+                  <path d="M20 10 C8 18 7 36 20 40 C33 36 32 18 20 10 Z" fill="#FFE9A8" stroke="#65436B" stroke-width="2.3"/>
+                  <circle cx="15" cy="27" r="1.8" fill="#65436B"/>
+                  <circle cx="25" cy="27" r="1.8" fill="#65436B"/>
+                  <path d="M18 29 Q20 31 22 29" stroke="#65436B" stroke-width="1.6" stroke-linecap="round"/>
+                  <ellipse cx="12" cy="48" rx="9" ry="5.5" transform="rotate(25 12 48)" fill="#FFE9A8" stroke="#65436B" stroke-width="2"/>
+                  <ellipse cx="28" cy="48" rx="9" ry="5.5" transform="rotate(-25 28 48)" fill="#FFE9A8" stroke="#65436B" stroke-width="2"/>
+                  <path d="M20 40 L20 75" stroke="#65436B" stroke-width="2.4" stroke-linecap="round"/>
+                </g>
+              </g>
+
+            </svg>
+          </div>
+
+          <!-- Separate Editable Elementor UI Elements (Heading, Text, Dual Buttons) -->
+          <div class="hero-content" data-elementor-widget="Elementor Inner Container • Editable Hero Copy">
+            <h1 class="hero-title" data-elementor-widget="Elementor Heading Widget">به دنیای رنگی گندم خوش اومدی!</h1>
+            <p class="hero-desc" data-elementor-widget="Elementor Text Editor">
+              اینجا پر از نوشت‌افزارهای خاص، اکسسوری‌های بامزه و چیزهای کوچیکیه که روزت رو قشنگ‌تر می‌کنن.
+            </p>
+            <div class="hero-ctas">
+              <a href="#new-arrivals" class="btn btn-primary" data-elementor-widget="Elementor Button • Primary">
+                <span>ورود به فروشگاه</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+              </a>
+              <a href="#new-arrivals" class="btn btn-secondary" data-elementor-widget="Elementor Button • Secondary">
+                <span>دیدن محصولات جدید</span>
+                <span>✨</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 6: TWO SIDE-BY-SIDE ILLUSTRATED PROMOTIONAL BANNERS
+         ====================================================================== -->
+    <section class="promo-section" data-elementor-widget="Flexbox Container • 2-Col Promo Banners">
+      <div class="e-container">
+        <div class="promo-grid">
+          
+          <!-- Banner 1 -->
+          <div class="promo-card promo-card--desk" data-elementor-widget="Elementor Callout Box • Banner 1">
+            <div class="promo-text-col">
+              <span class="speech-bubble-tag">میز تحریر رویایی ☁️</span>
+              <h2 class="promo-title">یه انتخاب قشنگ برای میز تحریرت</h2>
+              <p class="promo-sub">جامدادی‌های ابری، استندهای رومیزی و خودکارهای ژله‌ای پاستیلی</p>
+              <a href="#new-arrivals" class="promo-link">
+                <span>چیدمان میز من</span>
+                <span>←</span>
+              </a>
+            </div>
+            <div class="promo-art-col">
+              <!-- Hand-drawn Desk Stationery & Cloud SVG -->
+              <svg viewBox="0 0 140 125" fill="none">
+                <path d="M22 40 C22 29 34 23 44 28 C50 18 68 19 73 30 C83 30 90 39 86 48 C86 55 78 59 70 59 L29 59 C20 59 15 49 22 40 Z" fill="#FFFFFF" stroke="#65436B" stroke-width="2.2"/>
+                <circle cx="48" cy="44" r="2" fill="#65436B"/><circle cx="62" cy="44" r="2" fill="#65436B"/>
+                <path d="M53 46 Q55 49 57 46" stroke="#65436B" stroke-width="1.8" stroke-linecap="round"/>
+                <!-- Pastel Pen Cup & Washi Tape -->
+                <rect x="68" y="64" width="44" height="48" rx="8" fill="#CDEEDB" stroke="#65436B" stroke-width="2.3"/>
+                <path d="M78 64 L73 36 L81 34 L86 64" fill="#F36FA8" stroke="#65436B" stroke-width="2"/>
+                <path d="M94 64 L100 32 L108 34 L102 64" fill="#FFE9A8" stroke="#65436B" stroke-width="2"/>
+                <rect x="28" y="88" width="32" height="24" rx="6" fill="#E7A7CB" stroke="#65436B" stroke-width="2.2"/>
+                <circle cx="44" cy="100" r="5" fill="#FFF7EF" stroke="#65436B" stroke-width="1.8"/>
+                <path d="M115 24 L118 31 L125 34 L118 37 L115 44 L112 37 L105 34 L112 31 Z" fill="#FFE9A8" stroke="#65436B" stroke-width="1.6"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Banner 2 -->
+          <div class="promo-card promo-card--gift" data-elementor-widget="Elementor Callout Box • Banner 2">
+            <div class="promo-text-col">
+              <span class="speech-bubble-tag">بسته‌بندی فانتزی 🎀</span>
+              <h2 class="promo-title">هدیه‌های کوچولو، خوشحالی‌های بزرگ</h2>
+              <p class="promo-sub">پک‌های کادویی آماده با کارت‌پستال دست‌نویس و استیکر اختصاصی گندم</p>
+              <a href="#collections" class="promo-link">
+                <span>انتخاب باکس هدیه</span>
+                <span>←</span>
+              </a>
+            </div>
+            <div class="promo-art-col">
+              <!-- Hand-drawn Cute Gift Box, Ribbon & Hearts SVG -->
+              <svg viewBox="0 0 140 125" fill="none">
+                <!-- Sparkles & Hearts -->
+                <path d="M32 30 C28 24 20 27 23 34 C25 39 32 43 32 43 C32 43 39 39 41 34 C44 27 36 24 32 30 Z" fill="#F36FA8" stroke="#65436B" stroke-width="1.8"/>
+                <path d="M114 26 L117 33 L124 36 L117 39 L114 46 L111 39 L104 36 L111 33 Z" fill="#FFE9A8" stroke="#65436B" stroke-width="1.6"/>
+                <!-- Kawaii Gift Box -->
+                <rect x="40" y="56" width="64" height="54" rx="8" fill="#FFF7EF" stroke="#65436B" stroke-width="2.4"/>
+                <rect x="34" y="42" width="76" height="16" rx="6" fill="#E7A7CB" stroke="#65436B" stroke-width="2.4"/>
+                <!-- Vertical Ribbon -->
+                <rect x="65" y="42" width="14" height="68" fill="#FFE9A8" stroke="#65436B" stroke-width="2.2"/>
+                <!-- Cute Bow on Top -->
+                <path d="M72 42 C52 20 44 40 72 42 Z" fill="#F36FA8" stroke="#65436B" stroke-width="2.2"/>
+                <path d="M72 42 C92 20 100 40 72 42 Z" fill="#F36FA8" stroke="#65436B" stroke-width="2.2"/>
+                <!-- Smiling face on gift box -->
+                <circle cx="54" cy="80" r="2.2" fill="#65436B"/>
+                <circle cx="90" cy="80" r="2.2" fill="#65436B"/>
+                <ellipse cx="50" cy="84" rx="3" ry="1.6" fill="#E7A7CB"/>
+                <ellipse cx="94" cy="84" rx="3" ry="1.6" fill="#E7A7CB"/>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 7: CATEGORY SECTION (6 ILLUSTRATED TILES ON GRAPH-PAPER)
+         ====================================================================== -->
+    <section class="category-section" id="categories" data-elementor-widget="WooCommerce Product Categories Grid">
+      <div class="e-container">
+        <div class="section-header">
+          <span class="section-eyebrow">✨ دسته‌بندی‌های دوست‌داشتنی</span>
+          <h2 class="section-title">توی دنیای گندم چی پیدا می‌کنی؟</h2>
+        </div>
+
+        <div class="category-grid">
+          
+          <!-- Category 1: نوشت‌افزار -->
+          <a href="#new-arrivals" class="category-tile">
+            <div class="category-art-box graph-paper-pink">
+              <svg viewBox="0 0 100 100" fill="none">
+                <g transform="rotate(-18 50 50)">
+                  <rect x="30" y="20" width="16" height="54" rx="4" fill="#E7A7CB" stroke="#65436B" stroke-width="2.3"/>
+                  <path d="M30 74 L38 88 L46 74 Z" fill="#FFF7EF" stroke="#65436B" stroke-width="2.3"/>
+                  <rect x="30" y="14" width="16" height="8" rx="3" fill="#FFE9A8" stroke="#65436B" stroke-width="2.3"/>
+                </g>
+                <g transform="rotate(16 58 52)">
+                  <rect x="52" y="22" width="16" height="56" rx="8" fill="#CDEEDB" stroke="#65436B" stroke-width="2.3"/>
+                  <line x1="68" y1="30" x2="73" y2="48" stroke="#65436B" stroke-width="2.3" stroke-linecap="round"/>
+                  <circle cx="60" cy="48" r="2" fill="#65436B"/>
+                </g>
+                <path d="M22 26 L24 31 L29 33 L24 35 L22 40 L20 35 L15 33 L20 31 Z" fill="#FFE9A8"/>
+              </svg>
+            </div>
+            <h3 class="category-name">نوشت‌افزار</h3>
+            <span class="category-count">۴۸ محصول رنگی</span>
+          </a>
+
+          <!-- Category 2: دفتر و پلنر -->
+          <a href="#new-arrivals" class="category-tile">
+            <div class="category-art-box graph-paper-pink">
+              <svg viewBox="0 0 100 100" fill="none">
+                <rect x="26" y="16" width="50" height="68" rx="8" fill="#DCC5F2" stroke="#65436B" stroke-width="2.4"/>
+                <rect x="32" y="16" width="44" height="68" rx="6" fill="#FFF7EF" stroke="#65436B" stroke-width="2.3"/>
+                <path d="M21 28 H30 M21 42 H30 M21 56 H30 M21 70 H30" stroke="#65436B" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="42" y="28" width="24" height="14" rx="4" fill="#FFE9A8" stroke="#65436B" stroke-width="1.8"/>
+                <circle cx="48" cy="56" r="2" fill="#65436B"/><circle cx="60" cy="56" r="2" fill="#65436B"/>
+                <path d="M52 58 Q54 61 56 58" stroke="#65436B" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="category-name">دفتر و پلنر</h3>
+            <span class="category-count">۳۵ مدل فانتزی</span>
+          </a>
+
+          <!-- Category 3: جامدادی و کیف -->
+          <a href="#new-arrivals" class="category-tile">
+            <div class="category-art-box graph-paper-pink">
+              <svg viewBox="0 0 100 100" fill="none">
+                <path d="M18 62 C14 46 26 34 38 38 C46 26 66 28 72 40 C84 40 90 54 84 66 C82 74 74 76 64 76 L30 76 C20 76 16 70 18 62 Z" fill="#FFFFFF" stroke="#65436B" stroke-width="2.4"/>
+                <path d="M26 42 Q50 46 76 42" stroke="#E7A7CB" stroke-width="2.2" stroke-dasharray="4 3"/>
+                <circle cx="78" cy="42" r="4" fill="#FFE9A8" stroke="#65436B" stroke-width="1.8"/>
+                <circle cx="44" cy="58" r="2.2" fill="#65436B"/><circle cx="58" cy="58" r="2.2" fill="#65436B"/>
+                <path d="M49 60 Q51 63 53 60" stroke="#65436B" stroke-width="1.8" stroke-linecap="round"/>
+                <ellipse cx="39" cy="61" rx="3" ry="1.6" fill="#E7A7CB"/><ellipse cx="63" cy="61" rx="3" ry="1.6" fill="#E7A7CB"/>
+              </svg>
+            </div>
+            <h3 class="category-name">جامدادی و کیف</h3>
+            <span class="category-count">۲۲ طرح خاص</span>
+          </a>
+
+          <!-- Category 4: اکسسوری فانتزی -->
+          <a href="#new-arrivals" class="category-tile">
+            <div class="category-art-box graph-paper-pink">
+              <svg viewBox="0 0 100 100" fill="none">
+                <!-- Cute Bunny Mirror / Keychain Charm -->
+                <path d="M38 20 C34 10 44 10 46 22" fill="#FFE9A8" stroke="#65436B" stroke-width="2.3"/>
+                <path d="M62 20 C66 10 56 10 54 22" fill="#FFE9A8" stroke="#65436B" stroke-width="2.3"/>
+                <circle cx="50" cy="54" r="26" fill="#FFE9A8" stroke="#65436B" stroke-width="2.4"/>
+                <circle cx="50" cy="54" r="19" fill="#FFF7EF" stroke="#65436B" stroke-width="2"/>
+                <path d="M42 46 L46 42 M44 52 L52 44" stroke="#E7A7CB" stroke-width="2" stroke-linecap="round"/>
+                <path d="M74 28 C71 23 64 25 66 31 C68 35 74 38 74 38 C74 38 80 35 82 31 C84 25 77 23 74 28 Z" fill="#F36FA8" stroke="#65436B" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <h3 class="category-name">اکسسوری فانتزی</h3>
+            <span class="category-count">۶۴ آیتم بامزه</span>
+          </a>
+
+          <!-- Category 5: لوازم هنری -->
+          <a href="#new-arrivals" class="category-tile">
+            <div class="category-art-box graph-paper-pink">
+              <svg viewBox="0 0 100 100" fill="none">
+                <!-- Watercolor Palette & Brush -->
+                <path d="M20 52 C20 30 46 20 68 28 C84 34 86 58 72 70 C62 78 52 68 46 68 C38 68 20 70 20 52 Z" fill="#FFF7EF" stroke="#65436B" stroke-width="2.4"/>
+                <circle cx="36" cy="44" r="6" fill="#E7A7CB" stroke="#65436B" stroke-width="1.8"/>
+                <circle cx="52" cy="38" r="6" fill="#FFE9A8" stroke="#65436B" stroke-width="1.8"/>
+                <circle cx="66" cy="46" r="6" fill="#CDEEDB" stroke="#65436B" stroke-width="1.8"/>
+                <circle cx="62" cy="60" r="5" fill="#DCC5F2" stroke="#65436B" stroke-width="1.8"/>
+                <circle cx="36" cy="58" r="4" fill="#FFFFFF" stroke="#65436B" stroke-width="1.8"/>
+                <line x1="24" y1="78" x2="78" y2="22" stroke="#65436B" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="category-name">لوازم هنری</h3>
+            <span class="category-count">۲۹ محصول خلاقانه</span>
+          </a>
+
+          <!-- Category 6: هدیه‌های خاص -->
+          <a href="#new-arrivals" class="category-tile">
+            <div class="category-art-box graph-paper-pink">
+              <svg viewBox="0 0 100 100" fill="none">
+                <rect x="26" y="42" width="48" height="40" rx="6" fill="#CDEEDB" stroke="#65436B" stroke-width="2.4"/>
+                <rect x="22" y="32" width="56" height="12" rx="4" fill="#E7A7CB" stroke="#65436B" stroke-width="2.4"/>
+                <rect x="45" y="32" width="10" height="50" fill="#FFE9A8" stroke="#65436B" stroke-width="2"/>
+                <path d="M50 32 C34 16 30 30 50 32 Z" fill="#F36FA8" stroke="#65436B" stroke-width="2"/>
+                <path d="M50 32 C66 16 70 30 50 32 Z" fill="#F36FA8" stroke="#65436B" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="category-name">هدیه‌های خاص</h3>
+            <span class="category-count">۱۹ پک کادویی</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 8: NEW ARRIVALS ("تازه‌های گندم" - WOOCOMMERCE 4-COL GRID)
+         ====================================================================== -->
+    <section class="products-section products-section--tinted" id="new-arrivals" data-elementor-widget="WooCommerce Products Widget • New Arrivals (4 Col)">
+      <div class="e-container">
+        <div class="section-header">
+          <span class="section-eyebrow">🌸 تازه از راه رسیده‌ها</span>
+          <h2 class="section-title">تازه‌های گندم</h2>
+          <p class="section-subtitle">جدیدترین نوشت‌افزارها و فانتزیجاتی که این هفته به قفسه‌های گندم اضافه شدن</p>
+        </div>
+
+        <div class="wc-products-grid">
+          
+          <!-- Product 1: دفتر فانتزی خرگوشی -->
+          <article class="wc-product-card" data-elementor-widget="WC Product Card">
+            <div class="wc-product-thumb graph-paper-cream">
+              <span class="wc-badge wc-badge--sale">۱۵٪ تخفیف</span>
+              <button class="wc-wishlist-btn" onclick="toggleWishlist(this, 'دفتر فانتزی خرگوشی')" aria-label="افزودن به علاقه‌مندی">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <!-- Illustrated Bunny Notebook Studio Graphic -->
+              <svg viewBox="0 0 140 140" fill="none">
+                <rect x="30" y="20" width="80" height="102" rx="10" fill="#E7A7CB" stroke="#65436B" stroke-width="2.6"/>
+                <rect x="36" y="20" width="74" height="102" rx="8" fill="#FFFFFF" stroke="#65436B" stroke-width="2.4"/>
+                <path d="M24 34 H36 M24 52 H36 M24 70 H36 M24 88 H36 M24 106 H36" stroke="#65436B" stroke-width="2.6" stroke-linecap="round"/>
+                <!-- Cute Bunny Ears & Face on Cover -->
+                <path d="M62 56 C58 36 68 36 68 56" fill="#FFF7EF" stroke="#65436B" stroke-width="2.2"/>
+                <path d="M84 56 C88 36 78 36 78 56" fill="#FFF7EF" stroke="#65436B" stroke-width="2.2"/>
+                <circle cx="73" cy="72" r="20" fill="#FFF7EF" stroke="#65436B" stroke-width="2.2"/>
+                <circle cx="66" cy="70" r="2.2" fill="#65436B"/><circle cx="80" cy="70" r="2.2" fill="#65436B"/>
+                <path d="M71 74 Q73 77 75 74" stroke="#65436B" stroke-width="1.8" stroke-linecap="round"/>
+                <ellipse cx="62" cy="74" rx="3" ry="1.8" fill="#F36FA8"/>
+                <ellipse cx="84" cy="74" rx="3" ry="1.8" fill="#F36FA8"/>
+              </svg>
+            </div>
+            <span class="wc-product-cat">دفتر و پلنر</span>
+            <h3 class="wc-product-title"><a href="#new-arrivals">دفتر فانتزی خرگوشی (۸۰ برگ خط‌دار پاستیلی)</a></h3>
+            <div class="wc-price-row">
+              <span class="wc-price-regular-del">۲۲۰,۰۰۰</span>
+              <span class="wc-price-current">۱۸۷,۰۰۰ <span class="wc-currency">تومان</span></span>
+            </div>
+            <button class="wc-add-to-cart" onclick="addToCart(this, 'دفتر فانتزی خرگوشی')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>افزودن به سبد خرید</span>
+            </button>
+          </article>
+
+          <!-- Product 2: خودکار رنگی پاستیلی -->
+          <article class="wc-product-card" data-elementor-widget="WC Product Card">
+            <div class="wc-product-thumb graph-paper-cream">
+              <span class="wc-badge wc-badge--new">جدید</span>
+              <button class="wc-wishlist-btn" onclick="toggleWishlist(this, 'خودکار رنگی پاستیلی')" aria-label="افزودن به علاقه‌مندی">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <!-- Illustrated Pastel Gel Pens Set -->
+              <svg viewBox="0 0 140 140" fill="none">
+                <rect x="28" y="24" width="16" height="90" rx="7" fill="#E7A7CB" stroke="#65436B" stroke-width="2.3"/>
+                <rect x="48" y="20" width="16" height="90" rx="7" fill="#DCC5F2" stroke="#65436B" stroke-width="2.3"/>
+                <rect x="68" y="24" width="16" height="90" rx="7" fill="#CDEEDB" stroke="#65436B" stroke-width="2.3"/>
+                <rect x="88" y="20" width="16" height="90" rx="7" fill="#FFE9A8" stroke="#65436B" stroke-width="2.3"/>
+                <rect x="24" y="64" width="84" height="24" rx="6" fill="#FFFFFF" stroke="#65436B" stroke-width="2.2"/>
+                <text x="66" y="80" text-anchor="middle" font-family="Vazirmatn" font-size="10" font-weight="700" fill="#65436B">PASTEL SET</text>
+              </svg>
+            </div>
+            <span class="wc-product-cat">نوشت‌افزار</span>
+            <h3 class="wc-product-title"><a href="#new-arrivals">خودکار رنگی پاستیلی (پک ۶ عددی روانکار)</a></h3>
+            <div class="wc-price-row">
+              <span class="wc-price-current">۱۴۵,۰۰۰ <span class="wc-currency">تومان</span></span>
+            </div>
+            <button class="wc-add-to-cart" onclick="addToCart(this, 'خودکار رنگی پاستیلی')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>افزودن به سبد خرید</span>
+            </button>
+          </article>
+
+          <!-- Product 3: جامدادی طرح ابر -->
+          <article class="wc-product-card" data-elementor-widget="WC Product Card">
+            <div class="wc-product-thumb graph-paper-cream">
+              <span class="wc-badge wc-badge--sale">۱۰٪ تخفیف</span>
+              <button class="wc-wishlist-btn is-active" onclick="toggleWishlist(this, 'جامدادی طرح ابر')" aria-label="افزودن به علاقه‌مندی">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <!-- Illustrated Puffy Cloud Pencil Pouch -->
+              <svg viewBox="0 0 140 140" fill="none">
+                <path d="M22 86 C16 64 32 48 48 54 C58 38 86 40 94 56 C112 56 120 74 112 92 C108 102 98 104 84 104 L38 104 C24 104 19 96 22 86 Z" fill="#FFFFFF" stroke="#65436B" stroke-width="2.6"/>
+                <path d="M34 56 Q70 62 102 56" stroke="#E7A7CB" stroke-width="2.5" stroke-dasharray="5 4"/>
+                <!-- Star Zipper Pull -->
+                <path d="M106 56 L109 62 L115 64 L109 66 L106 72 L103 66 L97 64 L103 62 Z" fill="#FFE9A8" stroke="#65436B" stroke-width="1.8"/>
+                <circle cx="58" cy="78" r="2.6" fill="#65436B"/><circle cx="78" cy="78" r="2.6" fill="#65436B"/>
+                <path d="M65 81 Q68 85 71 81" stroke="#65436B" stroke-width="2" stroke-linecap="round"/>
+                <ellipse cx="51" cy="82" rx="4" ry="2.2" fill="#E7A7CB"/><ellipse cx="85" cy="82" rx="4" ry="2.2" fill="#E7A7CB"/>
+              </svg>
+            </div>
+            <span class="wc-product-cat">جامدادی و کیف</span>
+            <h3 class="wc-product-title"><a href="#new-arrivals">جامدادی طرح ابر (پارچه پفکی ضدآب)</a></h3>
+            <div class="wc-price-row">
+              <span class="wc-price-regular-del">۲۹۰,۰۰۰</span>
+              <span class="wc-price-current">۲۶۱,۰۰۰ <span class="wc-currency">تومان</span></span>
+            </div>
+            <button class="wc-add-to-cart" onclick="addToCart(this, 'جامدادی طرح ابر')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>افزودن به سبد خرید</span>
+            </button>
+          </article>
+
+          <!-- Product 4: استیکر فانتزی -->
+          <article class="wc-product-card" data-elementor-widget="WC Product Card">
+            <div class="wc-product-thumb graph-paper-cream">
+              <span class="wc-badge wc-badge--new">چاپ اختصاصی</span>
+              <button class="wc-wishlist-btn" onclick="toggleWishlist(this, 'استیکر فانتزی')" aria-label="افزودن به علاقه‌مندی">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <!-- Illustrated Kawaii Sticker Sheet -->
+              <svg viewBox="0 0 140 140" fill="none">
+                <rect x="30" y="18" width="80" height="104" rx="10" fill="#FFFFFF" stroke="#65436B" stroke-width="2.4"/>
+                <rect x="30" y="18" width="80" height="20" rx="8" fill="#DCC5F2" stroke="#65436B" stroke-width="2.4"/>
+                <circle cx="70" cy="28" r="3.5" fill="#FFF7EF" stroke="#65436B" stroke-width="1.8"/>
+                <!-- Mini Stickers on Sheet -->
+                <circle cx="52" cy="58" r="13" fill="#FFE9A8" stroke="#65436B" stroke-width="2"/>
+                <circle cx="48" cy="56" r="1.6" fill="#65436B"/><circle cx="56" cy="56" r="1.6" fill="#65436B"/>
+                <path d="M88 48 C83 41 74 44 77 52 C79 57 88 62 88 62 C88 62 97 57 99 52 C102 44 93 41 88 48 Z" fill="#F36FA8" stroke="#65436B" stroke-width="2"/>
+                <rect x="40" y="82" width="28" height="24" rx="6" fill="#CDEEDB" stroke="#65436B" stroke-width="2"/>
+                <path d="M88 80 L92 90 L102 94 L92 98 L88 108 L84 98 L74 94 L84 90 Z" fill="#E7A7CB" stroke="#65436B" stroke-width="2"/>
+              </svg>
+            </div>
+            <span class="wc-product-cat">اکسسوری و استیکر</span>
+            <h3 class="wc-product-title"><a href="#new-arrivals">استیکر فانتزی (پک ۴۵ عددی روزمرگی گندم)</a></h3>
+            <div class="wc-price-row">
+              <span class="wc-price-current">۶۸,۰۰۰ <span class="wc-currency">تومان</span></span>
+            </div>
+            <button class="wc-add-to-cart" onclick="addToCart(this, 'استیکر فانتزی')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>افزودن به سبد خرید</span>
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 9: FEATURED COLLECTION ("برای هر سلیقه، یه چیز قشنگ داریم!")
+         ====================================================================== -->
+    <section class="collections-section" id="collections" data-elementor-widget="Flexbox Container • 3 Illustrated Collections">
+      <div class="e-container">
+        <div class="section-header">
+          <span class="section-eyebrow">🌈 کالکشن‌های منتخب گندم</span>
+          <h2 class="section-title">برای هر سلیقه، یه چیز قشنگ داریم!</h2>
+        </div>
+
+        <div class="collections-grid">
+          
+          <!-- Collection 1: برای عاشقان نوشت‌افزار -->
+          <a href="#best-sellers" class="collection-card collection-card--pink graph-paper-subtle">
+            <div class="collection-art">
+              <svg viewBox="0 0 140 115" fill="none">
+                <rect x="26" y="20" width="56" height="74" rx="8" fill="#FFFFFF" stroke="#65436B" stroke-width="2.3"/>
+                <line x1="36" y1="36" x2="70" y2="36" stroke="#E7A7CB" stroke-width="3" stroke-linecap="round"/>
+                <line x1="36" y1="48" x2="64" y2="48" stroke="#DCC5F2" stroke-width="3" stroke-linecap="round"/>
+                <line x1="36" y1="60" x2="70" y2="60" stroke="#FFE9A8" stroke-width="3" stroke-linecap="round"/>
+                <g transform="rotate(22 96 58)">
+                  <rect x="88" y="18" width="14" height="62" rx="5" fill="#F36FA8" stroke="#65436B" stroke-width="2.2"/>
+                  <path d="M88 80 L95 94 L102 80 Z" fill="#DCC5F2" stroke="#65436B" stroke-width="2.2"/>
+                </g>
+              </svg>
+            </div>
+            <h3 class="collection-title">برای عاشقان نوشت‌افزار</h3>
+            <p class="collection-desc">دفترهای نقطه‌ای بولت‌ژورنال، روان‌نویس‌های نمدی و هایلایترهای پاستیلی</p>
+            <span class="collection-cta">مشاهده کالکشن ←</span>
+          </a>
+
+          <!-- Collection 2: برای میزهای رنگی -->
+          <a href="#best-sellers" class="collection-card collection-card--mint">
+            <div class="collection-art">
+              <svg viewBox="0 0 140 115" fill="none">
+                <!-- Cute Desk Organizer, Sticky Notes & Mini Lamp -->
+                <rect x="28" y="48" width="46" height="44" rx="6" fill="#FFFFFF" stroke="#65436B" stroke-width="2.3"/>
+                <rect x="34" y="56" width="34" height="12" rx="3" fill="#FFE9A8" stroke="#65436B" stroke-width="1.8"/>
+                <rect x="34" y="74" width="34" height="12" rx="3" fill="#E7A7CB" stroke="#65436B" stroke-width="1.8"/>
+                <path d="M88 92 L112 92 M100 92 L100 44 Q100 26 82 28" stroke="#65436B" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M68 38 C68 24 92 24 92 38 Z" fill="#FFE9A8" stroke="#65436B" stroke-width="2.3"/>
+              </svg>
+            </div>
+            <h3 class="collection-title">برای میزهای رنگی</h3>
+            <p class="collection-desc">نظم‌دهنده‌های کشویی، زیرلیوانی‌های فانتزی، تقویم رومیزی و چراغ‌مطالعه</p>
+            <span class="collection-cta">مشاهده کالکشن ←</span>
+          </a>
+
+          <!-- Collection 3: برای هدیه دادن -->
+          <a href="#best-sellers" class="collection-card collection-card--lavender">
+            <div class="collection-art">
+              <svg viewBox="0 0 140 115" fill="none">
+                <!-- Curated Gift Box + Heart Envelope -->
+                <rect x="26" y="42" width="54" height="48" rx="8" fill="#FFF7EF" stroke="#65436B" stroke-width="2.3"/>
+                <rect x="22" y="30" width="62" height="14" rx="5" fill="#E7A7CB" stroke="#65436B" stroke-width="2.3"/>
+                <rect x="48" y="30" width="10" height="60" fill="#FFE9A8" stroke="#65436B" stroke-width="2"/>
+                <rect x="70" y="54" width="46" height="34" rx="5" fill="#FFFFFF" stroke="#65436B" stroke-width="2.2"/>
+                <path d="M72 56 L93 72 L114 56" stroke="#65436B" stroke-width="2"/>
+                <circle cx="93" cy="70" r="5" fill="#F36FA8" stroke="#65436B" stroke-width="1.6"/>
+              </svg>
+            </div>
+            <h3 class="collection-title">برای هدیه دادن</h3>
+            <p class="collection-desc">پک‌های هدیه هماهنگ با رنگ‌بندی پاستیلی و کارت‌پستال‌های تصویرسازی‌شده</p>
+            <span class="collection-cta">مشاهده کالکشن ←</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 10: BEST SELLING PRODUCTS ("محبوب‌ترین‌های گندم")
+         ====================================================================== -->
+    <section class="products-section" id="best-sellers" data-elementor-widget="WooCommerce Products Widget • Best Sellers (4 Col)">
+      <div class="e-container">
+        <div class="section-header">
+          <span class="section-eyebrow">💖 انتخاب مشتری‌های گندم</span>
+          <h2 class="section-title">محبوب‌ترین‌های گندم</h2>
+          <p class="section-subtitle">پرفروش‌ترین محصولات فانتزی که بیشترین لبخند رو ساختن</p>
+        </div>
+
+        <div class="wc-products-grid">
+          
+          <!-- Best Seller 1 -->
+          <article class="wc-product-card">
+            <div class="wc-product-thumb graph-paper-pink">
+              <span class="wc-badge wc-badge--hot">پرفروش</span>
+              <button class="wc-wishlist-btn" onclick="toggleWishlist(this, 'پلنر هفتگی و ماهانه شکوفه')" aria-label="افزودن به علاقه‌مندی">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <svg viewBox="0 0 140 140" fill="none">
+                <rect x="30" y="18" width="80" height="104" rx="10" fill="#FFF7EF" stroke="#65436B" stroke-width="2.5"/>
+                <rect x="42" y="32" width="56" height="24" rx="6" fill="#E7A7CB" stroke="#65436B" stroke-width="2"/>
+                <!-- Cherry Blossom Flower -->
+                <circle cx="70" cy="82" r="16" fill="#DCC5F2" stroke="#65436B" stroke-width="2"/>
+                <circle cx="70" cy="82" r="6" fill="#FFE9A8" stroke="#65436B" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <span class="wc-product-cat">دفتر و پلنر</span>
+            <h3 class="wc-product-title"><a href="#best-sellers">پلنر هفتگی و ماهانه شکوفه (همراه بوک‌مارک)</a></h3>
+            <div class="wc-price-row">
+              <span class="wc-price-current">۲۴۸,۰۰۰ <span class="wc-currency">تومان</span></span>
+            </div>
+            <button class="wc-add-to-cart" onclick="addToCart(this, 'پلنر هفتگی و ماهانه شکوفه')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>افزودن به سبد خرید</span>
+            </button>
+          </article>
+
+          <!-- Best Seller 2 -->
+          <article class="wc-product-card">
+            <div class="wc-product-thumb graph-paper-pink">
+              <span class="wc-badge wc-badge--sale">۱۲٪ تخفیف</span>
+              <button class="wc-wishlist-btn" onclick="toggleWishlist(this, 'پک چسب واشی طرح ابر')" aria-label="افزودن به علاقه‌مندی">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <svg viewBox="0 0 140 140" fill="none">
+                <rect x="34" y="28" width="72" height="22" rx="6" fill="#E7A7CB" stroke="#65436B" stroke-width="2.3"/>
+                <rect x="30" y="56" width="80" height="24" rx="6" fill="#DCC5F2" stroke="#65436B" stroke-width="2.3"/>
+                <rect x="34" y="86" width="72" height="22" rx="6" fill="#CDEEDB" stroke="#65436B" stroke-width="2.3"/>
+                <circle cx="52" cy="68" r="4" fill="#FFE9A8"/><circle cx="70" cy="68" r="4" fill="#FFFFFF"/><circle cx="88" cy="68" r="4" fill="#FFE9A8"/>
+              </svg>
+            </div>
+            <span class="wc-product-cat">لوازم هنری</span>
+            <h3 class="wc-product-title"><a href="#best-sellers">پک چسب واشی طرح کهکشان و ابر (۵ حلقه)</a></h3>
+            <div class="wc-price-row">
+              <span class="wc-price-regular-del">۱۲۵,۰۰۰</span>
+              <span class="wc-price-current">۱۱۰,۰۰۰ <span class="wc-currency">تومان</span></span>
+            </div>
+            <button class="wc-add-to-cart" onclick="addToCart(this, 'پک چسب واشی طرح ابر')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>افزودن به سبد خرید</span>
+            </button>
+          </article>
+
+          <!-- Best Seller 3 -->
+          <article class="wc-product-card">
+            <div class="wc-product-thumb graph-paper-pink">
+              <span class="wc-badge wc-badge--hot">محبوب</span>
+              <button class="wc-wishlist-btn is-active" onclick="toggleWishlist(this, 'ست تراش و پاک‌کن پنجه گربه')" aria-label="افزودن به علاقه‌مندی">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <svg viewBox="0 0 140 140" fill="none">
+                <path d="M40 78 C32 52 52 34 70 40 C88 34 108 52 100 78 C98 96 86 108 70 108 C54 108 42 96 40 78 Z" fill="#FFFFFF" stroke="#65436B" stroke-width="2.5"/>
+                <ellipse cx="70" cy="82" rx="14" ry="11" fill="#E7A7CB" stroke="#65436B" stroke-width="2"/>
+                <circle cx="52" cy="64" r="6" fill="#E7A7CB" stroke="#65436B" stroke-width="2"/>
+                <circle cx="70" cy="56" r="6" fill="#E7A7CB" stroke="#65436B" stroke-width="2"/>
+                <circle cx="88" cy="64" r="6" fill="#E7A7CB" stroke="#65436B" stroke-width="2"/>
+              </svg>
+            </div>
+            <span class="wc-product-cat">نوشت‌افزار</span>
+            <h3 class="wc-product-title"><a href="#best-sellers">ست تراش و پاک‌کن فانتزی طرح پنجه گربه</a></h3>
+            <div class="wc-price-row">
+              <span class="wc-price-current">۸۹,۰۰۰ <span class="wc-currency">تومان</span></span>
+            </div>
+            <button class="wc-add-to-cart" onclick="addToCart(this, 'ست تراش و پاک‌کن پنجه گربه')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>افزودن به سبد خرید</span>
+            </button>
+          </article>
+
+          <!-- Best Seller 4 -->
+          <article class="wc-product-card">
+            <div class="wc-product-thumb graph-paper-pink">
+              <span class="wc-badge wc-badge--new">اختصاصی گندم</span>
+              <button class="wc-wishlist-btn" onclick="toggleWishlist(this, 'بوک‌مارک فلزی خوشه گندم')" aria-label="افزودن به علاقه‌مندی">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <svg viewBox="0 0 140 140" fill="none">
+                <rect x="52" y="24" width="36" height="92" rx="18" fill="#FFF7EF" stroke="#65436B" stroke-width="2.4"/>
+                <path d="M70 38 C60 46 60 60 70 64 C80 60 80 46 70 38 Z" fill="#FFE9A8" stroke="#65436B" stroke-width="2.2"/>
+                <ellipse cx="62" cy="74" rx="8" ry="5" transform="rotate(25 62 74)" fill="#FFE9A8" stroke="#65436B" stroke-width="2"/>
+                <ellipse cx="78" cy="74" rx="8" ry="5" transform="rotate(-25 78 74)" fill="#FFE9A8" stroke="#65436B" stroke-width="2"/>
+                <line x1="70" y1="64" x2="70" y2="102" stroke="#65436B" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="wc-product-cat">اکسسوری فانتزی</span>
+            <h3 class="wc-product-title"><a href="#best-sellers">بوک‌مارک فلزی طلایی طرح خوشه گندم</a></h3>
+            <div class="wc-price-row">
+              <span class="wc-price-current">۹۵,۰۰۰ <span class="wc-currency">تومان</span></span>
+            </div>
+            <button class="wc-add-to-cart" onclick="addToCart(this, 'بوک‌مارک فلزی خوشه گندم')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              <span>افزودن به سبد خرید</span>
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 11: BRAND STORY ("گندم از کجا شروع شد؟")
+         ====================================================================== -->
+    <section class="story-section" id="brand-story" data-elementor-widget="Flexbox Container • Brand Story Section">
+      <div class="e-container">
+        <div class="story-box graph-paper-cream">
+          <div class="story-content">
+            <span class="section-eyebrow">🌾 قصه‌ی کوچولو و رنگی ما</span>
+            <h2 class="story-title">گندم از کجا شروع شد؟</h2>
+            <p class="story-quote">
+              «گندم دنیاییه برای آدم‌هایی که جزئیات کوچیک رو دوست دارن؛ از یه خودکار خوش‌رنگ گرفته تا دفتری که دلت نمیاد توش چیزی بنویسی!»
+            </p>
+            <p style="font-size: 14px; color: var(--muted-purple); margin-bottom: 20px;">
+              ما توی فانتزیجات گندم هر محصول رو با وسواس و عشق دست‌چین می‌کنیم و توی بسته‌بندی‌های کاغذی معطر همراه با استیکرهای دست‌ساز براتون می‌فرستیم تا باز کردن هر بسته حس دریافت یه هدیه از طرف یه دوست صمیمی رو داشته باشه.
+            </p>
+            <a href="#footer" class="story-link">
+              <span>بیشتر درباره ما</span>
+              <span>←</span>
+            </a>
+          </div>
+
+          <div class="story-illustration" data-elementor-widget="Elementor Image Widget • Wheat & Pen Emblem">
+            <svg viewBox="0 0 120 120">
+              <use href="#gandom-logo-symbol"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 12: BLOG / JOURNAL ("از دنیای رنگی گندم")
+         ====================================================================== -->
+    <section class="blog-section" data-elementor-widget="Elementor Posts Widget • 3 Editorial Cards">
+      <div class="e-container">
+        <div class="section-header">
+          <span class="section-eyebrow">📖 مجله و ایده‌های فانتزی</span>
+          <h2 class="section-title">از دنیای رنگی گندم</h2>
+        </div>
+
+        <div class="blog-grid">
+          
+          <!-- Article 1 -->
+          <article class="blog-card">
+            <div class="blog-thumb graph-paper-pink">
+              <span class="blog-tag">چیدمان و دکور</span>
+              <svg width="110" height="85" viewBox="0 0 120 90" fill="none">
+                <rect x="20" y="50" width="80" height="8" rx="4" fill="#E7A7CB" stroke="#65436B" stroke-width="2"/>
+                <rect x="34" y="22" width="24" height="28" rx="4" fill="#FFF7EF" stroke="#65436B" stroke-width="2"/>
+                <circle cx="78" cy="36" r="14" fill="#CDEEDB" stroke="#65436B" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>زمان مطالعه: ۴ دقیقه</span>
+                <span>•</span>
+                <span>بهار ۱۴۰۴</span>
+              </div>
+              <h3 class="blog-title"><a href="#blog">چطور میز تحریرمون رو خوشگل‌تر کنیم؟</a></h3>
+              <p class="blog-excerpt">۷ ایده ساده و کم‌هزینه با استندهای پاستیلی، برگه‌های یادداشت و نورپردازی ملایم برای داشتن میزی که عاشقش بشی.</p>
+              <a href="#blog" class="blog-readmore">خواندن مقاله ←</a>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card">
+            <div class="blog-thumb graph-paper-cream">
+              <span class="blog-tag">برنامه‌ریزی</span>
+              <svg width="110" height="85" viewBox="0 0 120 90" fill="none">
+                <rect x="32" y="14" width="56" height="64" rx="8" fill="#DCC5F2" stroke="#65436B" stroke-width="2"/>
+                <rect x="38" y="14" width="50" height="64" rx="6" fill="#FFFFFF" stroke="#65436B" stroke-width="2"/>
+                <line x1="48" y1="32" x2="76" y2="32" stroke="#E7A7CB" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="48" y1="46" x2="72" y2="46" stroke="#FFE9A8" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>زمان مطالعه: ۵ دقیقه</span>
+                <span>•</span>
+                <span>بهار ۱۴۰۴</span>
+              </div>
+              <h3 class="blog-title"><a href="#blog">راهنمای انتخاب دفتر و پلنر</a></h3>
+              <p class="blog-excerpt">تفاوت دفترهای نقطه‌ای (بولت‌ژورنال)، خط‌دار و پلنرهای بدون تاریخ؛ کدوم مدل برای سبک روزمرگی تو مناسب‌تره؟</p>
+              <a href="#blog" class="blog-readmore">خواندن مقاله ←</a>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="blog-card">
+            <div class="blog-thumb graph-paper-pink">
+              <span class="blog-tag">هدیه و سورپرایز</span>
+              <svg width="110" height="85" viewBox="0 0 120 90" fill="none">
+                <rect x="36" y="34" width="48" height="42" rx="6" fill="#FFE9A8" stroke="#65436B" stroke-width="2"/>
+                <rect x="32" y="24" width="56" height="12" rx="4" fill="#F36FA8" stroke="#65436B" stroke-width="2"/>
+                <path d="M60 24 C46 10 42 22 60 24 Z" fill="#DCC5F2" stroke="#65436B" stroke-width="2"/>
+                <path d="M60 24 C74 10 78 22 60 24 Z" fill="#DCC5F2" stroke="#65436B" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span>زمان مطالعه: ۳ دقیقه</span>
+                <span>•</span>
+                <span>بهار ۱۴۰۴</span>
+              </div>
+              <h3 class="blog-title"><a href="#blog">ایده‌های بامزه برای هدیه دادن</a></h3>
+              <p class="blog-excerpt">چطور چند تا نوشت‌افزار کوچولو رو با کاغذ کرافت، چسب واشی و روبان پاستیلی به یه باکس هدیه فراموش‌نشدنی تبدیل کنیم؟</p>
+              <a href="#blog" class="blog-readmore">خواندن مقاله ←</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 13: CUSTOMER TRUST BAR (4 HAND-DRAWN ICONS)
+         ====================================================================== -->
+    <section class="trust-section" data-elementor-widget="Flexbox Container • Customer Trust Bar">
+      <div class="e-container">
+        <div class="trust-bar">
+          
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="6" y="14" width="18" height="14" rx="3" fill="#FFE9A8" stroke="#65436B" stroke-width="2"/>
+                <path d="M24 18 H31 L35 23 V28 H24 V18 Z" fill="#E7A7CB" stroke="#65436B" stroke-width="2"/>
+                <circle cx="13" cy="29" r="3.5" fill="#FFFFFF" stroke="#65436B" stroke-width="2"/>
+                <circle cx="29" cy="29" r="3.5" fill="#FFFFFF" stroke="#65436B" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-title">ارسال سریع سفارش‌ها</h4>
+              <p class="trust-sub">ارسال روزانه با پست پیشتاز و پیک</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="9" y="16" width="22" height="17" rx="3" fill="#DCC5F2" stroke="#65436B" stroke-width="2"/>
+                <rect x="7" y="11" width="26" height="6" rx="2" fill="#E7A7CB" stroke="#65436B" stroke-width="2"/>
+                <path d="M20 11 V33" stroke="#FFE9A8" stroke-width="3"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-title">بسته‌بندی فانتزی</h4>
+              <p class="trust-sub">کاغذ کادویی پاستیلی + استیکر هدیه</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M20 6 L24 15 L34 16 L26 23 L28 33 L20 28 L12 33 L14 23 L6 16 L16 15 Z" fill="#CDEEDB" stroke="#65436B" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-title">محصولات خاص و باکیفیت</h4>
+              <p class="trust-sub">دست‌چین‌شده از بهترین برندهای فانتزی</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M20 10 C12 10 7 15 7 21 C7 24 9 27 12 29 L10 34 L16 31 C17.5 31.5 18.7 31.6 20 31.6 C28 31.6 33 26.8 33 20.8 C33 14.8 28 10 20 10 Z" fill="#FFF7EF" stroke="#65436B" stroke-width="2"/>
+                <path d="M20 18 C18.5 16 15.5 17 16.5 19.5 C17.5 21.5 20 23 20 23 C20 23 22.5 21.5 23.5 19.5 C24.5 17 21.5 16 20 18 Z" fill="#F36FA8"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="trust-title">پشتیبانی مشتریان</h4>
+              <p class="trust-sub">پاسخگویی صمیمانه در تلگرام و واتساپ</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 14: FAQ ACCORDION SECTION
+         ====================================================================== -->
+    <section class="faq-section" data-elementor-widget="Elementor Accordion Widget • FAQ">
+      <div class="e-container">
+        <div class="section-header">
+          <span class="section-eyebrow">💬 پاسخ به پرسش‌های شما</span>
+          <h2 class="section-title">سوالات متداول</h2>
+        </div>
+
+        <div class="faq-wrapper">
+          
+          <div class="faq-item active">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>چطور سفارش ثبت کنم؟</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer" style="max-height: 160px;">
+              <div class="faq-answer-inner">
+                کافیه محصولات دلخواهتون رو با دکمه «افزودن به سبد خرید» انتخاب کنین، وارد سبد خرید بشین و آدرس و مشخصات گیرنده رو وارد کنین. پرداخت از طریق تمامی کارت‌های عضو شتاب و درگاه امن بانکی انجام می‌شه.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>هزینه ارسال چقدر است؟</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                هزینه ارسال پستی به سراسر ایران ۵۵ هزار تومان است و برای سفارش‌های بالای ۶۰۰ هزار تومان، ارسال کاملاً رایگان خواهد بود! همچنین امکان ارسال با پیک در تهران فراهم است.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>چطور سفارش خودم رو پیگیری کنم؟</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                بلافاصله بعد از بسته‌بندی و تحویل مرسوله به پست، کد رهگیری ۲۴ رقمی از طریق پیامک براتون ارسال می‌شه و توی پنل کاربری سایت هم قابل مشاهده است.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span>امکان تعویض یا مرجوعی وجود داره؟</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                بله حتماً! تمام بسته‌های گندم با دقت چک می‌شن، اما در صورتی که محصولی در مسیر آسیب دیده باشه یا مغایرتی داشته باشه، تا ۷ روز کاری بدون هیچ هزینه‌ای براتون تعویض یا مرجوع می‌شه.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       SECTION 15: MINIMAL WHITE & PASTEL FOOTER
+       ======================================================================== -->
+  <footer class="site-footer" id="footer" data-elementor-widget="Elementor Theme Builder • Footer">
+    <div class="e-container">
+      <div class="footer-grid">
+        
+        <!-- Col 1: Brand Identity -->
+        <div>
+          <a href="#" class="brand-logo" style="align-items: flex-start; text-align: right;">
+            <svg class="brand-logo-emblem" aria-hidden="true">
+              <use href="#gandom-logo-symbol"></use>
+            </svg>
+            <span class="brand-logo-text">فانتزیجات گندم</span>
+          </a>
+          <p class="footer-brand-desc">
+            بوتیک آنلاین نوشت‌افزارهای فانتزی، پلنر، استیکر و هدیه‌های خاصی که با عشق و بسته‌بندی رنگی به دستتون می‌رسن.
+          </p>
+          <div class="footer-socials">
+            <a href="#footer" class="social-pill" aria-label="اینستاگرام گندم" title="اینستاگرام">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#footer" class="social-pill" aria-label="تلگرام گندم" title="تلگرام">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </a>
+            <a href="#footer" class="social-pill" aria-label="پینترست گندم" title="پینترست">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 20l4-9"></path><path d="M10.7 14c.437 1.263 1.43 2 2.55 2c2.071 0 3.75-1.554 3.75-4a5 5 0 1 0-9.7 1.7"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title"><span class="nav-dot"></span>دسترسی سریع</h4>
+          <ul class="footer-links">
+            <li><a href="#new-arrivals">تازه‌های گندم</a></li>
+            <li><a href="#best-sellers">پرفروش‌ترین محصولات</a></li>
+            <li><a href="#collections">باکس‌های هدیه</a></li>
+            <li><a href="#brand-story">داستان فانتزیجات گندم</a></li>
+            <li><a href="#footer">مجله رنگی گندم</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Support -->
+        <div>
+          <h4 class="footer-col-title"><span class="nav-dot"></span>خدمات مشتریان</h4>
+          <ul class="footer-links">
+            <li><a href="#footer">پیگیری سفارش پستی</a></li>
+            <li><a href="#footer">شرایط تعویض و مرجوعی</a></li>
+            <li><a href="#footer">حریم خصوصی کاربران</a></li>
+            <li><a href="#footer">سوالات متداول</a></li>
+            <li><a href="#footer">همکاری و خرید عمده</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Shopping Guide -->
+        <div>
+          <h4 class="footer-col-title"><span class="nav-dot"></span>راهنمای خرید</h4>
+          <ul class="footer-links">
+            <li><a href="#footer">نحوه ثبت سفارش</a></li>
+            <li><a href="#footer">شیوه‌های ارسال و زمان‌بندی</a></li>
+            <li><a href="#footer">راهنمای انتخاب سایز دفتر</a></li>
+            <li><a href="#footer">سفارش کارت‌پستال دست‌نویس</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Contact Info & Trust Badges -->
+        <div>
+          <h4 class="footer-col-title"><span class="nav-dot"></span>ارتباط با گندم</h4>
+          <ul class="contact-list">
+            <li>📍 تهران، خیابان ولیعصر، استودیو فانتزیجات گندم</li>
+            <li>📞 تلفن پشتیبانی: ۰۲۱-۸۸۴۴۰۰۰۰</li>
+            <li>⏰ شنبه تا پنج‌شنبه (۱۰ صبح تا ۱۸ عصر)</li>
+          </ul>
+          <div class="trust-badges-row">
+            <div class="trust-badge-placeholder">
+              <span style="font-size:18px;">🛡️</span>
+              <span>نماد اعتماد الکترونیکی</span>
+            </div>
+            <div class="trust-badge-placeholder">
+              <span style="font-size:18px;">🌸</span>
+              <span>عضو اتحادیه کشوری</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© تمامی حقوق برای فروشگاه اینترنتی «فانتزیجات گندم» محفوظ است.</span>
+        <span>طراحی‌شده با عشق، سازگار با وردپرس، المنتور پرو و ووکامرس ✨</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       ELEMENTOR PRO WIDGET X-RAY TOGGLE & TOAST NOTIFICATION
+       ======================================================================== -->
+  <div class="elementor-floating-bar">
+    <span>ساختار المنتور و ووکامرس:</span>
+    <button class="elementor-toggle-btn" id="xrayBtn" onclick="toggleElementorXray()">نمایش ویجت‌ها</button>
+  </div>
+
+  <div class="gandom-toast" id="gandomToast">
+    <span>✨</span>
+    <span id="toastText">به سبد خرید اضافه شد!</span>
+  </div>
+
+  <script>
+    // Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const headerNav = document.getElementById('headerNav');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        headerNav.classList.toggle('open');
+      });
+    }
+
+    // Persian Numerals Helper
+    const toPersianDigits = (n) => n.toString().replace(/\d/g, x => ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'][x]);
+
+    // Interactive WooCommerce Add to Cart
+    let cartTotal = 3;
+    function addToCart(btn, productName) {
+      cartTotal++;
+      document.getElementById('cartCount').textContent = toPersianDigits(cartTotal);
+      const originalHTML = btn.innerHTML;
+      btn.classList.add('added');
+      btn.innerHTML = '<span>✓ به سبد اضافه شد</span>';
+      showToast(`«${productName}» به سبد خرید اضافه شد 🛍️`);
+      setTimeout(() => {
+        btn.classList.remove('added');
+        btn.innerHTML = originalHTML;
+      }, 1800);
+    }
+
+    // Interactive Wishlist Toggle
+    let wishTotal = 2;
+    function toggleWishlist(btn, productName) {
+      btn.classList.toggle('is-active');
+      if (btn.classList.contains('is-active')) {
+        wishTotal++;
+        showToast(`«${productName}» به علاقه‌مندی‌ها اضافه شد 💖`);
+      } else {
+        wishTotal = Math.max(0, wishTotal - 1);
+        showToast(`«${productName}» از علاقه‌مندی‌ها حذف شد`);
+      }
+      document.getElementById('wishlistCount').textContent = toPersianDigits(wishTotal);
+    }
+
+    // FAQ Accordion Interaction
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('active');
+        el.querySelector('.faq-answer').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    }
+
+    // Elementor X-Ray Inspector Mode
+    function toggleElementorXray() {
+      document.body.classList.toggle('elementor-xray');
+      const btn = document.getElementById('xrayBtn');
+      const isXray = document.body.classList.contains('elementor-xray');
+      btn.textContent = isXray ? 'مخفی کردن تگ‌ها' : 'نمایش ویجت‌ها';
+      showToast(isXray ? 'حالت بازرسی کانتینرهای المنتور پرو فعال شد 🧩' : 'نمای نهایی فروشگاه فعال شد 🌸');
+    }
+
+    // Toast Notification
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('gandomToast');
+      document.getElementById('toastText').textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2800);
+    }
+  </script>
+</body>
+</html>

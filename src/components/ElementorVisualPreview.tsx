@@ -126,14 +126,16 @@ function createFallbackMockupDataUrl(label: string): string {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 }
 
-function dimToCss(dim: unknown): string | undefined {
+function dimToCss(dim: unknown, allowAllZeros = false): string | undefined {
   if (!dim || typeof dim !== 'object') return undefined;
   const d = dim as ElementorDimension;
   const top = Number(d.top || 0);
   const right = Number(d.right || 0);
   const bottom = Number(d.bottom || 0);
   const left = Number(d.left || 0);
-  if (top === 0 && right === 0 && bottom === 0 && left === 0) return undefined;
+  if (!allowAllZeros && top === 0 && right === 0 && bottom === 0 && left === 0) {
+    return undefined;
+  }
   const u = d.unit || 'px';
   return `${top}${u} ${right}${u} ${bottom}${u} ${left}${u}`;
 }
@@ -170,13 +172,17 @@ function buildNodeInlineCssRules(
   const rawSel = `.elementor-element.elementor-element-${node.id}`;
   const sel = `:where(${rawSel})`;
   const isWidget = node.elType === 'widget';
+  const userClasses = String(s.css_classes || s._css_classes || '').trim();
+  const isNativeDisplayContentsWidget =
+    isWidget && userClasses.includes('el-native-');
   const targetBoxSel = isWidget
-    ? `:where(${rawSel} > .elementor-widget-container)`
+    ? isNativeDisplayContentsWidget
+      ? sel
+      : `:where(${rawSel} > .elementor-widget-container)`
     : node.elType === 'column'
     ? `:where(${rawSel} > .elementor-widget-wrap)`
     : sel;
 
-  const userClasses = String(s.css_classes || s._css_classes || '').trim();
   const hasCustomAuthorClasses =
     applyHybridCss &&
     userClasses
@@ -249,23 +255,25 @@ function buildNodeInlineCssRules(
   const pad = dimToCss(s.padding || s._padding);
   if (pad) boxProps.push(`padding: ${pad}`);
 
-  const padTab = dimToCss(s.padding_tablet || s._padding_tablet);
-  if (padTab) boxTabletProps.push(`padding: ${padTab}`);
+  const padTab = dimToCss(s.padding_tablet || s._padding_tablet, Boolean(pad));
+  if (padTab && padTab !== pad) boxTabletProps.push(`padding: ${padTab}`);
 
-  const padMob = dimToCss(s.padding_mobile || s._padding_mobile);
-  if (padMob) boxMobileProps.push(`padding: ${padMob}`);
+  const padMob = dimToCss(s.padding_mobile || s._padding_mobile, Boolean(pad || padTab));
+  if (padMob && padMob !== pad) boxMobileProps.push(`padding: ${padMob}`);
 
   const mar = dimToCss(s.margin || s._margin);
   if (mar) boxProps.push(`margin: ${mar}`);
   if (s._margin_inline_auto) {
     boxProps.push(`margin-left: auto`, `margin-right: auto`);
+    boxTabletProps.push(`margin-left: auto`, `margin-right: auto`);
+    boxMobileProps.push(`margin-left: auto`, `margin-right: auto`);
   }
 
-  const marTab = dimToCss(s.margin_tablet || s._margin_tablet);
-  if (marTab) boxTabletProps.push(`margin: ${marTab}`);
+  const marTab = dimToCss(s.margin_tablet || s._margin_tablet, Boolean(mar));
+  if (marTab && marTab !== mar) boxTabletProps.push(`margin: ${marTab}`);
 
-  const marMob = dimToCss(s.margin_mobile || s._margin_mobile);
-  if (marMob) boxMobileProps.push(`margin: ${marMob}`);
+  const marMob = dimToCss(s.margin_mobile || s._margin_mobile, Boolean(mar || marTab));
+  if (marMob && marMob !== mar) boxMobileProps.push(`margin: ${marMob}`);
 
   // Border & Radius
   const borderStyle =

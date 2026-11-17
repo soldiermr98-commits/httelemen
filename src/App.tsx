@@ -54,6 +54,7 @@ const DEFAULT_SETTINGS: ConverterSettings = {
   embedAssetsInPageJson: true,
   exactHtmlMatch: false,
   customFontFamily: '',
+  optimizeMobileLayout: true,
 };
 
 type ActiveTab =
@@ -236,15 +237,41 @@ export default function App() {
     [executeConversion, loadGilaClickFaqTemplate]
   );
 
-  // Load user's latest attached Hami Webmaster template on initial mount
+  const loadGandomTemplate = useCallback(
+    async (currentSettings: ConverterSettings) => {
+      try {
+        setIsProcessing(true);
+        const resp = await fetch('/assets/aistudio/home_a42a5106.html');
+        if (resp.ok) {
+          const htmlText = await resp.text();
+          setRawHtmlInput(htmlText);
+          setSourceFileName('home.html');
+          setAssetMap(new Map());
+          await executeConversion(
+            htmlText,
+            'home.html',
+            currentSettings,
+            new Map()
+          );
+          return;
+        }
+      } catch {
+        // Fallback if fetch fails
+      }
+      await loadHamiWebmasterTemplate(currentSettings);
+    },
+    [executeConversion, loadHamiWebmasterTemplate]
+  );
+
+  // Load user's latest attached Gandom Fantasy template (home.html) on initial mount
   useEffect(() => {
-    const initialWebmasterSettings: ConverterSettings = {
+    const initialGandomSettings: ConverterSettings = {
       ...settings,
-      templateTitle: 'Qwen_html_20261117_p4wxduxg1',
-      scopePrefix: 'elementor-qwen-html-20261117-p4wxduxg1',
+      templateTitle: 'home',
+      scopePrefix: 'elementor-home',
     };
-    setSettings(initialWebmasterSettings);
-    void loadHamiWebmasterTemplate(initialWebmasterSettings);
+    setSettings(initialGandomSettings);
+    void loadGandomTemplate(initialGandomSettings);
   }, []);
 
   const handleFileProcess = async (file: File) => {
@@ -657,6 +684,25 @@ export default function App() {
                   onClick={() => {
                     const nextSettings = {
                       ...settings,
+                      templateTitle: 'home',
+                      scopePrefix: 'elementor-home',
+                    };
+                    setSettings(nextSettings);
+                    void loadGandomTemplate(nextSettings);
+                  }}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors whitespace-nowrap shrink-0 ${
+                    sourceFileName === 'home.html'
+                      ? 'border-indigo-600 bg-indigo-50 text-indigo-900'
+                      : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+                  }`}
+                >
+                  فانتزیجات گندم (home.html)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const nextSettings = {
+                      ...settings,
                       templateTitle: 'gilaclick-faq',
                       scopePrefix: 'elementor-gilaclick-faq',
                     };
@@ -1029,6 +1075,38 @@ export default function App() {
                   </div>
                 </label>
               </div>
+
+              {/* Smart Mobile Layout & Dimensions Optimization Toggle */}
+              <label
+                className={`flex items-start gap-2.5 p-3 rounded-lg border text-xs cursor-pointer transition-colors ${
+                  settings.optimizeMobileLayout !== false
+                    ? 'border-indigo-500 bg-indigo-50/50'
+                    : 'border-slate-200 hover:bg-slate-50'
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  checked={settings.optimizeMobileLayout !== false}
+                  onChange={(e) =>
+                    updateSettingAndReconvert(
+                      'optimizeMobileLayout',
+                      e.target.checked
+                    )
+                  }
+                  className="mt-0.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
+                />
+                <div>
+                  <div className="font-bold text-slate-900">
+                    بهینه‌سازی هوشمند ابعاد و چیدمان موبایل (promo-card، هدر و trust-section)
+                  </div>
+                  <div className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
+                    جلوگیری از فشردگی عمودی متون و دکمه‌های کپسولی در بنرهای تبلیغاتی (
+                    <code className="font-mono">promo-card--desk</code> /{' '}
+                    <code className="font-mono">promo-card--gift</code>)، حفظ ابعاد دقیق آیکن‌های{' '}
+                    <code className="font-mono">trust-section</code> و تنظیم فاصله‌های استاندارد هدر در نمایشگر موبایل
+                  </div>
+                </div>
+              </label>
 
               {/* All-in-One In-Page CSS/JS Embedding Toggle */}
               <label

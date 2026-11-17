@@ -1789,8 +1789,8 @@ function isAnimatedOrComplexBackgroundSvg(
     return true;
   }
 
-  // 2. Large SVG illustrations, waves, hero visuals, or section backgrounds (> 64px)
-  if (widthPx > 64 || heightPx > 64 || vbW > 64 || vbH > 64) {
+  // 2. Large SVG illustrations, waves, hero visuals, or section backgrounds (> 64px rendered size)
+  if (widthPx > 64 || heightPx > 64) {
     return true;
   }
 
@@ -1874,6 +1874,23 @@ function extractAndReplaceSvgsAsLocalFiles(
         });
         parentSvg.innerHTML = symbolEl.innerHTML;
       }
+    }
+  });
+
+  // Remove hidden SVG symbol sprite containers after <use> expansion
+  doc.querySelectorAll('svg').forEach((svgNode) => {
+    const attrW = svgNode.getAttribute('width');
+    const attrH = svgNode.getAttribute('height');
+    if (
+      svgNode.classList.contains('sprite') ||
+      (attrW === '0' && attrH === '0') ||
+      (svgNode.children.length > 0 &&
+        Array.from(svgNode.children).every((ch) => {
+          const ct = ch.tagName.toUpperCase();
+          return ct === 'DEFS' || ct === 'SYMBOL';
+        }))
+    ) {
+      svgNode.remove();
     }
   });
 
@@ -2010,6 +2027,15 @@ function extractAndReplaceSvgsAsLocalFiles(
     ) {
       svgEl.setAttribute('data-svg-asset-id', asset.id);
       svgEl.setAttribute('data-svg-fallback', asset.dataUrl);
+      if (
+        !svgEl.getAttribute('width') &&
+        !svgEl.getAttribute('height') &&
+        widthPx > 0 &&
+        heightPx > 0
+      ) {
+        svgEl.setAttribute('width', String(widthPx));
+        svgEl.setAttribute('height', String(heightPx));
+      }
       return;
     }
 
@@ -2484,9 +2510,9 @@ function extractCleanButtonText(btnEl: Element): string {
       '.sr-only, .visually-hidden, [class*="-sr-only"], [hidden], .material-symbols-outlined, [data-icon], svg, img.el-svg-img, img[data-local-svg-asset], i[class*="fa-"], .elementor-button-icon'
     )
     .forEach((iconNode) => iconNode.remove());
-  if (clone.querySelector('b, strong, em')) {
+  if (clone.querySelector('b, strong, em, span[class], span[id]')) {
     clone.querySelectorAll('span').forEach((sp) => {
-      if (sp.classList.length === 0) {
+      if (sp.classList.length === 0 && !sp.id) {
         sp.replaceWith(...Array.from(sp.childNodes));
       }
     });
@@ -3673,9 +3699,14 @@ export function buildNativeWidgetsExactDomElementorJson(
           el.querySelector('img:not(.el-svg-img)') ||
           (tag === 'a' &&
             (el.classList.contains('brand') ||
+              el.classList.contains('brand-logo') ||
+              el.classList.contains('site-logo') ||
+              el.classList.contains('logo') ||
+              el.querySelectorAll('span[class], div[class], strong, small')
+                .length >= 2 ||
               Boolean(
                 el.querySelector(
-                  '.brand-mark, .brand-txt, strong + small, small + strong'
+                  '.brand-mark, .brand-txt, .brand-logo-text, .brand-logo-sub, strong + small, small + strong'
                 )
               )))
       );
