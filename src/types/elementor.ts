@@ -8,6 +8,37 @@ export type ElementorAddonType =
   | 'royal-addons'
   | 'elements-kit';
 
+export type MobilePatternId =
+  | 'header-navigation'
+  | 'hero-showcase'
+  | 'split-story-section'
+  | 'promo-banner-card'
+  | 'product-grid-card'
+  | 'category-tile-grid'
+  | 'collection-editorial-grid'
+  | 'trust-feature-bar'
+  | 'faq-accordion'
+  | 'site-footer';
+
+export interface PatternStrategyOption {
+  value: string;
+  label: string;
+}
+
+export interface DetectedPatternItem {
+  id: MobilePatternId;
+  title: string;
+  englishBadge: string;
+  detected: boolean;
+  instanceCount: number;
+  matchedSelectors: string[];
+  whereUsed: string[];
+  elementorMapping: string;
+  activeStrategy: string;
+  strategyOptions: PatternStrategyOption[];
+  mobileBehaviorSummary: string;
+}
+
 export interface ConverterSettings {
   elementorVersion: ElementorVersionTarget;
   enableFlexboxContainer: boolean;
@@ -21,6 +52,7 @@ export interface ConverterSettings {
   exactHtmlMatch?: boolean;
   customFontFamily?: string;
   optimizeMobileLayout?: boolean;
+  mobilePatternStrategies?: Partial<Record<MobilePatternId, string>>;
 }
 
 export interface ElementorDimension {
@@ -70,31 +102,86 @@ export type NativeFreeWidgetType =
   | 'text-editor'
   | 'image'
   | 'button'
+  | 'icon'
+  | 'icon-box'
+  | 'image-box'
   | 'icon-list'
   | 'divider'
   | 'spacer'
-  | 'icon-box'
-  | 'image-box'
   | 'video'
-  | 'accordion'
-  | 'tabs'
-  | 'toggle'
-  | 'counter'
-  | 'social-icons'
   | 'google_maps'
-  | 'alert'
+  | 'image-gallery'
+  | 'image-carousel'
+  | 'counter'
   | 'progress'
+  | 'star-rating'
   | 'testimonial'
-  | 'star-rating';
+  | 'tabs'
+  | 'nested-tabs'
+  | 'accordion'
+  | 'nested-accordion'
+  | 'toggle'
+  | 'social-icons'
+  | 'alert'
+  | 'audio'
+  | 'html'
+  | 'shortcode'
+  | 'menu-anchor'
+  | 'text-path'
+  | 'read-more'
+  | 'sidebar';
 
 export type ProWidgetType =
   | 'form'
-  | 'posts'
-  | 'slides'
-  | 'price-table'
+  | 'login'
   | 'nav-menu'
+  | 'mega-menu'
+  | 'slides'
+  | 'nested-carousel'
+  | 'media-carousel'
+  | 'testimonial-carousel'
+  | 'reviews'
+  | 'price-table'
+  | 'price-list'
+  | 'flip-box'
   | 'call-to-action'
-  | 'lottie';
+  | 'animated-headline'
+  | 'countdown'
+  | 'blockquote'
+  | 'share-buttons'
+  | 'table-of-contents'
+  | 'hotspot'
+  | 'lottie'
+  | 'code-highlight'
+  | 'video-playlist'
+  | 'progress-tracker'
+  | 'gallery'
+  | 'portfolio'
+  | 'posts'
+  | 'loop-grid'
+  | 'loop-carousel'
+  | 'off-canvas'
+  | 'search'
+  | 'search-form'
+  | 'paypal-button'
+  | 'stripe-button'
+  | 'template'
+  | 'sitemap'
+  | 'author-box'
+  | 'post-comments'
+  | 'post-navigation'
+  | 'post-info'
+  | 'theme-site-logo'
+  | 'theme-site-title'
+  | 'theme-page-title'
+  | 'theme-post-title'
+  | 'theme-post-content'
+  | 'theme-post-featured-image'
+  | 'breadcrumbs'
+  | 'archive-posts'
+  | `facebook-${string}`
+  | `wc-${string}`
+  | `woocommerce-${string}`;
 
 export type ElementorWidgetType = NativeFreeWidgetType | ProWidgetType;
 
@@ -274,6 +361,7 @@ export interface ConversionReport {
   placeholders: PlaceholderEntry[];
   manualAdjustments: string[];
   hybridBreakdown: HybridBreakdownReport;
+  detectedPatterns?: DetectedPatternItem[];
   validationIssues: ValidationIssue[];
   canDownload: boolean;
   pipelineTimingsMs: {

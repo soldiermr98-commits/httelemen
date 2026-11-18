@@ -12,37 +12,94 @@ const NATIVE_FREE_WIDGETS = new Set([
   'text-editor',
   'image',
   'button',
+  'icon',
+  'icon-box',
+  'image-box',
   'icon-list',
   'divider',
   'spacer',
-  'icon-box',
-  'image-box',
   'video',
-  'accordion',
-  'tabs',
-  'toggle',
-  'counter',
-  'social-icons',
   'google_maps',
-  'alert',
+  'image-gallery',
+  'image-carousel',
+  'counter',
   'progress',
-  'testimonial',
   'star-rating',
+  'testimonial',
+  'tabs',
+  'nested-tabs',
+  'accordion',
+  'nested-accordion',
+  'toggle',
+  'social-icons',
+  'alert',
+  'audio',
+  'shortcode',
+  'menu-anchor',
+  'text-path',
+  'read-more',
+  'sidebar',
 ]);
 
 const PRO_WIDGETS = new Set([
   'form',
-  'posts',
-  'slides',
-  'price-table',
+  'login',
   'nav-menu',
-  'call-to-action',
-  'lottie',
-  'portfolio',
+  'mega-menu',
+  'slides',
+  'nested-carousel',
+  'media-carousel',
+  'testimonial-carousel',
+  'reviews',
+  'price-table',
+  'price-list',
   'flip-box',
+  'call-to-action',
   'animated-headline',
-  'Hotspot',
+  'countdown',
+  'blockquote',
+  'share-buttons',
+  'table-of-contents',
+  'hotspot',
+  'lottie',
+  'code-highlight',
+  'video-playlist',
+  'progress-tracker',
+  'gallery',
+  'portfolio',
+  'posts',
+  'loop-grid',
+  'loop-carousel',
+  'off-canvas',
+  'search',
+  'search-form',
+  'paypal-button',
+  'stripe-button',
+  'template',
+  'sitemap',
+  'author-box',
+  'post-comments',
+  'post-navigation',
+  'post-info',
+  'theme-site-logo',
+  'theme-site-title',
+  'theme-page-title',
+  'theme-post-title',
+  'theme-post-content',
+  'theme-post-featured-image',
+  'breadcrumbs',
+  'archive-posts',
 ]);
+
+function isProWidgetType(wType: string): boolean {
+  const lower = wType.toLowerCase();
+  return (
+    PRO_WIDGETS.has(lower) ||
+    lower.startsWith('facebook-') ||
+    lower.startsWith('wc-') ||
+    lower.startsWith('woocommerce-')
+  );
+}
 
 // ===== CORE BUSINESS LOGIC =====
 
@@ -236,10 +293,29 @@ export function validateElementorJson(
         checkHierarchy(child, 'container');
       }
     } else if (node.elType === 'widget') {
+      const wType = (node.widgetType || '').toLowerCase();
+      const allowsNestedContainers =
+        wType === 'nested-tabs' ||
+        wType === 'nested-accordion' ||
+        wType === 'nested-carousel' ||
+        wType === 'mega-menu' ||
+        wType === 'off-canvas';
       if (Array.isArray(node.elements) && node.elements.length > 0) {
-        hierarchyErrors.push(
-          `ویجت (${node.id} - ${node.widgetType}) نباید هیچ عنصر فرزندی در آرایه elements داشته باشد.`
-        );
+        if (!allowsNestedContainers) {
+          hierarchyErrors.push(
+            `ویجت (${node.id} - ${node.widgetType}) نباید هیچ عنصر فرزندی در آرایه elements داشته باشد.`
+          );
+        } else {
+          for (const child of node.elements) {
+            if (child.elType !== 'container') {
+              hierarchyErrors.push(
+                `ویجت تودرتو (${node.id} - ${node.widgetType}) فقط می‌تواند شامل Container باشد.`
+              );
+            } else {
+              checkHierarchy(child, 'container');
+            }
+          }
+        }
       }
     }
   };
@@ -294,13 +370,13 @@ export function validateElementorJson(
           forbiddenWidgetsFound.push(
             `ویجت ممنوعه "html" (${n.id}) — طبق قوانین استفاده از ویجت خام HTML برای محتوا ممنوع است.`
           );
-        } else if (PRO_WIDGETS.has(wType) && !settings.hasElementorPro) {
+        } else if (isProWidgetType(wType) && !settings.hasElementorPro) {
           forbiddenWidgetsFound.push(
             `ویجت نسخه Pro "${wType}" (${n.id}) در حالت رایگان مجاز نیست.`
           );
         } else if (
           !NATIVE_FREE_WIDGETS.has(wType) &&
-          !(settings.hasElementorPro && PRO_WIDGETS.has(wType)) &&
+          !(settings.hasElementorPro && isProWidgetType(wType)) &&
           settings.allowedAddons.length === 0
         ) {
           forbiddenWidgetsFound.push(

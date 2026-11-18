@@ -416,8 +416,18 @@ function computeStyleForElement(
       padding: readEdges(cs, 'padding'),
       margin: readEdges(cs, 'margin'),
       borderWidth: readEdges(cs, 'border'),
-      borderStyle: cs.borderTopStyle || cs.borderBottomStyle || 'none',
+      borderStyle:
+        [
+          cs.borderTopStyle,
+          cs.borderRightStyle,
+          cs.borderBottomStyle,
+          cs.borderLeftStyle,
+        ].find((s) => s && s !== 'none') || 'none',
       borderColor:
+        (cs.borderTopStyle !== 'none' && normalizeColor(cs.borderTopColor)) ||
+        (cs.borderRightStyle !== 'none' && normalizeColor(cs.borderRightColor)) ||
+        (cs.borderBottomStyle !== 'none' && normalizeColor(cs.borderBottomColor)) ||
+        (cs.borderLeftStyle !== 'none' && normalizeColor(cs.borderLeftColor)) ||
         normalizeColor(cs.borderTopColor) ||
         normalizeColor(cs.borderBottomColor),
       borderRadius: readBorderRadius(cs),
@@ -616,6 +626,38 @@ function serializeLiveSvgWithComputedStyles(
   if (!clone.getAttribute('xmlns')) {
     clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
   }
+
+  // Expand any <use href="#..."> referencing a <symbol> in the sandbox document
+  clone.querySelectorAll('use').forEach((useEl) => {
+    const href =
+      useEl.getAttribute('href') || useEl.getAttribute('xlink:href') || '';
+    if (href.startsWith('#') && liveSvg.ownerDocument) {
+      const symbolId = href.slice(1);
+      const symbolEl = liveSvg.ownerDocument.getElementById(symbolId);
+      if (symbolEl) {
+        const spriteParentSvg = symbolEl.closest('svg');
+        [
+          'viewBox',
+          'fill',
+          'stroke',
+          'stroke-width',
+          'stroke-linecap',
+          'stroke-linejoin',
+        ].forEach((attrName) => {
+          if (!clone.getAttribute(attrName)) {
+            const val =
+              symbolEl.getAttribute(attrName) ||
+              spriteParentSvg?.getAttribute(attrName);
+            if (val) {
+              clone.setAttribute(attrName, val);
+            }
+          }
+        });
+        clone.innerHTML = symbolEl.innerHTML;
+      }
+    }
+  });
+
   clone.removeAttribute('data-el-measure-id');
   clone
     .querySelectorAll('[data-el-measure-id]')
@@ -623,7 +665,11 @@ function serializeLiveSvgWithComputedStyles(
 
   const cs = win.getComputedStyle(liveSvg);
   const rect = liveSvg.getBoundingClientRect();
-  const viewBox = (liveSvg.getAttribute('viewBox') || '').trim();
+  const viewBox = (
+    clone.getAttribute('viewBox') ||
+    liveSvg.getAttribute('viewBox') ||
+    ''
+  ).trim();
   const vbParts = viewBox
     .split(/[\s,]+/)
     .map((n) => parseFloat(n))
@@ -652,14 +698,14 @@ function serializeLiveSvgWithComputedStyles(
   }
 
   const computedColor = normalizeColor(cs.color) || '#0c1a36';
-  const hasExplicitRootFill = liveSvg.hasAttribute('fill');
-  const hasExplicitRootStroke = liveSvg.hasAttribute('stroke');
+  const hasExplicitRootFill = clone.hasAttribute('fill');
+  const hasExplicitRootStroke = clone.hasAttribute('stroke');
   const hasGradientOrMultiColorChildren = Boolean(
-    liveSvg.querySelector(
+    clone.querySelector(
       'linearGradient, radialGradient, [fill^="url("], [stroke^="url("]'
     ) ||
-      (liveSvg.querySelector('[fill]:not([fill="none"]):not([fill="currentColor"])') &&
-        liveSvg.querySelector('[stroke]:not([stroke="none"]):not([stroke="currentColor"])'))
+      (clone.querySelector('[fill]:not([fill="none"]):not([fill="currentColor"])') &&
+        clone.querySelector('[stroke]:not([stroke="none"]):not([stroke="currentColor"])'))
   );
 
   const isStrokeBasedSvg =
@@ -1033,6 +1079,8 @@ export async function extractComputedDimensionsBeforeJsonConversion(
       if (tab.flexDirection !== d.flexDirection)
         ov.flexDirection = tab.flexDirection;
       if (tab.gapPx !== d.gapPx) ov.gapPx = tab.gapPx;
+      if (tab.textAlign && tab.textAlign !== d.textAlign)
+        ov.textAlign = tab.textAlign;
       tabletStyles.set(mId, ov);
     }
 
@@ -1064,6 +1112,8 @@ export async function extractComputedDimensionsBeforeJsonConversion(
       if (mob.flexDirection !== d.flexDirection)
         mobOv.flexDirection = mob.flexDirection;
       if (mob.gapPx !== d.gapPx) mobOv.gapPx = mob.gapPx;
+      if (mob.textAlign && mob.textAlign !== d.textAlign)
+        mobOv.textAlign = mob.textAlign;
 
       const hasExplicitWidth =
         Boolean(el.getAttribute('width')) ||
@@ -1109,11 +1159,32 @@ export function injectComputedStylesIntoElementorController(
     | 'button'
     | 'text-editor'
     | 'image'
+    | 'icon'
     | 'icon-box'
+    | 'image-box'
     | 'accordion'
+    | 'nested-accordion'
+    | 'tabs'
+    | 'nested-tabs'
     | 'toggle'
     | 'spacer'
     | 'divider'
+    | 'video'
+    | 'audio'
+    | 'google_maps'
+    | 'counter'
+    | 'progress'
+    | 'star-rating'
+    | 'testimonial'
+    | 'social-icons'
+    | 'alert'
+    | 'shortcode'
+    | 'menu-anchor'
+    | 'read-more'
+    | 'blockquote'
+    | 'code-highlight'
+    | 'search-form'
+    | 'countdown'
     | 'html',
   targetSettings: Record<string, unknown>,
   computedDimensionsMap?: Map<string, ComputedElementDimensionsSnapshot>,
@@ -1121,19 +1192,38 @@ export function injectComputedStylesIntoElementorController(
 ): ComputedElementDimensionsSnapshot | undefined {
   const cleanCustomFont = (customFontFamily || '').trim();
   if (cleanCustomFont) {
-    if (role === 'heading' || role === 'text-editor' || role === 'button') {
+    if (
+      role === 'heading' ||
+      role === 'text-editor' ||
+      role === 'button' ||
+      role === 'blockquote'
+    ) {
       targetSettings.typography_typography = 'custom';
       targetSettings.typography_font_family = cleanCustomFont;
-    } else if (role === 'icon-box') {
+    } else if (role === 'icon-box' || role === 'image-box') {
       targetSettings.title_typography_typography = 'custom';
       targetSettings.title_typography_font_family = cleanCustomFont;
       targetSettings.description_typography_typography = 'custom';
       targetSettings.description_typography_font_family = cleanCustomFont;
-    } else if (role === 'accordion' || role === 'toggle') {
+    } else if (
+      role === 'accordion' ||
+      role === 'nested-accordion' ||
+      role === 'tabs' ||
+      role === 'nested-tabs' ||
+      role === 'toggle'
+    ) {
       targetSettings.title_typography_typography = 'custom';
       targetSettings.title_typography_font_family = cleanCustomFont;
       targetSettings.content_typography_typography = 'custom';
       targetSettings.content_typography_font_family = cleanCustomFont;
+    } else if (role === 'alert') {
+      targetSettings.title_typography_typography = 'custom';
+      targetSettings.title_typography_font_family = cleanCustomFont;
+      targetSettings.description_typography_typography = 'custom';
+      targetSettings.description_typography_font_family = cleanCustomFont;
+    } else if (role === 'counter' || role === 'progress') {
+      targetSettings.typography_title_typography = 'custom';
+      targetSettings.typography_title_font_family = cleanCustomFont;
     }
   }
 
@@ -1298,6 +1388,12 @@ export function injectComputedStylesIntoElementorController(
     if (d.textAlign) {
       targetSettings.align = d.textAlign;
     }
+    if (tab.textAlign) {
+      targetSettings.align_tablet = tab.textAlign;
+    }
+    if (mob.textAlign) {
+      targetSettings.align_mobile = mob.textAlign;
+    }
     if (
       !edgesZero(d.padding) ||
       (tab.padding && !edgesZero(tab.padding)) ||
@@ -1355,10 +1451,29 @@ export function injectComputedStylesIntoElementorController(
     }
   } else if (role === 'container') {
     if (d.display.includes('flex')) {
-      targetSettings.flex_direction =
+      const deskFlexDir =
         d.flexDirection === 'row' || d.flexDirection === 'row-reverse'
           ? d.flexDirection
           : 'column';
+      targetSettings.flex_direction = deskFlexDir;
+      if (tab.flexDirection) {
+        const tabFlexDir =
+          tab.flexDirection === 'row' || tab.flexDirection === 'row-reverse'
+            ? tab.flexDirection
+            : 'column';
+        if (tabFlexDir !== deskFlexDir) {
+          targetSettings.flex_direction_tablet = tabFlexDir;
+        }
+      }
+      if (mob.flexDirection) {
+        const mobFlexDir =
+          mob.flexDirection === 'row' || mob.flexDirection === 'row-reverse'
+            ? mob.flexDirection
+            : 'column';
+        if (mobFlexDir !== deskFlexDir) {
+          targetSettings.flex_direction_mobile = mobFlexDir;
+        }
+      }
       if (d.justifyContent && d.justifyContent !== 'normal') {
         targetSettings.flex_justify_content = d.justifyContent;
       }

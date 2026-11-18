@@ -1,11 +1,13 @@
 // ===== IMPORTS & DEPENDENCIES =====
 import {
   ConverterSettings,
+  DetectedPatternItem,
   ElementorNode,
   ElementorTemplateJSON,
   ExtractedSvgAsset,
   WrapperReconstructionSpec,
 } from '../types/elementor';
+import { detectTemplatePatternsAndGenerateMobileCss } from './patternDetector';
 import { synthesizeTailwindStylesheet } from './tailwindSandboxHelper';
 
 // ===== TYPES & INTERFACES =====
@@ -17,6 +19,7 @@ export interface ExtractedExtraAssets {
   fontFaceFiles: string[];
   extraCssItems: string[];
   extraJsItems: string[];
+  detectedPatterns: DetectedPatternItem[];
 }
 
 // ===== UTILITY FUNCTIONS =====
@@ -181,7 +184,8 @@ function splitSelectorGroupTopLevel(selectorGroup: string): string[] {
 function scopeSelectorList(
   selectorGroup: string,
   scopeClass: string,
-  rootPageClasses: string[]
+  rootPageClasses: string[],
+  bodyClasses: string[] = []
 ): string {
   const parts = splitSelectorGroupTopLevel(selectorGroup);
   const isGenericEconRule =
@@ -190,7 +194,7 @@ function scopeSelectorList(
 
   return parts
     .map((rawSel) => {
-      // Adapt selectors targeting .elementor-widget-html, inline svg, button, anchor, ul/ol/li, h1, details, or summary
+      // Adapt selectors targeting .elementor-widget-html, inline svg, button, anchor, ul/ol/li, h1-h6, details, or summary
       // Use :where(...) for tag-level selectors so their specificity stays (0,0,0) and NEVER overrides class selectors like .btn-primary, .nav-link, .brand, or .demo-tab!
       const sel = rawSel
         .replace(
@@ -226,8 +230,8 @@ function scopeSelectorList(
           '$1:where(li, .el-tag-li)'
         )
         .replace(
-          /(^|[\s>+~(])h1(?=($|[\s>+~),.:[#]))/g,
-          '$1:where(h1, .el-tag-h1)'
+          /(^|[\s>+~(])(h[1-6])(?=($|[\s>+~),.:[#]))/g,
+          '$1:where($2, .el-tag-$2)'
         )
         .replace(
           /(^|[\s>+~])details(?=($|[\s>+~),.:[#]))/g,
@@ -282,6 +286,16 @@ function scopeSelectorList(
           }
           // Boost specificity so author rules always beat Elementor's post-<id>.css (.elementor-123 .elementor-element.elementor-element-abc)
           return `${sel}, .${scopeClass}.${scopeClass} ${sel}`;
+        }
+      }
+
+      // If selector matches a class placed directly on <body> (which becomes the root `.scopeClass` container),
+      // emit both self-match and descendant-match so both root container and inner elements receive the style!
+      for (const bc of bodyClasses) {
+        const escapedBc = bc.replace(/([^a-zA-Z0-9_-])/g, '\\$1');
+        const dotBc = `.${escapedBc}`;
+        if (sel === dotBc || sel === `.${bc}`) {
+          return `.${scopeClass}.${scopeClass}.${scopeClass}${sel}, .${scopeClass}.${scopeClass}.${scopeClass} ${sel}`;
         }
       }
 
@@ -506,6 +520,9 @@ export function extractExtraCssAndJs(
     }
   }
   const rootPageClasses = Array.from(rootPageClassSet);
+  const bodyClasses = Array.from(doc.body.classList).filter(
+    (c) => Boolean(c) && !c.startsWith('elementor-')
+  );
 
   const scopeAtRuleInnerCss = (innerCssText: string, indent = '  '): string[] => {
     const innerBlocks = splitTopLevelCssBlocks(innerCssText);
@@ -552,7 +569,8 @@ export function extractExtraCssAndJs(
         const scopedMediaSel = scopeSelectorList(
           iSel,
           scopeClass,
-          rootPageClasses
+          rootPageClasses,
+          bodyClasses
         );
         if (scopedMediaSel) {
           const augMediaBody = augmentCssBodyForElementorContainers(iBody);
@@ -667,7 +685,8 @@ export function extractExtraCssAndJs(
         const scopedSel = scopeSelectorList(
           selector,
           scopeClass,
-          rootPageClasses
+          rootPageClasses,
+          bodyClasses
         );
         if (!scopedSel) continue;
         const augBody = augmentCssBodyForElementorContainers(body);
@@ -756,135 +775,9 @@ export function extractExtraCssAndJs(
       ]
     : [];
 
-  const mobileLayoutOptimizationRules =
-    settings.optimizeMobileLayout !== false
-      ? [
-          `@media (max-width: 768px) {`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .top-bar-inner {`,
-          `    flex-direction: column;`,
-          `    align-items: center;`,
-          `    justify-content: center;`,
-          `    gap: 6px;`,
-          `    text-align: center;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .site-header {`,
-          `    min-height: 0 !important;`,
-          `    height: auto !important;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .header-main {`,
-          `    display: flex;`,
-          `    flex-wrap: wrap;`,
-          `    align-items: center;`,
-          `    justify-content: space-between;`,
-          `    gap: 10px;`,
-          `    padding: 10px 0;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .brand-logo {`,
-          `    gap: 8px;`,
-          `    min-width: 0;`,
-          `    flex: 1 1 auto;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .brand-logo-emblem {`,
-          `    width: 46px !important;`,
-          `    height: 46px !important;`,
-          `    flex-shrink: 0;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .brand-logo-text {`,
-          `    font-size: 16px;`,
-          `    white-space: nowrap;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .brand-logo-sub {`,
-          `    font-size: 10px;`,
-          `    white-space: nowrap;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .header-actions {`,
-          `    gap: 6px;`,
-          `    flex-shrink: 0;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .action-btn {`,
-          `    width: 38px;`,
-          `    height: 38px;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .cart-btn {`,
-          `    height: 38px;`,
-          `    padding: 0 10px;`,
-          `    font-size: 12px;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .promo-grid {`,
-          `    grid-template-columns: 1fr !important;`,
-          `    gap: 16px;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .promo-card {`,
-          `    display: flex !important;`,
-          `    flex-direction: row !important;`,
-          `    align-items: center !important;`,
-          `    justify-content: space-between !important;`,
-          `    padding: 20px 18px !important;`,
-          `    gap: 14px !important;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .promo-text-col {`,
-          `    flex: 1 1 0% !important;`,
-          `    min-width: 0 !important;`,
-          `    width: auto !important;`,
-          `    display: flex !important;`,
-          `    flex-direction: column !important;`,
-          `    align-items: flex-start !important;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .speech-bubble-tag {`,
-          `    display: inline-block !important;`,
-          `    width: auto !important;`,
-          `    max-width: 100% !important;`,
-          `    white-space: nowrap !important;`,
-          `    padding: 4px 12px !important;`,
-          `    font-size: 11px !important;`,
-          `    margin-bottom: 10px !important;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .promo-title {`,
-          `    font-size: 18px !important;`,
-          `    line-height: 1.45 !important;`,
-          `    margin-bottom: 6px !important;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .promo-sub {`,
-          `    font-size: 12.5px !important;`,
-          `    line-height: 1.65 !important;`,
-          `    margin-bottom: 14px !important;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .promo-link {`,
-          `    display: inline-flex !important;`,
-          `    align-items: center !important;`,
-          `    justify-content: center !important;`,
-          `    width: auto !important;`,
-          `    white-space: nowrap !important;`,
-          `    padding: 8px 16px !important;`,
-          `    font-size: 12px !important;`,
-          `    border-radius: 999px !important;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .promo-art-col {`,
-          `    width: 108px !important;`,
-          `    height: 98px !important;`,
-          `    flex-shrink: 0 !important;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .promo-art-col svg {`,
-          `    width: 100% !important;`,
-          `    height: 100% !important;`,
-          `    max-width: 108px !important;`,
-          `    max-height: 98px !important;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .trust-bar {`,
-          `    grid-template-columns: 1fr !important;`,
-          `    padding: 18px 16px !important;`,
-          `    gap: 14px !important;`,
-          `  }`,
-          `  .${scopeClass}.${scopeClass}.${scopeClass} .trust-item {`,
-          `    display: flex !important;`,
-          `    flex-direction: row !important;`,
-          `    align-items: center !important;`,
-          `    gap: 12px !important;`,
-          `    width: 100% !important;`,
-          `  }`,
-          `}`,
-        ]
-      : [];
+  // Smart Pattern Detection & Mobile Layout Refinement across any HTML template
+  const { detectedPatterns, mobileCssRules } =
+    detectTemplatePatternsAndGenerateMobileCss(rawHtml, scopeClass, settings);
 
   scopedRuleBlocks.unshift(
     [
@@ -894,6 +787,10 @@ export function extractExtraCssAndJs(
       `  box-sizing: border-box;`,
       `  position: relative;`,
       `  isolation: isolate;`,
+      `}`,
+      `:where(.${scopeClass}) svg[viewBox]:not([width]):not([height]) {`,
+      `  width: 100%;`,
+      `  height: auto;`,
       `}`,
       `.${scopeClass}.${scopeClass}.e-con, .${scopeClass}.${scopeClass} :where(.elementor-element).e-con {`,
       `  --width: auto;`,
@@ -935,8 +832,9 @@ export function extractExtraCssAndJs(
       `  gap: 12px;`,
       `}`,
       `.${scopeClass}.${scopeClass}.${scopeClass} .trust-icon {`,
-      `  width: 44px;`,
-      `  height: 44px;`,
+      `  width: 52px;`,
+      `  height: 52px;`,
+      `  aspect-ratio: 1 / 1;`,
       `  flex-shrink: 0;`,
       `  display: flex;`,
       `  align-items: center;`,
@@ -944,6 +842,7 @@ export function extractExtraCssAndJs(
       `}`,
       `.${scopeClass}.${scopeClass}.${scopeClass} .trust-item > .e-con {`,
       `  display: block !important;`,
+      `  --display: block !important;`,
       `  flex: 1 1 auto;`,
       `  min-width: 0;`,
       `  width: auto;`,
@@ -991,9 +890,15 @@ export function extractExtraCssAndJs(
       `  text-align: center;`,
       `  cursor: pointer;`,
       `}`,
-      `.${scopeClass}.${scopeClass} .elementor-widget.el-native-inline {`,
+      `.${scopeClass}.${scopeClass} .elementor-widget.el-native-inline:not(.hidden) {`,
       `  display: inline-block;`,
       `  width: auto;`,
+      `}`,
+      `.${scopeClass}.${scopeClass} .el-block-con > .elementor-widget.el-native-inline:not(.hidden),`,
+      `.${scopeClass}.${scopeClass} .el-block-con > .elementor-widget.el-native-inline:not(.hidden) > .elementor-widget-container,`,
+      `.${scopeClass}.${scopeClass} .el-block-con > .elementor-widget.el-native-inline:not(.hidden) .elementor-heading-title {`,
+      `  display: inline !important;`,
+      `  width: auto !important;`,
       `}`,
       `.${scopeClass}.${scopeClass}.${scopeClass} .el-native-heading .elementor-heading-title,`,
       `.${scopeClass}.${scopeClass}.${scopeClass} .el-native-heading .elementor-heading-title a,`,
@@ -1007,16 +912,29 @@ export function extractExtraCssAndJs(
       `  letter-spacing: inherit !important;`,
       `  text-transform: inherit !important;`,
       `}`,
+      `.${scopeClass} .elementor-widget-button.el-native-btn .elementor-button-text:has(> .badge-count:only-child) {`,
+      `  display: contents !important;`,
+      `}`,
       `.${scopeClass} .elementor-hybrid-inline-carrier {`,
       `  display: none !important;`,
       `}`,
       `.${scopeClass} .elementor-widget-heading.el-native-heading > .elementor-widget-container,`,
       `.${scopeClass} .elementor-widget.el-native-text > .elementor-widget-container,`,
+      `.${scopeClass} .elementor-widget.el-native-blockquote > .elementor-widget-container,`,
+      `.${scopeClass} .elementor-widget.el-native-blockquote .elementor-blockquote,`,
+      `.${scopeClass} .elementor-widget.el-native-blockquote .elementor-blockquote__content,`,
       `.${scopeClass} .elementor-widget.el-native-list,`,
       `.${scopeClass} .elementor-widget.el-native-list > .elementor-widget-container,`,
+      `.${scopeClass} .elementor-widget.el-native-video > .elementor-widget-container,`,
+      `.${scopeClass} .elementor-widget.el-native-map > .elementor-widget-container,`,
+      `.${scopeClass} .elementor-widget.el-native-audio > .elementor-widget-container,`,
+      `.${scopeClass} .elementor-widget.el-native-progress > .elementor-widget-container,`,
+      `.${scopeClass} .elementor-widget.el-native-alert > .elementor-widget-container,`,
+      `.${scopeClass} .elementor-widget.el-native-code-highlight > .elementor-widget-container,`,
+      `.${scopeClass} .elementor-widget.el-native-search-form > .elementor-widget-container,`,
       `.${scopeClass} .elementor-widget.el-native-html,`,
       `.${scopeClass} .elementor-widget.el-native-html > .elementor-widget-container {`,
-      `  display: contents;`,
+      `  display: contents !important;`,
       `}`,
       `.${scopeClass} .elementor-widget-accordion.gf-item > .elementor-widget-container {`,
       `  display: contents !important;`,
@@ -1127,6 +1045,11 @@ export function extractExtraCssAndJs(
       `.${scopeClass} .elementor-widget-image.el-svg-widget > .elementor-widget-container {`,
       `  display: contents;`,
       `}`,
+      `.${scopeClass}.${scopeClass}.${scopeClass} .elementor-widget-image.el-native-img.w-full.h-full {`,
+      `  width: 100%;`,
+      `  height: 100%;`,
+      `  display: block;`,
+      `}`,
       `.${scopeClass} .elementor-widget-image.el-native-img img:not(.el-svg-img) {`,
       `  width: 100%;`,
       `  height: 100%;`,
@@ -1173,7 +1096,6 @@ export function extractExtraCssAndJs(
       `  z-index: 70 !important;`,
       `}`,
       ...exactSvgIconCssRules,
-      ...mobileLayoutOptimizationRules,
     ].join('\n')
   );
 
@@ -1204,6 +1126,10 @@ export function extractExtraCssAndJs(
     extraCssParts.push(mediaBlocks.join('\n\n'));
   }
 
+  if (mobileCssRules.length > 0) {
+    extraCssParts.push(mobileCssRules.join('\n\n'));
+  }
+
   const extraCss = extraCssParts.join('\n\n');
 
   // 2. Collect behavioral JavaScript from <script> tags (Requirement 6)
@@ -1223,10 +1149,16 @@ export function extractExtraCssAndJs(
     const code = (scriptEl.textContent || '').trim();
     if (!code) continue;
 
+    // Skip Tailwind CDN configuration scripts (`tailwind.config = { ... }`) since Tailwind utilities are already
+    // compiled into extra.css and `tailwind` global does not exist on WordPress Elementor frontend!
+    const strippedForCheck = code.replace(/\/\*[\s\S]*?\*\//g, '').trim();
+    if (/^(?:window\.)?tailwind\.config\s*=/.test(strippedForCheck)) {
+      continue;
+    }
+
     // Ensure scripts that check document.currentScript or elementor-preview work both on WordPress frontend,
     // inside Elementor preview (?elementor-preview=...), and when invoked via DOMContentLoaded
-    const normalizedCode = code
-      .replace(/\/\*[\s\S]*?\*\//g, '')
+    const normalizedCode = strippedForCheck
       .replace(
         /document\.body\.classList\.contains\(['"]elementor-editor-preview['"]\)/g,
         'false'
@@ -1587,5 +1519,6 @@ export function extractExtraCssAndJs(
     fontFaceFiles,
     extraCssItems: Array.from(cssCategoriesSet),
     extraJsItems: Array.from(jsFeaturesSet),
+    detectedPatterns,
   };
 }

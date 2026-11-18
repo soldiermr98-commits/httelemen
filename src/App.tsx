@@ -39,6 +39,7 @@ import {
   ElementorTemplateType,
   ElementorVersionTarget,
   ExtractedSvgAsset,
+  MobilePatternId,
 } from './types/elementor';
 
 // ===== CONFIGURATION & CONSTANTS =====
@@ -91,6 +92,8 @@ export default function App() {
   const [copiedType, setCopiedType] = useState<'json' | 'css' | 'js' | null>(
     null
   );
+  const [showAllPatternRules, setShowAllPatternRules] =
+    useState<boolean>(false);
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -263,15 +266,41 @@ export default function App() {
     [executeConversion, loadHamiWebmasterTemplate]
   );
 
-  // Load user's latest attached Gandom Fantasy template (home.html) on initial mount
+  const loadStichTemplate = useCallback(
+    async (currentSettings: ConverterSettings) => {
+      try {
+        setIsProcessing(true);
+        const resp = await fetch('/assets/aistudio/stich_b5addf75.html');
+        if (resp.ok) {
+          const htmlText = await resp.text();
+          setRawHtmlInput(htmlText);
+          setSourceFileName('stich.html');
+          setAssetMap(new Map());
+          await executeConversion(
+            htmlText,
+            'stich.html',
+            currentSettings,
+            new Map()
+          );
+          return;
+        }
+      } catch {
+        // Fallback if fetch fails
+      }
+      await loadGandomTemplate(currentSettings);
+    },
+    [executeConversion, loadGandomTemplate]
+  );
+
+  // Load user's latest attached Gandom Scrapbook template (stich.html) on initial mount
   useEffect(() => {
-    const initialGandomSettings: ConverterSettings = {
+    const initialStichSettings: ConverterSettings = {
       ...settings,
-      templateTitle: 'home',
-      scopePrefix: 'elementor-home',
+      templateTitle: 'stich',
+      scopePrefix: 'elementor-stich',
     };
-    setSettings(initialGandomSettings);
-    void loadGandomTemplate(initialGandomSettings);
+    setSettings(initialStichSettings);
+    void loadStichTemplate(initialStichSettings);
   }, []);
 
   const handleFileProcess = async (file: File) => {
@@ -471,6 +500,22 @@ export default function App() {
     ) {
       nextSettings.enableFlexboxContainer = false;
     }
+    setSettings(nextSettings);
+    void executeConversion(rawHtmlInput, sourceFileName, nextSettings, assetMap);
+  };
+
+  const handleUpdatePatternStrategy = (
+    patternId: MobilePatternId,
+    strategyValue: string
+  ) => {
+    const nextStrategies: Partial<Record<MobilePatternId, string>> = {
+      ...(settings.mobilePatternStrategies || {}),
+      [patternId]: strategyValue,
+    };
+    const nextSettings: ConverterSettings = {
+      ...settings,
+      mobilePatternStrategies: nextStrategies,
+    };
     setSettings(nextSettings);
     void executeConversion(rawHtmlInput, sourceFileName, nextSettings, assetMap);
   };
@@ -679,6 +724,25 @@ export default function App() {
                 انتخاب قالب آماده:
               </span>
               <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const nextSettings = {
+                      ...settings,
+                      templateTitle: 'stich',
+                      scopePrefix: 'elementor-stich',
+                    };
+                    setSettings(nextSettings);
+                    void loadStichTemplate(nextSettings);
+                  }}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors whitespace-nowrap shrink-0 ${
+                    sourceFileName === 'stich.html'
+                      ? 'border-indigo-600 bg-indigo-50 text-indigo-900'
+                      : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+                  }`}
+                >
+                  فانتزیجات گندم - اسکرپ‌بوک (stich.html)
+                </button>
                 <button
                   type="button"
                   onClick={() => {
@@ -1076,37 +1140,222 @@ export default function App() {
                 </label>
               </div>
 
-              {/* Smart Mobile Layout & Dimensions Optimization Toggle */}
-              <label
-                className={`flex items-start gap-2.5 p-3 rounded-lg border text-xs cursor-pointer transition-colors ${
+              {/* Smart Pattern Detection & Mobile Layout Refinement (< 768px Engine) */}
+              <div
+                className={`p-3.5 rounded-xl border transition-colors space-y-3 ${
                   settings.optimizeMobileLayout !== false
                     ? 'border-indigo-500 bg-indigo-50/50'
-                    : 'border-slate-200 hover:bg-slate-50'
+                    : 'border-slate-200 bg-slate-50/50'
                 }`}
               >
-                <input
-                  type="checkbox"
-                  checked={settings.optimizeMobileLayout !== false}
-                  onChange={(e) =>
-                    updateSettingAndReconvert(
-                      'optimizeMobileLayout',
-                      e.target.checked
-                    )
-                  }
-                  className="mt-0.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
-                />
-                <div>
-                  <div className="font-bold text-slate-900">
-                    بهینه‌سازی هوشمند ابعاد و چیدمان موبایل (promo-card، هدر و trust-section)
-                  </div>
-                  <div className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
-                    جلوگیری از فشردگی عمودی متون و دکمه‌های کپسولی در بنرهای تبلیغاتی (
-                    <code className="font-mono">promo-card--desk</code> /{' '}
-                    <code className="font-mono">promo-card--gift</code>)، حفظ ابعاد دقیق آیکن‌های{' '}
-                    <code className="font-mono">trust-section</code> و تنظیم فاصله‌های استاندارد هدر در نمایشگر موبایل
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <label className="flex items-start gap-2.5 cursor-pointer flex-1 min-w-[240px]">
+                    <input
+                      type="checkbox"
+                      checked={settings.optimizeMobileLayout !== false}
+                      onChange={(e) =>
+                        updateSettingAndReconvert(
+                          'optimizeMobileLayout',
+                          e.target.checked
+                        )
+                      }
+                      className="mt-0.5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
+                    />
+                    <div>
+                      <div className="text-xs font-bold text-slate-900 flex flex-wrap items-center gap-2">
+                        <span dir="ltr" className="font-mono text-indigo-700">
+                          Mobile Layout Refinement & Smart Pattern Detector
+                        </span>
+                        <span className="px-2 py-0.5 text-[10px] rounded-md bg-indigo-100 text-indigo-900 font-semibold">
+                          آپشن تشخیص هوشمند: چی کجا استفاده بشه
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">
+                        موتور تشخیص هوشمند الگوهای ساختاری در هر فایل HTML، تفکیک دقیق سکشن‌های معرفی دوطرفه (مانند <code className="font-mono">story-section</code>) از کارت‌های تبلیغاتی (<code className="font-mono">promo-card</code>)، نمایش نگاشت دقیق ویجت‌های المنتور و تنظیم استراتژی چیدمان موبایل (<code className="font-mono">&lt; 768px</code>) به تفکیک هر سکشن:
+                      </p>
+                    </div>
+                  </label>
+
+                  <div className="flex items-center gap-2 shrink-0">
+                    {conversionResult?.report.detectedPatterns && (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setShowAllPatternRules((prev) => !prev)
+                        }
+                        className="px-2.5 py-1 text-[11px] font-medium rounded-lg border border-indigo-200 bg-white text-indigo-800 hover:bg-indigo-100 transition-colors"
+                      >
+                        {showAllPatternRules
+                          ? 'نمایش فقط الگوهای موجود در این فایل'
+                          : `نمایش همه ۱۰ الگوی استاندارد (${
+                              conversionResult.report.detectedPatterns.filter(
+                                (p) => p.detected
+                              ).length
+                            } تشخیص‌داده‌شده)`}
+                      </button>
+                    )}
+                    <span className="px-2 py-1 text-[10px] font-semibold rounded-md bg-indigo-600 text-white whitespace-nowrap">
+                      {settings.optimizeMobileLayout !== false
+                        ? 'فعال (< 768px)'
+                        : 'غیرفعال'}
+                    </span>
                   </div>
                 </div>
-              </label>
+
+                {/* Live Detected Patterns Matrix ("چی کجا استفاده بشه") */}
+                {conversionResult?.report.detectedPatterns ? (
+                  <div className="space-y-2 max-h-[380px] overflow-y-auto pr-1">
+                    {conversionResult.report.detectedPatterns
+                      .filter((pat) => showAllPatternRules || pat.detected)
+                      .map((pat) => (
+                        <div
+                          key={pat.id}
+                          className={`p-2.5 rounded-lg border text-[11px] transition-colors space-y-2 ${
+                            pat.detected
+                              ? 'bg-white border-indigo-200 shadow-2xs'
+                              : 'bg-slate-50/80 border-slate-200 opacity-75'
+                          }`}
+                        >
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <div className="flex flex-wrap items-center gap-1.5">
+                              <span
+                                className={`px-1.5 py-0.5 text-[10px] font-bold rounded ${
+                                  pat.detected
+                                    ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                                    : 'bg-slate-200 text-slate-600'
+                                }`}
+                              >
+                                {pat.detected
+                                  ? `✓ تشخیص داده شد (${pat.instanceCount})`
+                                  : 'در این فایل یافت نشد'}
+                              </span>
+                              <span className="font-bold text-slate-900 text-xs">
+                                {pat.title}
+                              </span>
+                              <span
+                                dir="ltr"
+                                className="px-1.5 py-0.5 text-[10px] font-mono rounded bg-indigo-50 text-indigo-700 border border-indigo-100"
+                              >
+                                {pat.englishBadge}
+                              </span>
+                            </div>
+
+                            {/* Per-Pattern Mobile Strategy Selector */}
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-[10px] font-semibold text-slate-500">
+                                استراتژی موبایل:
+                              </span>
+                              <select
+                                value={pat.activeStrategy}
+                                disabled={
+                                  settings.optimizeMobileLayout === false
+                                }
+                                onChange={(e) =>
+                                  handleUpdatePatternStrategy(
+                                    pat.id,
+                                    e.target.value
+                                  )
+                                }
+                                className="px-2 py-1 text-[11px] font-medium rounded-md border border-indigo-200 bg-indigo-50/40 text-indigo-950 focus:bg-white focus:outline-none focus:ring-1 focus:ring-indigo-600"
+                              >
+                                {pat.strategyOptions.map((opt) => (
+                                  <option key={opt.value} value={opt.value}>
+                                    {opt.label}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                          </div>
+
+                          {/* Where Used & Matched CSS Selectors */}
+                          {pat.detected && (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[10.5px]">
+                              <div className="px-2 py-1 rounded bg-slate-50 border border-slate-200/80">
+                                <span className="font-semibold text-slate-700">
+                                  محل استفاده در قالب:{' '}
+                                </span>
+                                <span
+                                  dir="ltr"
+                                  className="font-mono text-slate-800"
+                                >
+                                  {pat.whereUsed.length > 0
+                                    ? pat.whereUsed.join(' ، ')
+                                    : pat.matchedSelectors.slice(0, 4).join(', ')}
+                                </span>
+                              </div>
+                              <div className="px-2 py-1 rounded bg-indigo-50/50 border border-indigo-100">
+                                <span className="font-semibold text-indigo-900">
+                                  نگاشت ویجت المنتور (چی کجا استفاده بشه):{' '}
+                                </span>
+                                <span
+                                  dir="ltr"
+                                  className="font-mono text-indigo-950"
+                                >
+                                  {pat.elementorMapping}
+                                </span>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Matched Selectors Chips & Mobile Behavior Explanation */}
+                          <div className="flex flex-wrap items-center justify-between gap-2 pt-0.5 text-[10.5px] text-slate-600">
+                            <span>{pat.mobileBehaviorSummary}</span>
+                            {pat.matchedSelectors.length > 0 && (
+                              <div
+                                dir="ltr"
+                                className="flex flex-wrap items-center gap-1"
+                              >
+                                {pat.matchedSelectors.slice(0, 6).map((sel) => (
+                                  <code
+                                    key={sel}
+                                    className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 font-mono text-[10px] border border-slate-200"
+                                  >
+                                    {sel}
+                                  </code>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pr-6 text-[11px] text-slate-700">
+                    <div className="px-2.5 py-1.5 rounded-lg bg-white/80 border border-indigo-100">
+                      <span className="font-bold text-indigo-950 font-mono">
+                        story-section & story-box
+                      </span>
+                      <span className="text-slate-600">
+                        : تشخیص خودکار سکشن داستان برند، چیدمان عمودی متمرکز و قفل تصویرسازی <code className="font-mono">150×150</code>
+                      </span>
+                    </div>
+                    <div className="px-2.5 py-1.5 rounded-lg bg-white/80 border border-indigo-100">
+                      <span className="font-bold text-indigo-950 font-mono">
+                        promo-card
+                      </span>
+                      <span className="text-slate-600">
+                        : تثبیت نسبت ابعاد تصویر (<code className="font-mono">140/125</code>) و جلوگیری از فشردگی ستون متن و دکمه‌های کپسولی
+                      </span>
+                    </div>
+                    <div className="px-2.5 py-1.5 rounded-lg bg-white/80 border border-indigo-100">
+                      <span className="font-bold text-indigo-950 font-mono">
+                        wc-product-card
+                      </span>
+                      <span className="text-slate-600">
+                        : مقیاس‌بندی تامبنیل <code className="font-mono">1:1</code>، بج‌ها، قیمت و دکمه سبد خرید در گرید ۲ ستونه موبایل
+                      </span>
+                    </div>
+                    <div className="px-2.5 py-1.5 rounded-lg bg-white/80 border border-indigo-100">
+                      <span className="font-bold text-indigo-950 font-mono">
+                        site-header & trust-section
+                      </span>
+                      <span className="text-slate-600">
+                        : گرید ۳ ستونه متوازن هدر، حفظ لوگوی <code className="font-mono">48×48</code> و آیکن‌های <code className="font-mono">46×46</code> نوار اعتماد
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
 
               {/* All-in-One In-Page CSS/JS Embedding Toggle */}
               <label

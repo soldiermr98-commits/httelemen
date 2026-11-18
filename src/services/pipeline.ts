@@ -249,6 +249,7 @@ export async function runElementorConversionPipeline(
         manualActionItems: manualAdjustments,
         fontFaceFiles: extraAssets.fontFaceFiles,
       },
+      detectedPatterns: extraAssets.detectedPatterns,
       validationIssues: [...validation.issues, ...additionalWarnings],
       canDownload: validation.canDownload,
       pipelineTimingsMs: {

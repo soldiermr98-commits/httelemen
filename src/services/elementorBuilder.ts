@@ -1802,18 +1802,41 @@ function isAnimatedOrComplexBackgroundSvg(
     return true;
   }
 
-  // 4. Child shapes with classes, IDs, or inline styles (targeted by CSS @keyframes or JS)
+  // 4. Child shapes with classes, IDs, transforms, text, or inline styles (targeted by CSS @keyframes, JS, or complex illustrations)
   if (
     svgEl.querySelector(
-      'path[class], path[id], path[style], circle[class], circle[id], circle[style], rect[class], rect[id], rect[style], g[class], g[id], g[style], line[class], polyline[class], polygon[class], ellipse[class]'
+      'path[class], path[id], path[style], circle[class], circle[id], circle[style], rect[class], rect[id], rect[style], g[class], g[id], g[style], g[transform], ellipse[transform], rect[transform], text, line[class], polyline[class], polygon[class], ellipse[class]'
     )
   ) {
     return true;
   }
 
-  // 5. Class or ID on the SVG or its immediate ancestors indicating a background/animated/decorative layer
+  // 5. Multi-colored SVG illustrations (having >= 2 distinct hex/rgb colors across fill/stroke or linearGradient/radialGradient)
+  const rawSvgStr = svgEl.outerHTML || '';
+  if (/(<linearGradient|<radialGradient|url\(#)/i.test(rawSvgStr)) {
+    return true;
+  }
+  const colorAttrMatches =
+    rawSvgStr.match(
+      /\b(?:fill|stroke)=["'](#[0-9a-fA-F]{3,8}|rgba?\([^"']+\))["']/gi
+    ) || [];
+  if (colorAttrMatches.length >= 2) {
+    const distinctColors = new Set(
+      colorAttrMatches.map((m) =>
+        m
+          .replace(/^(?:fill|stroke)=["']/i, '')
+          .replace(/["']$/, '')
+          .toLowerCase()
+      )
+    );
+    if (distinctColors.size >= 2) {
+      return true;
+    }
+  }
+
+  // 6. Class or ID on the SVG or its immediate ancestors indicating a background/animated/decorative/illustration/logo layer
   const bgOrAnimRegex =
-    /(bg|background|wave|blob|mesh|grid|glow|aurora|orb|decor|canvas|particle|pattern|shape|illus|visual|scene|chart|graph|diagram|float|pulse|spin|anim)/i;
+    /(bg|background|wave|blob|mesh|grid|glow|aurora|orb|decor|canvas|particle|pattern|shape|illus|visual|scene|chart|graph|diagram|float|pulse|spin|anim|logo|emblem|brand|art|thumb|mascot|banner)/i;
   let curr: Element | null = svgEl;
   let depth = 0;
   while (curr && depth < 3) {
@@ -2028,6 +2051,7 @@ function extractAndReplaceSvgsAsLocalFiles(
       svgEl.setAttribute('data-svg-asset-id', asset.id);
       svgEl.setAttribute('data-svg-fallback', asset.dataUrl);
       if (
+        !svgEl.getAttribute('viewBox') &&
         !svgEl.getAttribute('width') &&
         !svgEl.getAttribute('height') &&
         widthPx > 0 &&
@@ -2873,6 +2897,22 @@ export function buildNativeWidgetsExactDomElementorJson(
     );
     if (allChildrenInlineFormatting) return;
 
+    // Do NOT split inline leaf spans/labels that mix direct text with a single styled inline child span
+    // (e.g. `<span class="wc-price-current">۱۸۷,۰۰۰ <span class="wc-currency">تومان</span></span>` or `<span class="text-sm font-black">۱۸۵,۰۰۰ <span class="text-[10px]">تومان</span></span>`)
+    // so CASE 9 preserves them as a single inline text-editor widget!
+    if (
+      ['span', 'small', 'strong', 'em', 'label', 'time'].includes(t) &&
+      el.children.length === 1 &&
+      ['span', 'small', 'strong', 'em', 'b'].includes(
+        el.children[0].tagName.toLowerCase()
+      ) &&
+      !el.querySelector(
+        'svg, img, i, button, a, input, select, textarea'
+      )
+    ) {
+      return;
+    }
+
     const childNodes = Array.from(el.childNodes);
     const hasNonEmptyTextNode = childNodes.some(
       (cn) =>
@@ -3473,15 +3513,18 @@ export function buildNativeWidgetsExactDomElementorJson(
 
     // CASE 3: Standard HTML Headings (h1 - h6) -> ALWAYS Native Elementor Heading Widget (`widgetType: "heading"`) with ZERO HTML code in `title`
     if (/^h[1-6]$/.test(tag)) {
-      // Check if the heading has multiple styled lines separated by <br> or styled child <span>s (e.g. `ابزارهای وبمستر؛ <br> <span class="accent">سریع، ساده، رایگان</span>`)
-      const hasBrOrStyledChild =
-        Boolean(el.querySelector('br')) ||
-        Array.from(el.children).some(
-          (ch) => getCleanAuthorClasses(ch).length > 0
-        );
+      const hasBr = Boolean(el.querySelector('br'));
+      const hasStyledChild = Array.from(el.children).some(
+        (ch) => getCleanAuthorClasses(ch).length > 0
+      );
+      const hasBrOrStyledChild = hasBr || hasStyledChild;
 
       if (hasBrOrStyledChild) {
-        const segments: Array<{ text: string; childEl: Element | null }> = [];
+        const segments: Array<{
+          text: string;
+          childEl: Element | null;
+          isDecorOnly?: boolean;
+        }> = [];
         let currentText = '';
         const flushText = () => {
           const cleaned = currentText.replace(/\s+/g, ' ').trim();
@@ -3504,6 +3547,8 @@ export function buildNativeWidgetsExactDomElementorJson(
               const childTxt = extractPurePlainText(cEl);
               if (childTxt) {
                 segments.push({ text: childTxt, childEl: cEl });
+              } else {
+                segments.push({ text: '', childEl: cEl, isDecorOnly: true });
               }
             } else {
               currentText += ' ' + extractPurePlainText(cEl);
@@ -3514,10 +3559,13 @@ export function buildNativeWidgetsExactDomElementorJson(
 
         if (segments.length >= 2) {
           counts.containers++;
+          const isFlexHeading =
+            el.classList.contains('flex') ||
+            el.classList.contains('inline-flex');
           const hostClasses = [
             ...getCleanAuthorClasses(el),
             `el-tag-${tag}`,
-            'el-block-con',
+            ...(isFlexHeading ? [] : ['el-block-con']),
           ];
           const hostSettings: Record<string, unknown> = {
             content_width: 'full',
@@ -3529,10 +3577,27 @@ export function buildNativeWidgetsExactDomElementorJson(
             hostSettings.css_id = el.id;
             hostSettings._element_id = el.id;
           }
-          const segWidgets = segments.map((seg, sIdx) => {
+          injectComputedStylesIntoElementorController(
+            el,
+            'container',
+            hostSettings,
+            computedDimensionsMap
+          );
+
+          const segWidgets: ElementorNode[] = [];
+          segments.forEach((seg, sIdx) => {
+            if (seg.isDecorOnly && seg.childEl) {
+              const convertedDecor = convertElement(seg.childEl, false);
+              if (convertedDecor) {
+                segWidgets.push(convertedDecor);
+              }
+              return;
+            }
             const segTag = seg.childEl
               ? seg.childEl.tagName.toLowerCase()
-              : tag;
+              : hasBr
+              ? tag
+              : 'span';
             const segSettings: Record<string, unknown> = {
               title: seg.text,
               header_size: [
@@ -3549,20 +3614,37 @@ export function buildNativeWidgetsExactDomElementorJson(
                 ? segTag
                 : tag,
             };
-            const segClasses = seg.childEl
-              ? [
-                  ...getCleanAuthorClasses(seg.childEl),
-                  'el-native-heading',
-                ]
-              : [...getCleanAuthorClasses(el), 'el-native-heading'];
-            applyWidgetIdentity(seg.childEl || el, segSettings, segClasses);
-            injectComputedStylesIntoElementorController(
-              seg.childEl || el,
-              'heading',
-              segSettings,
-              computedDimensionsMap
+            const inlineCls = !hasBr ? ['el-native-inline'] : [];
+            if (seg.childEl) {
+              const segClasses = [
+                ...getCleanAuthorClasses(seg.childEl),
+                'el-native-heading',
+                ...inlineCls,
+              ];
+              applyWidgetIdentity(seg.childEl, segSettings, segClasses);
+              injectComputedStylesIntoElementorController(
+                seg.childEl,
+                'heading',
+                segSettings,
+                computedDimensionsMap
+              );
+            } else {
+              // When the heading has no <br> (inline highlight span or flex row), do NOT copy outer margin/flex classes onto the inner text span!
+              const segClasses = hasBr
+                ? [...getCleanAuthorClasses(el), 'el-native-heading']
+                : ['el-native-heading', ...inlineCls];
+              segSettings._css_classes = segClasses.join(' ');
+              segSettings.css_classes = segClasses.join(' ');
+              injectComputedStylesIntoElementorController(
+                el,
+                'heading',
+                segSettings,
+                computedDimensionsMap
+              );
+            }
+            segWidgets.push(
+              registerWidget('heading', segSettings, `${seed}_hseg_${sIdx}`)
             );
-            return registerWidget('heading', segSettings, `${seed}_hseg_${sIdx}`);
           });
 
           return {
@@ -3614,23 +3696,63 @@ export function buildNativeWidgetsExactDomElementorJson(
       return registerWidget('heading', settings, `${seed}_h`);
     }
 
-    // CASE 4: Standard HTML Paragraph or Blockquote (p, blockquote) -> Native Elementor `text-editor` Widget
+    // CASE 4: Standard HTML Paragraph or Blockquote (p, blockquote)
+    if (tag === 'blockquote' && settings.hasElementorPro) {
+      const quoteText = extractPurePlainText(el);
+      const citeEl = el.querySelector('cite, footer, .quote-author');
+      const authorName = citeEl ? extractPurePlainText(citeEl) : '';
+      const bqSettings: Record<string, unknown> = {
+        blockquote_skin: 'border',
+        blockquote_content: quoteText,
+        author_name: authorName,
+        tweet_button: '',
+        _raw_html: stripInternalMeasureAttributes(el.innerHTML.trim()),
+      };
+      applyWidgetIdentity(el, bqSettings, ['el-native-blockquote', 'el-native-text']);
+      injectComputedStylesIntoElementorController(
+        el,
+        'blockquote',
+        bqSettings,
+        computedDimensionsMap
+      );
+      return registerWidget('blockquote', bqSettings, `${seed}_bq`);
+    }
+
     if (tag === 'p' || tag === 'blockquote') {
+      const trimmedPlain = extractPurePlainText(el);
+      // Detect WordPress Shortcode inside <p>[shortcode ...]</p>
+      if (
+        el.children.length === 0 &&
+        /^\[[a-zA-Z0-9_-]+(?:\s+[^\]]*)?\]$/.test(trimmedPlain)
+      ) {
+        const scSettings: Record<string, unknown> = {
+          shortcode: trimmedPlain,
+        };
+        applyWidgetIdentity(el, scSettings, ['el-native-shortcode']);
+        injectComputedStylesIntoElementorController(
+          el,
+          'shortcode',
+          scSettings,
+          computedDimensionsMap
+        );
+        return registerWidget('shortcode', scSettings, `${seed}_sc`);
+      }
+
       const editorContent =
         el.children.length > 0
           ? stripInternalMeasureAttributes(el.innerHTML.trim())
-          : extractPurePlainText(el);
-      const settings: Record<string, unknown> = {
+          : trimmedPlain;
+      const pSettings: Record<string, unknown> = {
         editor: editorContent,
       };
-      applyWidgetIdentity(el, settings, ['el-native-text']);
+      applyWidgetIdentity(el, pSettings, ['el-native-text']);
       injectComputedStylesIntoElementorController(
         el,
         'text-editor',
-        settings,
+        pSettings,
         computedDimensionsMap
       );
-      return registerWidget('text-editor', settings, `${seed}_p`);
+      return registerWidget('text-editor', pSettings, `${seed}_p`);
     }
 
     // CASE 5: Standard HTML Image (img, picture)
@@ -3679,23 +3801,180 @@ export function buildNativeWidgetsExactDomElementorJson(
 
     // CASE 6: Horizontal Rule (hr) -> divider
     if (tag === 'hr') {
-      const settings: Record<string, unknown> = {
+      const hrSettings: Record<string, unknown> = {
         style: 'solid',
       };
-      applyWidgetIdentity(el, settings);
+      applyWidgetIdentity(el, hrSettings);
       injectComputedStylesIntoElementorController(
         el,
         'divider',
-        settings,
+        hrSettings,
         computedDimensionsMap
       );
-      return registerWidget('divider', settings, `${seed}_hr`);
+      return registerWidget('divider', hrSettings, `${seed}_hr`);
+    }
+
+    // CASE 6.2: Menu Anchor (`<a id="anchor"></a>` with no href/text, or `.elementor-menu-anchor` / `.menu-anchor`)
+    if (
+      ((tag === 'a' || tag === 'div' || tag === 'span') &&
+        (el.classList.contains('menu-anchor') ||
+          el.classList.contains('elementor-menu-anchor')) &&
+        !extractPurePlainText(el) &&
+        el.children.length === 0) ||
+      (tag === 'a' &&
+        !el.getAttribute('href') &&
+        Boolean(el.id || el.getAttribute('name')) &&
+        !extractPurePlainText(el) &&
+        el.children.length === 0)
+    ) {
+      const anchorId = (el.id || el.getAttribute('name') || 'section-anchor').trim();
+      const anchorSettings: Record<string, unknown> = {
+        anchor: anchorId,
+      };
+      applyWidgetIdentity(el, anchorSettings, ['el-native-menu-anchor']);
+      return registerWidget('menu-anchor', anchorSettings, `${seed}_anchor`);
+    }
+
+    // CASE 6.3: Read More Tag (`.read-more-tag`, `[data-el-read-more]`)
+    if (
+      el.hasAttribute('data-el-read-more') ||
+      el.classList.contains('elementor-widget-read-more')
+    ) {
+      const rmSettings: Record<string, unknown> = {
+        link_text: extractPurePlainText(el) || 'ادامه مطلب',
+      };
+      applyWidgetIdentity(el, rmSettings, ['el-native-read-more']);
+      return registerWidget('read-more', rmSettings, `${seed}_rm`);
+    }
+
+    // CASE 6.4: Native Progress Bar (`<progress>` or explicit `.elementor-widget-progress` / `[data-el-progress]`)
+    if (
+      tag === 'progress' ||
+      el.classList.contains('elementor-widget-progress') ||
+      el.hasAttribute('data-el-progress')
+    ) {
+      const rawVal = Number(
+        el.getAttribute('value') ||
+          el.getAttribute('aria-valuenow') ||
+          el.getAttribute('data-percent') ||
+          75
+      );
+      const rawMax = Number(el.getAttribute('max') || 100);
+      const pct = Math.min(
+        100,
+        Math.max(0, Math.round((rawVal / (rawMax || 100)) * 100))
+      );
+      const progSettings: Record<string, unknown> = {
+        title: el.getAttribute('title') || el.getAttribute('aria-label') || '',
+        percent: { unit: '%', size: pct },
+        display_percentage: 'show',
+        _raw_html: stripInternalMeasureAttributes(el.outerHTML),
+      };
+      applyWidgetIdentity(el, progSettings, ['el-native-progress']);
+      injectComputedStylesIntoElementorController(
+        el,
+        'progress',
+        progSettings,
+        computedDimensionsMap
+      );
+      return registerWidget('progress', progSettings, `${seed}_prog`);
+    }
+
+    // CASE 6.5: Native Alert Box (`[role="alert"]` or `.elementor-alert` when not a complex form container)
+    if (
+      (el.getAttribute('role') === 'alert' ||
+        el.classList.contains('elementor-alert')) &&
+      !el.querySelector('input, select, textarea, button, form, table')
+    ) {
+      const titleNode = el.querySelector(
+        'strong, b, h3, h4, h5, .alert-title, .elementor-alert-title'
+      );
+      const alertTitle = titleNode ? extractPurePlainText(titleNode) : '';
+      const fullText = extractPurePlainText(el);
+      const alertDesc =
+        alertTitle && fullText.startsWith(alertTitle)
+          ? fullText.slice(alertTitle.length).trim()
+          : fullText;
+      const alertSettings: Record<string, unknown> = {
+        alert_type: 'info',
+        alert_title: alertTitle || fullText,
+        alert_description: alertTitle ? alertDesc : '',
+        show_dismiss: 'hide',
+        _raw_html: stripInternalMeasureAttributes(el.outerHTML),
+      };
+      applyWidgetIdentity(el, alertSettings, ['el-native-alert']);
+      injectComputedStylesIntoElementorController(
+        el,
+        'alert',
+        alertSettings,
+        computedDimensionsMap
+      );
+      return registerWidget('alert', alertSettings, `${seed}_alert`);
+    }
+
+    // CASE 6.6: Native Star Rating (`[data-star-rating]` or `.elementor-star-rating`)
+    if (
+      el.hasAttribute('data-star-rating') ||
+      el.classList.contains('elementor-star-rating')
+    ) {
+      const ratingVal = Number(el.getAttribute('data-star-rating') || 5) || 5;
+      const srSettings: Record<string, unknown> = {
+        rating_scale: 5,
+        rating: Math.min(5, Math.max(0, ratingVal)),
+        _raw_html: stripInternalMeasureAttributes(el.outerHTML),
+      };
+      applyWidgetIdentity(el, srSettings, ['el-native-star-rating']);
+      injectComputedStylesIntoElementorController(
+        el,
+        'star-rating',
+        srSettings,
+        computedDimensionsMap
+      );
+      return registerWidget('star-rating', srSettings, `${seed}_stars`);
+    }
+
+    // CASE 6.7: Native Audio Widget (`<audio>`)
+    if (tag === 'audio') {
+      const audioSrc = (
+        el.getAttribute('src') ||
+        el.querySelector('source')?.getAttribute('src') ||
+        ''
+      ).trim();
+      const audioSettings: Record<string, unknown> = {
+        link: { url: audioSrc || '#', is_external: '', nofollow: '' },
+        _raw_html: stripInternalMeasureAttributes(el.outerHTML),
+      };
+      applyWidgetIdentity(el, audioSettings, ['el-native-audio']);
+      injectComputedStylesIntoElementorController(
+        el,
+        'audio',
+        audioSettings,
+        computedDimensionsMap
+      );
+      return registerWidget('audio', audioSettings, `${seed}_audio`);
     }
 
     // CASE 7: Buttons and Anchor Links (a, button) -> ALWAYS Native Elementor `button` Widget with exact HTML styles!
     if (tag === 'a' || tag === 'button') {
+      const innerSvg = el.querySelector('svg');
+      const isIllustrationAnchor =
+        tag === 'a' &&
+        (el.classList.contains('aspect-square') ||
+          el.classList.contains('aspect-video') ||
+          Boolean(el.querySelector('div, figure, picture')) ||
+          (Boolean(innerSvg) &&
+            !extractPurePlainText(el) &&
+            isAnimatedOrComplexBackgroundSvg(
+              innerSvg as unknown as SVGElement,
+              64,
+              64,
+              64,
+              64
+            )));
+
       const hasBlockCardChildren = Boolean(
-        el.querySelector('h1, h2, h3, h4, h5, h6, article, section, p, ul, ol') ||
+        isIllustrationAnchor ||
+          el.querySelector('h1, h2, h3, h4, h5, h6, article, section, p, ul, ol') ||
           el.querySelector('img:not(.el-svg-img)') ||
           (tag === 'a' &&
             (el.classList.contains('brand') ||
@@ -3821,15 +4100,43 @@ export function buildNativeWidgetsExactDomElementorJson(
           return registerWidget('html', settings, `${seed}_spanhtml`);
         }
 
+        const childTextVal =
+          el.children.length === 1
+            ? (el.children[0].textContent || '').replace(/\s+/g, ' ').trim()
+            : '';
+        const childAuthorClasses =
+          el.children.length === 1 ? getCleanAuthorClasses(el.children[0]) : [];
+
+        // If this inline element mixes direct text with a styled child span (e.g. `<span class="wc-price-current">۱۸۷,۰۰۰ <span class="wc-currency">تومان</span></span>`),
+        // preserve the inner HTML in a `text-editor` widget so `.wc-currency` keeps its exact class & styling!
+        if (
+          el.children.length === 1 &&
+          childAuthorClasses.length > 0 &&
+          childTextVal !== textVal
+        ) {
+          const settings: Record<string, unknown> = {
+            editor: stripInternalMeasureAttributes(el.innerHTML.trim()),
+          };
+          applyWidgetIdentity(el, settings, [
+            'el-native-text',
+            'el-native-inline',
+          ]);
+          injectComputedStylesIntoElementorController(
+            el,
+            'text-editor',
+            settings,
+            computedDimensionsMap
+          );
+          return registerWidget('text-editor', settings, `${seed}_spantxt`);
+        }
+
         const settings: Record<string, unknown> = {
           title: textVal,
           header_size: 'span',
         };
         const singleChildClasses =
-          el.children.length === 1 &&
-          (el.children[0].textContent || '').replace(/\s+/g, ' ').trim() ===
-            textVal
-            ? getCleanAuthorClasses(el.children[0])
+          el.children.length === 1 && childTextVal === textVal
+            ? childAuthorClasses
             : [];
         applyWidgetIdentity(el, settings, [
           ...singleChildClasses,
@@ -3843,6 +4150,136 @@ export function buildNativeWidgetsExactDomElementorJson(
           computedDimensionsMap
         );
         return registerWidget('heading', settings, `${seed}_span`);
+      }
+    }
+
+    // CASE 9.8: Native Video & Google Maps Iframes (`<video>`, `<iframe src="...maps...">`, `<iframe src="...youtube/vimeo...">`)
+    if (tag === 'video' || tag === 'iframe') {
+      const mediaSrc = (
+        el.getAttribute('src') ||
+        el.querySelector('source')?.getAttribute('src') ||
+        ''
+      ).trim();
+      const lowerSrc = mediaSrc.toLowerCase();
+
+      if (
+        tag === 'iframe' &&
+        (lowerSrc.includes('google.com/maps') ||
+          lowerSrc.includes('maps.google'))
+      ) {
+        const mapSettings: Record<string, unknown> = {
+          address: el.getAttribute('title') || 'Tehran, Iran',
+          zoom: { unit: 'px', size: 14 },
+          height: {
+            unit: 'px',
+            size: Math.max(240, Number(el.getAttribute('height')) || 350),
+          },
+          _raw_html: stripInternalMeasureAttributes(el.outerHTML),
+        };
+        applyWidgetIdentity(el, mapSettings, ['el-native-map']);
+        injectComputedStylesIntoElementorController(
+          el,
+          'google_maps',
+          mapSettings,
+          computedDimensionsMap
+        );
+        return registerWidget('google_maps', mapSettings, `${seed}_gmap`);
+      }
+
+      if (
+        tag === 'video' ||
+        lowerSrc.includes('youtube.com') ||
+        lowerSrc.includes('youtu.be') ||
+        lowerSrc.includes('vimeo.com') ||
+        lowerSrc.includes('aparat.com')
+      ) {
+        const isVimeo = lowerSrc.includes('vimeo.com');
+        const isHosted = tag === 'video';
+        const vidSettings: Record<string, unknown> = {
+          video_type: isHosted ? 'hosted' : isVimeo ? 'vimeo' : 'youtube',
+          youtube_url: !isHosted && !isVimeo ? mediaSrc : '',
+          vimeo_url: isVimeo ? mediaSrc : '',
+          hosted_url: isHosted ? { url: mediaSrc, id: '' } : undefined,
+          controls: 'yes',
+          _raw_html: stripInternalMeasureAttributes(el.outerHTML),
+        };
+        applyWidgetIdentity(el, vidSettings, ['el-native-video']);
+        injectComputedStylesIntoElementorController(
+          el,
+          'video',
+          vidSettings,
+          computedDimensionsMap
+        );
+        return registerWidget('video', vidSettings, `${seed}_vid`);
+      }
+    }
+
+    // CASE 9.9: Elementor Pro Specializations (`code-highlight`, `search-form`, `lottie`, `countdown`) when hasElementorPro is enabled
+    if (settings.hasElementorPro) {
+      if (tag === 'pre') {
+        const codeEl = el.querySelector('code') || el;
+        const langClass =
+          Array.from(codeEl.classList).find((c) => c.startsWith('language-')) ||
+          'language-javascript';
+        const codeSettings: Record<string, unknown> = {
+          language: langClass.replace(/^language-/, '') || 'javascript',
+          code: codeEl.textContent || '',
+          line_numbers: 'yes',
+          copy_to_clipboard: 'yes',
+          _raw_html: stripInternalMeasureAttributes(el.outerHTML),
+        };
+        applyWidgetIdentity(el, codeSettings, ['el-native-code-highlight']);
+        injectComputedStylesIntoElementorController(
+          el,
+          'code-highlight',
+          codeSettings,
+          computedDimensionsMap
+        );
+        return registerWidget('code-highlight', codeSettings, `${seed}_code`);
+      }
+
+      if (
+        tag === 'form' &&
+        (el.getAttribute('role') === 'search' ||
+          el.classList.contains('search-form') ||
+          Boolean(el.querySelector('input[type="search"]')))
+      ) {
+        const searchInput = el.querySelector('input');
+        const sfSettings: Record<string, unknown> = {
+          skin: 'classic',
+          placeholder:
+            searchInput?.getAttribute('placeholder') || 'جستجو در سایت...',
+          button_text: 'جستجو',
+          _raw_html: stripInternalMeasureAttributes(el.outerHTML),
+        };
+        applyWidgetIdentity(el, sfSettings, ['el-native-search-form']);
+        injectComputedStylesIntoElementorController(
+          el,
+          'search-form',
+          sfSettings,
+          computedDimensionsMap
+        );
+        return registerWidget('search-form', sfSettings, `${seed}_sform`);
+      }
+
+      if (
+        tag === 'lottie-player' ||
+        el.hasAttribute('data-animation-path') ||
+        el.classList.contains('elementor-widget-lottie')
+      ) {
+        const lottieSrc =
+          el.getAttribute('src') ||
+          el.getAttribute('data-animation-path') ||
+          '';
+        const lottieSettings: Record<string, unknown> = {
+          source: 'external_url',
+          source_external_url: { url: lottieSrc, is_external: '', nofollow: '' },
+          loop: 'yes',
+          autoplay: 'yes',
+          _raw_html: stripInternalMeasureAttributes(el.outerHTML),
+        };
+        applyWidgetIdentity(el, lottieSettings, ['el-native-lottie']);
+        return registerWidget('lottie', lottieSettings, `${seed}_lottie`);
       }
     }
 
@@ -3866,7 +4303,7 @@ export function buildNativeWidgetsExactDomElementorJson(
       if (tag === 'svg' || el.querySelector('svg, img.el-svg-img')) {
         counts.decorativeWidgets++;
       }
-      const settings: Record<string, unknown> = {
+      const settingsObj: Record<string, unknown> = {
         html: stripInternalMeasureAttributes(el.outerHTML),
         _css_classes: 'el-native-html',
         css_classes: 'el-native-html',
@@ -3874,10 +4311,10 @@ export function buildNativeWidgetsExactDomElementorJson(
       injectComputedStylesIntoElementorController(
         el,
         'html',
-        settings,
+        settingsObj,
         computedDimensionsMap
       );
-      return registerWidget('html', settings, `${seed}_media`);
+      return registerWidget('html', settingsObj, `${seed}_media`);
     }
 
     // CASE 10.5: Generic <div> or <span> whose children are exclusively unstyled inline formatting tags (`b`, `strong`, `em`, `br`, `code`, `mark`, `small`)

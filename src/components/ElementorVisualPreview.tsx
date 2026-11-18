@@ -399,6 +399,16 @@ function buildNodeInlineCssRules(
           conProps.push(`column-gap: ${colG}px`, `row-gap: ${rowG}px`);
         }
       }
+      if (s.flex_direction_tablet) {
+        tabletRules.push(
+          `${sel} { flex-direction: ${String(s.flex_direction_tablet)}; }`
+        );
+      }
+      if (s.flex_direction_mobile) {
+        mobileRules.push(
+          `${sel} { flex-direction: ${String(s.flex_direction_mobile)}; }`
+        );
+      }
     }
     const widthVal = sizeToCss(s.width);
     if (widthVal) conProps.push(`width: ${widthVal}`);
@@ -425,6 +435,14 @@ function buildNodeInlineCssRules(
     const align = s.align as string | undefined;
     if (align) {
       desktopRules.push(`${sel} { text-align: ${align}; }`);
+    }
+    const alignTab = s.align_tablet as string | undefined;
+    if (alignTab) {
+      tabletRules.push(`${sel} { text-align: ${alignTab}; }`);
+    }
+    const alignMob = s.align_mobile as string | undefined;
+    if (alignMob) {
+      mobileRules.push(`${sel} { text-align: ${alignMob}; }`);
     }
 
     if (wType === 'heading') {
@@ -742,6 +760,12 @@ function serializeElementorNodeToHtml(
     )}';" />${widgetWrapperClose}`;
   }
 
+  if (wType === 'icon') {
+    const rawIconSvg = String(s._raw_icon_svg || '').trim();
+    const iconSym = rawIconSvg || resolveFaSymbol(s.selected_icon, '✦');
+    return `${widgetWrapperOpen}<div class="elementor-icon-wrapper"><div class="elementor-icon">${iconSym}</div></div>${widgetWrapperClose}`;
+  }
+
   if (wType === 'icon-box' || wType === 'image-box') {
     const imgObj = (s.image || {}) as { url?: string };
     const titleText = String(s.title_text || '').trim();
@@ -811,6 +835,10 @@ function serializeElementorNodeToHtml(
   }
 
   if (wType === 'star-rating') {
+    const rawHtml = String(s._raw_html || '').trim();
+    if (rawHtml) {
+      return `${widgetWrapperOpen}${rawHtml}${widgetWrapperClose}`;
+    }
     const count = Math.min(5, Math.max(1, Number(s.rating || 5)));
     return `${widgetWrapperOpen}<div class="elementor-star-rating" style="color:${escapeHtmlAttr(
       String(s.stars_color || '#FBBF24')
@@ -833,11 +861,136 @@ function serializeElementorNodeToHtml(
   }
 
   if (wType === 'alert') {
+    const rawHtml = String(s._raw_html || '').trim();
+    if (rawHtml) {
+      return `${widgetWrapperOpen}${rawHtml}${widgetWrapperClose}`;
+    }
     return `${widgetWrapperOpen}<div class="elementor-alert" role="alert"><span class="elementor-alert-title">${String(
       s.alert_title || ''
     )}</span><span class="elementor-alert-description">${String(
       s.alert_description || ''
     )}</span></div>${widgetWrapperClose}`;
+  }
+
+  if (wType === 'progress') {
+    const rawHtml = String(s._raw_html || '').trim();
+    if (rawHtml) {
+      return `${widgetWrapperOpen}${rawHtml}${widgetWrapperClose}`;
+    }
+    const pctSize =
+      (s.percent as { size?: number } | undefined)?.size ?? 75;
+    const titleStr = String(s.title || '').trim();
+    return `${widgetWrapperOpen}${
+      titleStr
+        ? `<span class="elementor-title">${titleStr}</span>`
+        : ''
+    }<div class="elementor-progress-wrapper" role="progressbar" aria-valuenow="${pctSize}" aria-valuemin="0" aria-valuemax="100"><div class="elementor-progress-bar" style="width:${pctSize}%;"><span class="elementor-progress-text">${String(
+      s.inner_text || ''
+    )}</span><span class="elementor-progress-percentage">${pctSize}%</span></div></div>${widgetWrapperClose}`;
+  }
+
+  if (wType === 'testimonial') {
+    const content = String(s.testimonial_content || '').trim();
+    const name = String(s.testimonial_name || '').trim();
+    const job = String(s.testimonial_job || '').trim();
+    const imgUrl = ((s.testimonial_image || {}) as { url?: string }).url || '';
+    return `${widgetWrapperOpen}<div class="elementor-testimonial-wrapper"><div class="elementor-testimonial-content">${content}</div><div class="elementor-testimonial-meta"><div class="elementor-testimonial-meta-inner">${
+      imgUrl
+        ? `<div class="elementor-testimonial-image"><img src="${escapeHtmlAttr(
+            imgUrl
+          )}" alt="${escapeHtmlAttr(name)}" /></div>`
+        : ''
+    }<div class="elementor-testimonial-details"><div class="elementor-testimonial-name">${name}</div><div class="elementor-testimonial-job">${job}</div></div></div></div></div>${widgetWrapperClose}`;
+  }
+
+  if (wType === 'video' || wType === 'google_maps' || wType === 'audio') {
+    const rawHtml = String(s._raw_html || '').trim();
+    if (rawHtml) {
+      return `${widgetWrapperOpen}${rawHtml}${widgetWrapperClose}`;
+    }
+    if (wType === 'google_maps') {
+      const addr = encodeURIComponent(String(s.address || 'Tehran, Iran'));
+      const mapH =
+        (s.height as { size?: number } | undefined)?.size || 320;
+      return `${widgetWrapperOpen}<div class="elementor-custom-embed"><iframe src="https://maps.google.com/maps?q=${addr}&t=m&z=14&output=embed&iwloc=near" style="width:100%;height:${mapH}px;border:0;" loading="lazy"></iframe></div>${widgetWrapperClose}`;
+    }
+    if (wType === 'audio') {
+      const audioUrl = ((s.link || {}) as { url?: string }).url || '';
+      return `${widgetWrapperOpen}<div class="elementor-audio-wrapper"><audio controls src="${escapeHtmlAttr(
+        audioUrl
+      )}" style="width:100%;"></audio></div>${widgetWrapperClose}`;
+    }
+    const vidUrl = String(
+      s.youtube_url ||
+        s.vimeo_url ||
+        ((s.hosted_url || {}) as { url?: string }).url ||
+        ''
+    );
+    return `${widgetWrapperOpen}<div class="elementor-wrapper elementor-open-inline"><video controls src="${escapeHtmlAttr(
+      vidUrl
+    )}" style="width:100%;"></video></div>${widgetWrapperClose}`;
+  }
+
+  if (wType === 'shortcode') {
+    return `${widgetWrapperOpen}<div class="elementor-shortcode">${String(
+      s.shortcode || ''
+    )}</div>${widgetWrapperClose}`;
+  }
+
+  if (wType === 'menu-anchor') {
+    const anchorId = String(s.anchor || '').trim();
+    return `${widgetWrapperOpen}<div id="${escapeHtmlAttr(
+      anchorId
+    )}" class="elementor-menu-anchor"></div>${widgetWrapperClose}`;
+  }
+
+  if (wType === 'read-more') {
+    return `${widgetWrapperOpen}<a href="#" class="elementor-read-more-link">${String(
+      s.link_text || 'ادامه مطلب'
+    )}</a>${widgetWrapperClose}`;
+  }
+
+  if (wType === 'blockquote') {
+    const rawHtml = String(s._raw_html || '').trim();
+    const content = rawHtml || String(s.blockquote_content || '').trim();
+    const author = String(s.author_name || '').trim();
+    return `${widgetWrapperOpen}<blockquote class="elementor-blockquote"><p class="elementor-blockquote__content">${content}</p>${
+      author
+        ? `<footer><cite class="elementor-blockquote__author">${author}</cite></footer>`
+        : ''
+    }</blockquote>${widgetWrapperClose}`;
+  }
+
+  if (
+    wType === 'code-highlight' ||
+    wType === 'search-form' ||
+    wType === 'lottie' ||
+    wType === 'countdown' ||
+    wType === 'form'
+  ) {
+    const rawHtml = String(s._raw_html || '').trim();
+    if (rawHtml) {
+      return `${widgetWrapperOpen}${rawHtml}${widgetWrapperClose}`;
+    }
+    if (wType === 'code-highlight') {
+      return `${widgetWrapperOpen}<pre class="elementor-code-highlight"><code>${String(
+        s.code || ''
+      )}</code></pre>${widgetWrapperClose}`;
+    }
+    if (wType === 'search-form') {
+      return `${widgetWrapperOpen}<form class="elementor-search-form" role="search"><input type="search" class="elementor-search-form__input" placeholder="${escapeHtmlAttr(
+        String(s.placeholder || 'جستجو...')
+      )}" /></form>${widgetWrapperClose}`;
+    }
+  }
+
+  if (wType === 'nested-accordion' || wType === 'nested-tabs') {
+    const childHtml = (node.elements || [])
+      .map((child) => serializeElementorNodeToHtml(child, showOutlines, svgDataUrlMap))
+      .join('\n');
+    return `${widgetWrapperOpen}<div class="e-n-${
+      wType === 'nested-accordion' ? 'accordion' : 'tabs'
+    }">${childHtml}</div>${widgetWrapperClose}`;
   }
 
   if (wType === 'divider') {
